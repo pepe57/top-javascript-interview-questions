@@ -171,6 +171,42 @@ var expressed = function () {
 };
 ```
 
+<KnowledgeCheck id="function-declaration-vs-expression" type="single-select">
+  <KnowledgeCheck.Prompt>
+    What happens when this code runs?
+
+    ```js
+    console.log(declared());
+    console.log(expressed());
+
+    function declared() {
+      return 'function declaration';
+    }
+
+    var expressed = function () {
+      return 'function expression';
+    };
+    ```
+
+  </KnowledgeCheck.Prompt>
+  <KnowledgeCheck.Option value="both-log-values">
+    Both strings are logged successfully.
+  </KnowledgeCheck.Option>
+  <KnowledgeCheck.Option value="declaration-then-type-error" correct>
+    `'function declaration'` is logged, then calling `expressed` throws a
+    `TypeError`.
+  </KnowledgeCheck.Option>
+  <KnowledgeCheck.Option value="reference-error-before-output">
+    A `ReferenceError` is thrown before anything is logged.
+  </KnowledgeCheck.Option>
+  <KnowledgeCheck.Explanation>
+    Function declarations are initialized with their function body before
+    execution. The `var expressed` binding is also available, but its function
+    assignment has not run yet, so its value is `undefined` and calling it
+    throws a `TypeError`.
+  </KnowledgeCheck.Explanation>
+</KnowledgeCheck>
+
 - `declared()` returns `'function declaration'`. Function declarations are fully hoisted — both the identifier binding and the function body are available from the top of the scope.
 - `expressed()` throws `TypeError: expressed is not a function`. The `var expressed` binding is hoisted and initialized to `undefined`, but the assignment of the function expression happens at its source location. Calling `undefined()` produces the `TypeError`.
 
