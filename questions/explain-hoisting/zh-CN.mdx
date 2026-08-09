@@ -104,40 +104,7 @@ function foo() {
 }
 ```
 
-<KnowledgeCheck id="function-declaration-vs-expression" type="single-select">
-  <KnowledgeCheck.Prompt>
-    运行以下代码时会发生什么？
-
-    ```js
-    console.log(declared());
-    console.log(expressed());
-
-    function declared() {
-      return 'function declaration';
-    }
-
-    var expressed = function () {
-      return 'function expression';
-    };
-    ```
-
-  </KnowledgeCheck.Prompt>
-  <KnowledgeCheck.Option value="both-log-values">
-    两个字符串都会正常输出。
-  </KnowledgeCheck.Option>
-  <KnowledgeCheck.Option value="declaration-then-type-error" correct>
-    先输出 `'function declaration'`，然后调用 `expressed` 时抛出
-    `TypeError`。
-  </KnowledgeCheck.Option>
-  <KnowledgeCheck.Option value="reference-error-before-output">
-    在输出任何内容之前抛出 `ReferenceError`。
-  </KnowledgeCheck.Option>
-  <KnowledgeCheck.Explanation>
-    执行代码前，函数声明已经用函数体完成初始化。`var expressed`
-    绑定也已存在，但函数赋值尚未执行，因此其值为 `undefined`，调用它会抛出
-    `TypeError`。
-  </KnowledgeCheck.Explanation>
-</KnowledgeCheck>
+<Exercise id="function-declaration-vs-expression" />
 
 这同样适用于生成器 (`function*`)、异步函数 (`async function`) 和异步函数生成器 (`async function*`)。
 

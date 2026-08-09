@@ -17,6 +17,10 @@ export default {
           source: './questions/*/en-US.mdx',
           target: './questions/*/{locale}.mdx',
         },
+        {
+          source: './questions/*/exercises/en-US.mdx',
+          target: './questions/*/exercises/{locale}.mdx',
+        },
       ],
     },
   ],

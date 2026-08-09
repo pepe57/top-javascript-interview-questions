@@ -1,0 +1,28 @@
+## function-declaration-vs-expression [single-select]
+
+### Prompt
+
+运行以下代码时会发生什么？
+
+```js
+console.log(declared());
+console.log(expressed());
+
+function declared() {
+  return 'function declaration';
+}
+
+var expressed = function () {
+  return 'function expression';
+};
+```
+
+### Options
+
+- [ ] `both-log-values`: 两个字符串都会正常输出。
+- [x] `declaration-then-type-error`: 先输出 `'function declaration'`，然后调用 `expressed` 时抛出 `TypeError`。
+- [ ] `reference-error-before-output`: 在输出任何内容之前抛出 `ReferenceError`。
+
+### Explanation
+
+执行代码前，函数声明已经用函数体完成初始化。`var expressed` 绑定也已存在，但函数赋值尚未执行，因此其值为 `undefined`，调用它会抛出 `TypeError`。

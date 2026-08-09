@@ -32,41 +32,7 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-<KnowledgeCheck id="function-declaration-vs-expression" type="single-select">
-  <KnowledgeCheck.Prompt>
-    O que acontece quando este código é executado?
-
-    ```js
-    console.log(declared());
-    console.log(expressed());
-
-    function declared() {
-      return 'function declaration';
-    }
-
-    var expressed = function () {
-      return 'function expression';
-    };
-    ```
-
-  </KnowledgeCheck.Prompt>
-  <KnowledgeCheck.Option value="both-log-values">
-    As duas strings são exibidas normalmente.
-  </KnowledgeCheck.Option>
-  <KnowledgeCheck.Option value="declaration-then-type-error" correct>
-    `'function declaration'` é exibido e, em seguida, chamar `expressed` lança
-    um `TypeError`.
-  </KnowledgeCheck.Option>
-  <KnowledgeCheck.Option value="reference-error-before-output">
-    Um `ReferenceError` é lançado antes de qualquer saída.
-  </KnowledgeCheck.Option>
-  <KnowledgeCheck.Explanation>
-    Declarações de função são inicializadas com o corpo da função antes da
-    execução. A associação `var expressed` também existe, mas a atribuição da
-    função ainda não ocorreu. Portanto, seu valor é `undefined` e chamá-la lança
-    um `TypeError`.
-  </KnowledgeCheck.Explanation>
-</KnowledgeCheck>
+<Exercise id="function-declaration-vs-expression" />
 
 Variáveis declaradas via `let` e `const` também sofrem o hoisted. No entanto, ao contrário de `var` e `function`, eles não são inicializados e acessá-los antes que a declaração resulte em uma exceção `ReferenceError`. A variável está em uma "zona temporária morta" desde o início do bloco até que a declaração seja processada.
 
