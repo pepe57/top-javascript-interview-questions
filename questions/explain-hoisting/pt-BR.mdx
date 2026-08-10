@@ -32,8 +32,6 @@ var bar = function () {
 console.log(bar); // [Function: bar]
 ```
 
-<Exercise id="function-declaration-vs-expression" />
-
 Variáveis declaradas via `let` e `const` também sofrem o hoisted. No entanto, ao contrário de `var` e `function`, eles não são inicializados e acessá-los antes que a declaração resulte em uma exceção `ReferenceError`. A variável está em uma "zona temporária morta" desde o início do bloco até que a declaração seja processada.
 
 ```js

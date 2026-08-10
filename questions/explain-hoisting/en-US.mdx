@@ -171,8 +171,6 @@ var expressed = function () {
 };
 ```
 
-<Exercise id="function-declaration-vs-expression" />
-
 - `declared()` returns `'function declaration'`. Function declarations are fully hoisted — both the identifier binding and the function body are available from the top of the scope.
 - `expressed()` throws `TypeError: expressed is not a function`. The `var expressed` binding is hoisted and initialized to `undefined`, but the assignment of the function expression happens at its source location. Calling `undefined()` produces the `TypeError`.
 
