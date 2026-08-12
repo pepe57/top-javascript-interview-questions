@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function describe(a, b) {
+  return `${this.prefix}:${a + b}`;
+}
+const context = { prefix: 'sum' };
+
+console.log(describe.call(context, 2, 3), describe.apply(context, [4, 5]));
+```
+
+## Options
+
+### sum-five-sum-nine (correct)
+
+`sum:5 sum:9`
+
+> Both methods supply the same receiver; call accepts individual arguments while apply consumes the array-like argument list.
+
+### sum-five-sum-four-five
+
+`sum:5 sum:4,5`
+
+> `apply` expands the array into the function’s separate `a` and `b` parameters.
+
+### undefined-five-undefined-nine
+
+`undefined:5 undefined:9`
+
+> Both invocations explicitly provide `context` as `this`.
+
+### type-error-apply
+
+The second invocation throws because `apply` cannot take an array.
+
+> An array or array-like argument collection is precisely the expected apply form.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements accurately describe AJAX-style browser communication? Select all that apply.
+
+## Options
+
+### updates-without-navigation (correct)
+
+Client code can request data and update part of a page without a full document navigation.
+
+> Asynchronous background requests and targeted DOM updates are the defining user-facing behavior.
+
+### fetch-and-xhr (correct)
+
+Both `fetch()` and `XMLHttpRequest` can implement AJAX-style requests.
+
+> `fetch()` is the modern common choice, while XHR remains an older capable API.
+
+### xml-required
+
+The response must contain XML because AJAX includes XML in its name.
+
+> AJAX can carry JSON, text, HTML, blobs, XML, or other response formats.
+
+### cors-still-applies (correct)
+
+Cross-origin requests remain subject to same-origin and CORS rules.
+
+> Using asynchronous JavaScript does not bypass the browser security model.
+
+### fetch-rejects-http-errors
+
+`fetch()` rejects its promise automatically for every HTTP 4xx or 5xx response.
+
+> `fetch()` normally fulfills with a `Response` for HTTP errors; code must inspect `response.ok` or `status`.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about callbacks are correct? Select all that apply.
+
+## Options
+
+### api-controls-invocation (correct)
+
+A callback is supplied to another API, whose contract determines when and how it is invoked.
+
+> The callback’s timing, arguments, and call count come from the receiving API.
+
+### map-is-synchronous (correct)
+
+An `Array.prototype.map()` callback normally runs synchronously during the `map()` call.
+
+> Passing a function does not make an operation asynchronous by itself.
+
+### timer-is-later (correct)
+
+A timer callback runs later after the current stack and scheduling rules permit it.
+
+> The host queues timer work rather than invoking the callback immediately.
+
+### all-callbacks-async
+
+Every function passed as an argument is automatically scheduled asynchronously.
+
+> Many higher-order APIs invoke callbacks synchronously.
+
+### callback-return-outer
+
+Returning from a later callback returns a value from the function that originally registered it.
+
+> The registering function has already completed, so results need a callback, promise, event, or shared state contract.

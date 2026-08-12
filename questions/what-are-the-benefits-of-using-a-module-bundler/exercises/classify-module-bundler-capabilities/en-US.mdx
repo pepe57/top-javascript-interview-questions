@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which capabilities can a module bundler provide when configured appropriately? Select all that apply.
+
+## Options
+
+### dependency-graph (correct)
+
+Build a dependency graph from application entry points and imported modules.
+
+> The graph lets the tool determine which assets belong to each output path.
+
+### code-splitting (correct)
+
+Split code by route or feature so optional modules can load later.
+
+> Dynamic boundaries can reduce the initial JavaScript payload when chosen well.
+
+### hashed-assets (correct)
+
+Generate content-hashed asset names that support long-lived caching.
+
+> Changed content receives a new URL while unchanged content can remain cached.
+
+### development-hmr (correct)
+
+Provide development conveniences such as hot module replacement.
+
+> Bundlers and related development servers can update changed modules without a full reload.
+
+### one-file-always-faster
+
+Combining every dependency into one file always produces the fastest application.
+
+> A very large bundle can delay download, parsing, and execution and reduce independent cacheability.

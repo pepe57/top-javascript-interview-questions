@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which form reliably parses the function as an expression and invokes it immediately?
+
+## Options
+
+### parenthesized-expression (correct)
+
+`(function foo() {})();`
+
+> The grouping parentheses put the function in expression context, and the following parentheses invoke its result.
+
+### declaration-then-call-parens
+
+`function foo() {}();`
+
+> At statement position the parser treats the function as a declaration, leaving the trailing empty parentheses invalid.
+
+### declaration-only
+
+`function foo() {}`
+
+> This declares the function but does not invoke it.
+
+### group-name-only
+
+`(foo)(); function foo() {}`
+
+> Although this may call a hoisted declaration, it is not an immediately invoked function expression; the declaration remains a separate statement.

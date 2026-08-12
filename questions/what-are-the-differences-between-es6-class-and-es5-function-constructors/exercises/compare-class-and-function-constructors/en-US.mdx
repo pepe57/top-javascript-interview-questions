@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly compare ES2015 classes and function-constructor patterns? Select all that apply.
+
+## Options
+
+### both-use-prototypes (correct)
+
+Instances from both patterns normally share methods through prototype objects.
+
+> Class method syntax defines methods on the class prototype; manual constructor patterns assign them there explicitly.
+
+### class-extends-super (correct)
+
+`extends` and `super()` provide concise syntax for linking inheritance and initializing a parent class.
+
+> The equivalent function pattern requires manually linking prototypes and calling the parent constructor.
+
+### class-call-requires-new (correct)
+
+A class constructor cannot be invoked as a plain function without `new`.
+
+> Calling a class constructor directly throws, while an ordinary function constructor is still callable as a function.
+
+### class-methods-nonenumerable (correct)
+
+Methods declared in a class body are non-enumerable on the prototype.
+
+> Simple assignment such as `Ctor.prototype.method = ...` creates an enumerable property by default.
+
+### class-no-prototype
+
+JavaScript class inheritance replaces the prototype chain with a separate classical runtime model.
+
+> Classes are syntax and semantics built on constructor and prototype chains.

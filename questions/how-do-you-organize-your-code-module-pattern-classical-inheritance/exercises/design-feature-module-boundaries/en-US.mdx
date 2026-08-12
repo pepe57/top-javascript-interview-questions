@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A small product has one checkout file. As payment providers and delivery rules grow, explain how you would introduce module boundaries without defaulting to generic `controllers`, `services`, and `utils` folders.
+
+## Answer
+
+Group code around the checkout capability and colocate pieces that change together. Give the checkout module a small public API, keep provider-specific payment and delivery infrastructure behind explicit adapters, and pass dependencies inward rather than importing mutable globals. Extract a boundary only when change patterns or independent testing justify it. Prefer plain functions and composition; introduce a class hierarchy only if there is a stable subtype contract, not simply because multiple files share a few helper calls.
+
+## Checklist
+
+- Groups code by product capability and change pattern.
+- Defines a small public API and explicit dependency direction.
+- Places volatile infrastructure behind adapters.
+- Introduces abstractions based on evidence rather than a universal folder template.

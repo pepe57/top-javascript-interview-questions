@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+What is the log order?
+
+```js
+console.log('A');
+setTimeout(() => console.log('timer'), 0);
+Promise.resolve().then(() => {
+  console.log('microtask 1');
+  queueMicrotask(() => console.log('microtask 2'));
+});
+console.log('B');
+```
+
+## Options
+
+### a-b-micro-one-two-timer (correct)
+
+`A B microtask 1 microtask 2 timer`
+
+> The script task finishes first, the checkpoint drains both the original and nested microtasks, and the timer runs in a later task.
+
+### a-micro-one-b-two-timer
+
+`A microtask 1 B microtask 2 timer`
+
+> Microtasks do not interrupt the currently executing script before `B`.
+
+### a-b-micro-one-timer-two
+
+`A B microtask 1 timer microtask 2`
+
+> The checkpoint keeps draining microtasks added during the drain before another task is selected.
+
+### a-b-timer-micro-one-two
+
+`A B timer microtask 1 microtask 2`
+
+> Promise reactions and queued microtasks run before the next timer task.

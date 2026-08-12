@@ -1,0 +1,47 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+class Message {
+  format() {
+    return 'base';
+  }
+}
+
+class Warning extends Message {
+  format() {
+    return `${super.format()}:warning`;
+  }
+}
+
+console.log(new Warning().format());
+```
+
+## Options
+
+### base-warning (correct)
+
+`base:warning`
+
+> `Warning` overrides `format`, and `super.format()` invokes the parent prototype method with the current instance as its receiver.
+
+### warning-only
+
+`warning`
+
+> The override explicitly includes the return value from the parent method.
+
+### base-only
+
+`base`
+
+> Method lookup finds the child override first; the parent method runs only through its `super` call.
+
+### super-type-error
+
+It throws because `super` is available only in constructors.
+
+> `super.method()` is valid inside class methods as well as constructors.

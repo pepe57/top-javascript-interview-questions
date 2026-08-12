@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+Users report that opening a dashboard is slow and sometimes janky. Describe a measurement-first investigation rather than applying a generic optimization checklist.
+
+## Answer
+
+Define and reproduce the exact slow interaction on a representative device and data set. Record a browser performance trace and network activity, then separate waiting on requests from JavaScript long tasks, repeated rendering/layout, and memory pressure. Identify the dominant critical-path cost from timings and call stacks, change one relevant cause—such as removing duplicate data fetches, reducing startup code, or batching layout work—and repeat the same measurement. Use production real-user data when available to verify that the improvement generalizes.
+
+## Checklist
+
+- Defines a reproducible user-visible scenario and representative conditions.
+- Uses traces and network evidence to identify the dominant layer.
+- Fixes a measured cause rather than applying every generic technique.
+- Repeats the same measurement and checks real-user impact when available.

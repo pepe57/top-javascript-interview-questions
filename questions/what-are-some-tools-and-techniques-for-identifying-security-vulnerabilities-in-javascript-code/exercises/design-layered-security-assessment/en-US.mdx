@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+Outline a responsible security-assessment approach for a JavaScript web application before a release.
+
+## Answer
+
+Threat-model trust boundaries and high-impact abuse cases, then manually review authentication, authorization, input-to-sink flows, and sensitive operations. Run linters/static analysis, dependency and secret scans, plus authorization-focused tests. In an explicitly authorized test environment, use dynamic tools such as ZAP or Burp with controlled data. Triage findings by exploitability and impact, reproduce them manually to remove false positives, fix root causes, and retest. No individual scanner result should be treated as proof of security.
+
+## Checklist
+
+- Combines threat modeling and manual review with automated analysis.
+- Covers dependencies, secrets, authorization, and running behavior.
+- Limits active scanning to authorized environments with controlled data.
+- Verifies, prioritizes, fixes, and retests findings.

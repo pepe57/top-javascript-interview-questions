@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const values = [1, 2, 3];
+const removed = values.splice(1, 1, 8, 9);
+values.push(10);
+
+console.log(values.join(','), removed.join(','));
+```
+
+## Options
+
+### one-eight-nine-three-ten-and-two (correct)
+
+`1,8,9,3,10 2`
+
+> `splice` removes the original `2`, inserts `8` and `9` at that index, and returns the removed element array before `push` appends `10`.
+
+### one-two-three-ten-and-eight-nine
+
+`1,2,3,10 8,9`
+
+> `splice` mutates the original and returns removed values, not inserted values.
+
+### one-eight-nine-ten-and-two-three
+
+`1,8,9,10 2,3`
+
+> The delete count is one, so the original `3` remains in the array.
+
+### one-eight-nine-three-and-ten
+
+`1,8,9,3 10`
+
+> `push` mutates `values` and returns a length, but the code stores only the earlier `splice` result.

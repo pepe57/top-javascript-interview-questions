@@ -1,0 +1,47 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+async function load() {
+  try {
+    const value = await Promise.reject(new Error('nope'));
+    return value;
+  } catch (error) {
+    return error.message;
+  } finally {
+    console.log('cleanup');
+  }
+}
+
+load().then(console.log);
+console.log('sync');
+```
+
+## Options
+
+### sync-cleanup-nope (correct)
+
+`sync`, then `cleanup`, then `nope`
+
+> The async function suspends at `await`; its catch recovers later, `finally` runs before settlement, and the caller’s reaction logs the returned message.
+
+### cleanup-nope-sync
+
+`cleanup`, then `nope`, then `sync`
+
+> Promise reactions and the continuation after `await` cannot run before the current synchronous script logs `sync`.
+
+### sync-nope-cleanup
+
+`sync`, then `nope`, then `cleanup`
+
+> The async function’s `finally` executes before its returned promise fulfills with the caught value.
+
+### sync-unhandled
+
+`sync`, followed by an unhandled rejection
+
+> The `try...catch` around `await` handles the rejection and returns a fulfilled value.

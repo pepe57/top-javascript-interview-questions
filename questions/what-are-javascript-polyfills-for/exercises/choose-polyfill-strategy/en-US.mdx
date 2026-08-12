@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements describe a sound polyfill strategy? Select all that apply.
+
+## Options
+
+### support-matrix (correct)
+
+Choose polyfills from the application’s explicit environment support matrix and feature needs.
+
+> Shipping requirements should follow actual target capabilities rather than habit.
+
+### maintained-implementation (correct)
+
+Prefer maintained, specification-tested implementations for complex APIs.
+
+> Accurately matching edge cases is harder than reproducing the common happy path.
+
+### runtime-versus-syntax (correct)
+
+Recognize that transpiling syntax does not itself add missing runtime APIs such as `Promise` or `URL`.
+
+> Syntax rewriting and runtime API implementation solve different compatibility problems.
+
+### load-everything
+
+Load every historical polyfill for all users regardless of target browsers or bundle cost.
+
+> Unneeded polyfills increase bytes, startup work, and the risk of global behavior changes.
+
+### untrusted-runtime-service
+
+Always load executable polyfill code at runtime from an arbitrary third-party service.
+
+> A project dependency bundled and reviewed with the application provides a clearer supply-chain boundary.

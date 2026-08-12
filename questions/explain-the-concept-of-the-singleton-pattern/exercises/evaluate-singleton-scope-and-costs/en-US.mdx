@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A team exports one mutable `currentUser` object from an ES module and calls it a system-wide singleton. Evaluate the claim and the design.
+
+## Answer
+
+The module normally provides one exported instance only within a particular module graph and JavaScript realm; workers, iframes, server processes, duplicate packages, or separate bundles can each evaluate another copy. Mutable current-user state is also a poor hidden global dependency because concurrent requests or tests can contaminate one another and cleanup becomes implicit. Pass user state through request-scoped dependencies or explicit context instead. Reserve a shared module instance for infrastructure whose lifetime genuinely matches that scope.
+
+## Checklist
+
+- Limits module singleton identity to a module graph and realm rather than the whole system.
+- Identifies cross-request or cross-test contamination from mutable user state.
+- Recommends explicit request-scoped dependency or context.
+- Distinguishes suitable shared infrastructure from user-specific state.

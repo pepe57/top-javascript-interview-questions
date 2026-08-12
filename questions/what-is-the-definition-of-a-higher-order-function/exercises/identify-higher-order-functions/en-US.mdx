@@ -1,0 +1,47 @@
+---
+type: multi-select
+---
+
+Which definitions are higher-order functions? Select all that apply.
+
+## Options
+
+### apply-twice (correct)
+
+```js
+function applyTwice(operation, value) {
+  return operation(operation(value));
+}
+```
+
+> `applyTwice` is higher-order because it accepts `operation`, a function, as an argument.
+
+### make-prefix (correct)
+
+```js
+function makePrefix(prefix) {
+  return (value) => `${prefix}${value}`;
+}
+```
+
+> `makePrefix` is higher-order because its result is another function.
+
+### add-values
+
+```js
+function addValues(left, right) {
+  return left + right;
+}
+```
+
+> This function accepts values and returns a value; it neither accepts nor returns a function.
+
+### random-value
+
+```js
+function randomValue() {
+  return Math.random();
+}
+```
+
+> Returning a computed number does not make a function higher-order.

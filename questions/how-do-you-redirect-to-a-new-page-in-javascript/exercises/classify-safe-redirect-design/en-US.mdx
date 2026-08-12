@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which redirect-design statements are correct? Select all that apply.
+
+## Options
+
+### server-redirect-when-known (correct)
+
+Prefer an HTTP redirect when the server already knows the destination before rendering the page.
+
+> It works without client JavaScript and avoids loading a page only to navigate away.
+
+### validate-return-path (correct)
+
+Validate a user-supplied return destination against trusted same-origin paths or an explicit origin allowlist.
+
+> Unvalidated destinations can create an open redirect useful for phishing and token leakage.
+
+### accept-any-next-url
+
+Any syntactically valid URL in a `next` query parameter is safe to pass to `location.assign()`.
+
+> Syntax validity does not establish that the destination is trusted.
+
+### assign-preserves-back (correct)
+
+`location.assign()` is appropriate when Back should return to the current page.
+
+> It creates a new session-history entry for the destination.

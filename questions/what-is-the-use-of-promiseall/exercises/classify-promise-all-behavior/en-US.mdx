@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about `Promise.all()` are correct? Select all that apply.
+
+## Options
+
+### accepts-values (correct)
+
+Its iterable can contain ordinary values as well as promises.
+
+> Non-promise values are treated as already fulfilled inputs.
+
+### fulfills-after-all (correct)
+
+It fulfills with an input-ordered result array only after every input fulfills.
+
+> All successful outcomes are needed for aggregate fulfillment.
+
+### rejects-fast (correct)
+
+It rejects when the first input rejection is observed.
+
+> The aggregate does not wait to report a successful result once one required input has failed.
+
+### starts-functions
+
+Passing an array of function objects makes `Promise.all()` call those functions to start their operations.
+
+> It consumes the values provided; callers must invoke operations and create their promises first.
+
+### cancels-rest
+
+An input rejection automatically cancels all remaining operations.
+
+> Other work can continue unless it supports and receives an explicit cancellation signal.

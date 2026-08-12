@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A notification feature creates email, SMS, and push senders from runtime configuration. Explain how a factory helps and what should remain outside it.
+
+## Answer
+
+Expose a factory whose input is validated configuration and whose output satisfies one sender contract, hiding provider selection and construction details from callers. Centralize mapping from supported channel types to concrete adapters and report an explicit error for unsupported types. Keep the sender’s actual send behavior, business routing policy, and unrelated global state outside the factory; inject dependencies such as credentials or HTTP clients rather than reading hidden globals. If only one stable implementation exists, direct construction may be clearer.
+
+## Checklist
+
+- Returns implementations behind one stable sender contract.
+- Encapsulates runtime selection and construction details.
+- Keeps business behavior and unrelated state outside the factory.
+- Uses the pattern only when creation genuinely varies or is complex.

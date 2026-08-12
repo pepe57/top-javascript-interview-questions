@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which copying statements are correct? Select all that apply.
+
+## Options
+
+### spread-shallow (correct)
+
+Object and array spread make a new outer container while retaining nested object references.
+
+> They are shallow-copy operations.
+
+### object-assign-shallow (correct)
+
+`Object.assign({}, source)` copies own enumerable properties shallowly into the target.
+
+> Nested property values are assigned without recursive cloning.
+
+### structured-clone-graph (correct)
+
+`structuredClone()` supports cyclic graphs and many built-ins such as Map and Set.
+
+> It uses the structured clone algorithm rather than JSON serialization.
+
+### json-general-clone
+
+JSON stringify/parse faithfully clones functions, `undefined`, Dates, Maps, custom prototypes, and cycles.
+
+> It is a lossy conversion limited to JSON-shaped acyclic data.
+
+### domain-copy-custom (correct)
+
+Custom classes or resource-owning objects may require a domain-specific copy routine.
+
+> Generic deep cloning cannot automatically preserve every invariant and ownership rule.

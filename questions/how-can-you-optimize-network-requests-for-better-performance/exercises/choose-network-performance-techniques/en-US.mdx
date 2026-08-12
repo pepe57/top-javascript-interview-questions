@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which techniques can improve network performance when supported by measurements? Select all that apply.
+
+## Options
+
+### remove-duplicates (correct)
+
+Deduplicate requests and avoid fetching data or code the current experience does not need.
+
+> Eliminating work saves latency, bytes, parsing, and server processing.
+
+### cache-by-freshness (correct)
+
+Cache immutable versioned assets aggressively and revalidate data that can change.
+
+> Different resource lifetimes need different correctness policies.
+
+### compress-text (correct)
+
+Serve compressible text assets with Brotli or Gzip as appropriate.
+
+> Compression reduces transferred bytes for HTML, CSS, JavaScript, JSON, and similar formats.
+
+### prioritize-critical (correct)
+
+Discover and prioritize resources required for the initial view before optional work.
+
+> Critical-path prioritization improves how quickly useful content becomes available.
+
+### one-bundle-always
+
+Under HTTP/2 or HTTP/3, combine every resource into one permanent bundle regardless of cache boundaries.
+
+> A monolithic bundle can hurt code splitting and independent caching; boundaries require measurement and tradeoff analysis.

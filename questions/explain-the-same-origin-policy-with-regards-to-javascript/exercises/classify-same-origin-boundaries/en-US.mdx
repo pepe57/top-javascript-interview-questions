@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about the browser same-origin policy are correct? Select all that apply.
+
+## Options
+
+### origin-tuple (correct)
+
+Scheme, host, and port together determine an origin.
+
+> A difference in any of those tuple components normally means a different origin.
+
+### cross-origin-embed-possible (correct)
+
+A page can often embed a cross-origin image or submit a cross-origin form even though it cannot freely read the response.
+
+> The policy distinguishes many writes/embeds from cross-origin reads.
+
+### cors-enables-reading (correct)
+
+CORS response headers can authorize specified origins to read a cross-origin response through browser APIs.
+
+> The server opts selected callers into response access.
+
+### cors-sends-request
+
+CORS is the mechanism that makes every cross-origin request physically possible to send.
+
+> Many requests can already be sent; CORS primarily governs whether script can read the response and whether non-simple requests are authorized.
+
+### same-host-always-origin
+
+`http://example.com` and `https://example.com` are the same origin because the host matches.
+
+> Their schemes differ, so their origins differ.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which risks arise from adding application-specific methods to built-in prototypes? Select all that apply.
+
+## Options
+
+### name-collision (correct)
+
+Another library or a future language feature can define the same property name with different semantics.
+
+> All code in the realm shares the built-in prototype, so one definition can overwrite or conflict with another.
+
+### global-behavior-change (correct)
+
+The change affects every matching object in the realm, including values owned by unrelated code.
+
+> Prototype mutation creates a broad hidden dependency rather than a local utility.
+
+### enumeration-compatibility (correct)
+
+A poorly defined enumerable prototype property can unexpectedly appear in `for...in` loops.
+
+> Legacy code may not filter inherited enumerable keys.
+
+### only-memory-cost
+
+The only downside is one extra function object in memory; behavior and compatibility are unaffected.
+
+> The primary risks are shared semantics, collisions, enumeration, and integration breakage.
+
+### polyfill-narrow-exception (correct)
+
+A specification-compliant polyfill may define a missing standard method after correct feature detection.
+
+> That narrow case intentionally matches a standardized future API rather than inventing an application method.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which tool selection best matches a project that wants fast Vite-integrated unit tests and real Chromium/Firefox/WebKit end-to-end flows?
+
+## Options
+
+### vitest-and-playwright (correct)
+
+Vitest for unit/integration tests and Playwright for cross-browser E2E tests.
+
+> The choices match the Vite-oriented runner need and the real multi-browser automation layer.
+
+### testing-library-only
+
+Testing Library alone for both layers.
+
+> Testing Library supplies user-focused query helpers but still needs a runner and is not a cross-browser E2E system by itself.
+
+### mocha-no-browser-driver
+
+Mocha alone for unit tests and full browser automation.
+
+> Mocha is a configurable test runner but does not by itself provide real-browser E2E automation.
+
+### playwright-unit-only
+
+Playwright only, because every pure function should be tested through a deployed browser page.
+
+> Browser tests are valuable for flows but unnecessarily expensive for exhaustive pure-unit behavior.

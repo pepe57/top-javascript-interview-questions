@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A developer wants to introduce factories, observers, strategies, and decorators into a small feature “for future scalability.” Explain how you would decide which patterns, if any, to use.
+
+## Answer
+
+Start from the current recurring problem and forces rather than the pattern names. A pattern is useful when it clarifies a real tradeoff—such as interchangeable algorithms, one-to-many notifications, or creation that genuinely varies—and gives the team shared vocabulary. Compare it with the simplest direct function, object, or module. Introduce only the abstraction whose benefits exceed its indirection, test and maintenance costs, and refactor later if change patterns reveal a missing boundary.
+
+## Checklist
+
+- Starts from an observed problem and its tradeoffs.
+- Compares a pattern with a simpler direct design.
+- Treats pattern names as communication tools rather than guarantees.
+- Allows later refactoring when real change patterns emerge.

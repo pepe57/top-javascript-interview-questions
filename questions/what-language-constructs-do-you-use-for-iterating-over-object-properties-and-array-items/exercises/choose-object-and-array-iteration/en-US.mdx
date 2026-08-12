@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which iteration choices match the stated goal? Select all that apply.
+
+## Options
+
+### object-keys-own-enumerable (correct)
+
+Use `Object.keys(object)` with `for...of` for own enumerable string-keyed properties.
+
+> It excludes inherited properties and provides explicit keys for lookup.
+
+### for-in-filter-own (correct)
+
+When using `for...in` for an object, filter with `Object.hasOwn()` if inherited enumerable keys should not count.
+
+> `for...in` traverses enumerable string keys from the prototype chain too.
+
+### for-of-array-values (correct)
+
+Use `for...of` to iterate array values with support for `break` and `continue`.
+
+> The array iterator yields values and the loop supports ordinary control flow.
+
+### map-transform-array (correct)
+
+Use `map()` when the goal is a transformed result array.
+
+> The callback return values become the corresponding output elements.
+
+### for-in-array-values
+
+Use `for...in` as the standard way to retrieve array values in numeric order.
+
+> `for...in` yields property keys and can include additional enumerable properties; array iteration APIs are clearer.

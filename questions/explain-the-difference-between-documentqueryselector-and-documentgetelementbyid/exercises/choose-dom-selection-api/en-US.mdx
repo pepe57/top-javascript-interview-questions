@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Code needs the first enabled submit button inside `#checkout`, expressed as the selector `#checkout button[type="submit"]:not(:disabled)`. Which API directly accepts that query?
+
+## Options
+
+### query-selector (correct)
+
+`document.querySelector()`
+
+> It accepts a CSS selector and returns the first matching element or `null`.
+
+### get-element-by-id
+
+`document.getElementById()`
+
+> It accepts only an ID value, not a compound CSS selector with descendants and pseudo-classes.
+
+### get-elements-by-tag-name
+
+`document.getElementsByTagName()`
+
+> It selects by tag name and would require separate filtering for ancestry, type, and disabled state.
+
+### create-element
+
+`document.createElement()`
+
+> That API creates a new detached element; it does not search the existing document.

@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about event delegation are correct? Select all that apply.
+
+## Options
+
+### dynamic-descendants-work (correct)
+
+Matching descendants added after listener registration can be handled without registering new listeners.
+
+> The stable ancestor receives later bubbling events regardless of when the descendant was inserted.
+
+### target-needs-filtering (correct)
+
+The ancestor handler should identify and validate the relevant descendant before acting.
+
+> The ancestor can receive events from many unrelated descendants, so target filtering is essential.
+
+### every-event-bubbles
+
+Every DOM event bubbles and can use the same delegation pattern.
+
+> Some events do not bubble and may need a bubbling alternative, capture handling, or a direct listener.
+
+### always-faster
+
+Replacing child listeners with delegation is guaranteed to make every page measurably faster.
+
+> Delegation reduces listener bookkeeping, but actual performance depends on the page and should be profiled.

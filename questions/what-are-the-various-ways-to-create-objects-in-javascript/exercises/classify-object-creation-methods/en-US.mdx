@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about JavaScript object creation are correct? Select all that apply.
+
+## Options
+
+### literal-own-properties (correct)
+
+An object literal is a concise way to create one object with declared own properties and methods.
+
+> It is the common default for a directly described object.
+
+### object-create-prototype (correct)
+
+`Object.create(prototype)` creates an object whose internal prototype is the supplied object or `null`.
+
+> It establishes delegation without running a constructor.
+
+### constructor-new (correct)
+
+Calling a constructible function with `new` creates and initializes an instance linked to its prototype.
+
+> The constructor function controls per-instance initialization.
+
+### class-new (correct)
+
+A class constructor provides structured syntax for instance initialization and prototype methods.
+
+> Class instances still use JavaScript’s prototype mechanism.
+
+### object-create-copies
+
+`Object.create(prototype)` copies every prototype property onto the new object as an own property.
+
+> Missing properties are found by following the prototype link rather than copied.

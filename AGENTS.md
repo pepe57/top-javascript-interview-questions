@@ -103,6 +103,8 @@ questions/<slug>/
   en-US.mdx
   <locale>.mdx (localized content, when available)
   en-US.langnostic.json (generated translation state, when available)
+  exercises/index.json (when exercises are present)
+  exercises/<exercise-id>/en-US.mdx
 ```
 
 - Treat `en-US.mdx` as the source locale.
@@ -113,6 +115,14 @@ questions/<slug>/
 - Treat `featured` and `ranking` as the controls for inclusion and ordering in the generated top-questions list.
 - Do not treat `published: true` as permission to leave incomplete or placeholder content.
 - Do not edit generated question content in `README.md` directly. Edit the source question and regenerate the README.
+
+### Exercises
+
+- Keep exercises outside the answer MDX. Store each definition in `exercises/<exercise-id>/en-US.mdx` and list all IDs once, in learner order, in `exercises/index.json`. Do not add `<Exercise>` markers or an exercises heading to localized answer articles; GreatFrontEnd renders the manifest after the answer.
+- Map the important, transferable concepts before choosing a count. Start with one exercise per concept and add a second only when it uses a materially different scenario and reasoning task, provides evidence the first cannot, and keeps the complete sequence within 1–3 exercises.
+- Use `single-select` for one deterministic answer, `multi-select` for several independently evaluable claims with at least two correct answers, and `self-review` for bounded explanation, comparison, or tradeoff reasoning. Order the sequence from foundational understanding to application or failure mode, with self-review last.
+- Give every exercise a stable kebab-case ID and one primary learning objective. Keep prompts context-complete and prefer new traces, consequences, or implementation decisions over recall of nearby wording.
+- Every exercise requires an English definition. Localized definitions are optional and fall back to English; do not create translations unless they are explicitly in scope.
 
 ### Answer structure
 

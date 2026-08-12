@@ -1,0 +1,44 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const base = { score: 1 };
+const child = Object.create(base);
+child.score = 2;
+delete child.score;
+
+console.log(
+  child.score,
+  base.isPrototypeOf(child),
+  Object.hasOwn(child, 'score'),
+);
+```
+
+## Options
+
+### one-true-false (correct)
+
+`1 true false`
+
+> Deleting the own property exposes the inherited `base.score`; `base` is the prototype and the child no longer owns `score`.
+
+### two-true-false
+
+`2 true false`
+
+> The own value `2` is removed, so lookup continues to the prototype and finds `1`.
+
+### undefined-true-false
+
+`undefined true false`
+
+> A missing own property does not end lookup; the engine follows the prototype link.
+
+### one-false-true
+
+`1 false true`
+
+> `Object.create(base)` links `base` as the prototype, and inherited properties are not own properties.

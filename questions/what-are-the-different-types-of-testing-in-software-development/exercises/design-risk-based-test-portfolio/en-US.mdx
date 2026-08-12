@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+Design a risk-based test portfolio for a checkout rather than merely listing test categories.
+
+## Answer
+
+Use unit tests for price, tax, discount, and eligibility boundary cases; component tests for interactive checkout UI states; integration or contract tests for the order API, database, inventory, and payment adapter boundaries; and a small set of production-like E2E tests for successful purchase and critical failure recovery. Add accessibility checks and manual review, authorization/security tests, performance or load tests for expected traffic, and exploratory testing for complex user behavior. The mix should follow impact, likelihood, feedback speed, and diagnostic cost rather than a universal pyramid quota.
+
+## Checklist
+
+- Maps calculation and UI behaviors to focused lower-level tests.
+- Covers real service boundaries and critical end-to-end journeys.
+- Adds accessibility, security, performance, and exploratory testing based on risk.
+- Explains why the mix follows product risk rather than fixed percentages.

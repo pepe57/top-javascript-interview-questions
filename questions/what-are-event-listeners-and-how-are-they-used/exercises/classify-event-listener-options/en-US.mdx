@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which event-listener practices are correct? Select all that apply.
+
+## Options
+
+### once-option (correct)
+
+Use `{ once: true }` when a listener should remove itself after its first delivery.
+
+> The EventTarget handles one-time cleanup after invocation.
+
+### abort-signal-cleanup (correct)
+
+Pass an `AbortSignal` when a feature owner should be able to remove a group of listeners together.
+
+> Aborting the controller unregisters listeners associated with its signal.
+
+### passive-scroll-intent (correct)
+
+Use a passive listener when it will not call `preventDefault()` and the browser can optimize relevant scrolling input.
+
+> The passive contract tells the browser the listener will not cancel the event.
+
+### delegate-dynamic-children (correct)
+
+Consider delegation when many dynamic descendants share the same bubbling-event behavior.
+
+> One stable ancestor can own the listener and filter event targets.
+
+### listeners-auto-cleanup
+
+Long-lived targets automatically remove every feature listener when the feature UI disappears.
+
+> If the target remains reachable, explicit ownership cleanup may still be required.

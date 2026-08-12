@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which pairing correctly assigns responsibilities to the browser objects?
+
+## Options
+
+### window-history-document-dom (correct)
+
+Use `window.history` for session navigation and `document.querySelector()` for finding page elements.
+
+> Window represents the browsing context and host APIs, while Document represents the loaded DOM.
+
+### document-history-window-query
+
+Use `document.history` for navigation and `window.querySelector()` for elements.
+
+> Those APIs belong to the opposite objects.
+
+### window-is-element
+
+Treat `window` as the root DOM element and append child elements directly to it.
+
+> The DOM tree belongs to the Document; Window is not an Element node.
+
+### document-opens-window
+
+Use `document.openWindow()` to create a new browsing context.
+
+> Window-level APIs such as `window.open()` manage browsing contexts.

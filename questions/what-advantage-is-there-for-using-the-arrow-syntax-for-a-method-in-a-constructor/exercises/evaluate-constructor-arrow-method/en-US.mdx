@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements describe an arrow method assigned inside a constructor? Select all that apply.
+
+## Options
+
+### captures-instance-this (correct)
+
+It captures the constructor call’s instance `this`, so a detached callback can still access that instance.
+
+> The arrow’s lexical receiver is established while constructing the object.
+
+### cannot-rebind (correct)
+
+`call()`, `apply()`, and `bind()` cannot replace the arrow’s captured receiver.
+
+> Arrow functions do not use ordinary call-site `this` binding.
+
+### per-instance-function (correct)
+
+Each constructed instance receives a separate arrow-function object.
+
+> The constructor executes the arrow expression for every instance instead of sharing one prototype method.
+
+### prototype-shared
+
+The arrow is automatically installed once on the constructor’s prototype.
+
+> Assignment to `this.method` creates an own property on each instance.
+
+### always-best-method
+
+It is always preferable to a prototype method because callers never need receiver polymorphism or memory sharing.
+
+> The lexical receiver is useful for callbacks but removes intentional rebinding and adds a function per instance.

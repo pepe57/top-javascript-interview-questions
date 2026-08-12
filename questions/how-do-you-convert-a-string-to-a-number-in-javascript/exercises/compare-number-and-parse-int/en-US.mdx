@@ -1,0 +1,35 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+console.log(Number('12px'), parseInt('12px', 10), Number('   '));
+```
+
+## Options
+
+### nan-twelve-zero (correct)
+
+`NaN 12 0`
+
+> `Number` requires the whole non-whitespace content to be numeric, `parseInt` accepts the leading integer, and an all-whitespace string converts to zero.
+
+### twelve-twelve-zero
+
+`12 12 0`
+
+> `Number` does not accept a trailing `px` suffix.
+
+### nan-nan-nan
+
+`NaN NaN NaN`
+
+> `parseInt` reads the numeric prefix, and numeric conversion of whitespace is zero.
+
+### zero-twelve-zero
+
+`0 12 0`
+
+> An invalid full numeric string converts to `NaN`, not zero.

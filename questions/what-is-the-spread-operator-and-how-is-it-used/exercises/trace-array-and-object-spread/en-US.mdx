@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const base = [1, 2];
+const array = [0, ...base, 3];
+const first = { a: 1, b: 2 };
+const object = { ...first, b: 4, c: 5 };
+
+console.log(array.join(','), object.a, object.b, object.c);
+```
+
+## Options
+
+### zero-one-two-three-and-values (correct)
+
+`0,1,2,3 1 4 5`
+
+> Array spread inserts iterable elements, and later object properties override earlier copied values.
+
+### nested-array-and-values
+
+`0,1,2,3 1 2 5` with `base` kept as a nested array
+
+> Spread expands the array and the later `b: 4` overrides `b: 2`.
+
+### zero-one-two-three-first-wins
+
+`0,1,2,3 1 2 5`
+
+> For duplicate object keys, the later definition wins.
+
+### mutates-base
+
+It throws because spreading mutates the source array and object.
+
+> Spread reads values into new containers and does not mutate these sources.

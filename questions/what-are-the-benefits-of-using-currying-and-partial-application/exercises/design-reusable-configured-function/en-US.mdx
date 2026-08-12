@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A logging function accepts `environment`, `service`, `level`, and `message`. Explain how currying or partial application could improve its use without claiming it is always clearer.
+
+## Answer
+
+Partially apply stable context such as environment and service to produce a service-specific logger, then optionally curry or expose a second function that fixes the level before accepting a message. Call sites become shorter and cannot repeatedly supply inconsistent context, while the general function remains reusable. Keep the direct multi-argument form if arguments are rarely reused or the chain obscures parameter meaning; the benefit comes from meaningful staged configuration, not from maximizing the number of returned functions.
+
+## Checklist
+
+- Fixes stable context to create a reusable specialized function.
+- Shows how staged calls reduce repeated inconsistent arguments.
+- Preserves a clear general function or contract.
+- Recognizes when direct arguments are clearer than currying.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which uses are a good conceptual fit for static class members? Select all that apply.
+
+## Options
+
+### named-factory (correct)
+
+A named factory such as `User.fromJSON(data)` that creates instances.
+
+> The creation behavior belongs to the type as a whole rather than one existing instance.
+
+### type-validator (correct)
+
+A validation helper such as `EmailAddress.isValid(value)` associated with the type contract.
+
+> It can operate without instance state while remaining discoverable with the type.
+
+### type-counter (correct)
+
+A process-local counter of instances created when that exact runtime scope is the intended lifetime.
+
+> The shared value belongs to the constructor rather than being duplicated on instances.
+
+### per-user-secret
+
+The current user’s access token in a server class used by concurrent requests.
+
+> Static mutable state is shared and can leak or overwrite request-specific credentials.
+
+### instance-field-access
+
+A static method can directly read `this.name` from whichever instance calls it.
+
+> Static methods are accessed through the class and receive the constructor as `this`, not an instance.

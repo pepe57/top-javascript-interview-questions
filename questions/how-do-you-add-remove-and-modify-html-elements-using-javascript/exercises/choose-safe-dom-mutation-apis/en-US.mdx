@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which DOM updates are appropriate for a list whose labels come from untrusted user input? Select all that apply.
+
+## Options
+
+### create-and-text-content (correct)
+
+Create an `li`, assign the label with `textContent`, and append it to the list.
+
+> `textContent` represents the input as text rather than parsing it as executable markup.
+
+### class-list-update (correct)
+
+Use `classList.toggle()` to change a known presentation state.
+
+> Class APIs make a targeted state change without rebuilding markup strings.
+
+### element-remove (correct)
+
+Call `element.remove()` after verifying the intended element was found.
+
+> `remove()` directly detaches that node from its parent.
+
+### raw-inner-html
+
+Concatenate the user label into `list.innerHTML += "<li>" + label + "</li>"`.
+
+> The browser parses the label as HTML, creating an injection risk and rebuilding existing descendants.
+
+### document-write
+
+Call `document.write()` after the page loads to append the item.
+
+> A late `document.write()` can replace the current document and is not a targeted DOM update.

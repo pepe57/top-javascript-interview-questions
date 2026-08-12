@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A profile feature intentionally accepts limited rich-text HTML. Describe how to render it safely and what controls remain necessary.
+
+## Answer
+
+Define the exact allowed elements, attributes, and URL schemes, then sanitize with a maintained HTML sanitizer configured for that policy before assigning the result to an HTML-rendering sink. Do not rely on regex or input validation alone. Store or re-sanitize according to the product’s trust and update model, test mutation and URL edge cases, and add a strong CSP and Trusted Types where applicable as defense in depth. Plain-text fields should continue to use text APIs instead of the rich-HTML path.
+
+## Checklist
+
+- Defines and enforces a narrow allowed HTML policy with a maintained sanitizer.
+- Avoids regex and generic input validation as the primary sink defense.
+- Keeps plain text on safe text-rendering APIs.
+- Adds CSP or Trusted Types as defense in depth rather than a replacement.

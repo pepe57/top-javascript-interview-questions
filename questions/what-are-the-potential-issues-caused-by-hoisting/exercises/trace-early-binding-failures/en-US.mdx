@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What happens when this script runs?
+
+```js
+console.log(total);
+console.log(status);
+
+var total = 4;
+let status = 'ready';
+```
+
+## Options
+
+### undefined-then-reference-error (correct)
+
+It logs `undefined`, then throws `ReferenceError`.
+
+> The `var` binding is initialized to `undefined` during setup, while the lexical binding remains uninitialized in its temporal dead zone.
+
+### both-undefined
+
+It logs `undefined` twice.
+
+> `let` does not receive an early `undefined` value; reading it before initialization throws.
+
+### four-ready
+
+It logs `4`, then `ready`.
+
+> Initializer expressions still execute at their source positions after both logs.
+
+### first-reference-error
+
+The first log throws `ReferenceError`.
+
+> The `var total` binding already exists and is readable as `undefined`.

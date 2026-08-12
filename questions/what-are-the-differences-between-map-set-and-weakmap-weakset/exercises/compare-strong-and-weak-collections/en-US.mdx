@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about strong and weak collections are correct? Select all that apply.
+
+## Options
+
+### map-any-key (correct)
+
+A `Map` accepts values of any JavaScript type as keys and is iterable in insertion order.
+
+> It is a general-purpose strong key-value collection.
+
+### weak-map-object-keys (correct)
+
+A `WeakMap` accepts objects and non-registered symbols as keys without keeping those keys alive by itself.
+
+> Entries follow key reachability, making the collection useful for attached metadata.
+
+### weak-collections-not-iterable (correct)
+
+`WeakMap` and `WeakSet` intentionally do not expose enumeration or size.
+
+> Observable enumeration would conflict with nondeterministic garbage-collection timing.
+
+### weak-set-membership (correct)
+
+A `WeakSet` is useful when recording object membership should not control object lifetime.
+
+> Its entries are held weakly rather than strongly retained by the set.
+
+### weak-values
+
+A `WeakMap` weakly holds arbitrary primitive keys and automatically weakens all of its values independently.
+
+> Keys have restricted weak identity semantics; values remain associated as long as their key is reachable.

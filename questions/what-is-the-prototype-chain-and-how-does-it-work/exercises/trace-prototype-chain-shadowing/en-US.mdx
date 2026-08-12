@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const root = { value: 'root' };
+const middle = Object.create(root);
+const leaf = Object.create(middle);
+middle.value = 'middle';
+
+console.log(leaf.value);
+delete middle.value;
+console.log(leaf.value);
+console.log(Object.getPrototypeOf(leaf) === middle);
+```
+
+## Options
+
+### middle-root-true (correct)
+
+`middle`, then `root`, then `true`
+
+> Lookup first finds the nearer middle property; after deletion it continues to root, and leaf’s direct prototype remains middle.
+
+### root-root-true
+
+`root`, then `root`, then `true`
+
+> The own property on `middle` shadows the farther root property for the first lookup.
+
+### middle-undefined-false
+
+`middle`, then `undefined`, then `false`
+
+> Deleting the middle property does not remove the chain; lookup continues to root through the same prototype link.
+
+### middle-root-false
+
+`middle`, then `root`, then `false`
+
+> `Object.create(middle)` explicitly makes middle the direct prototype of leaf.

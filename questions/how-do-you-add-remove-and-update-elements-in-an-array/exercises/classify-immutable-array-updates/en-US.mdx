@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which operations can produce a new array without mutating the original? Select all that apply.
+
+## Options
+
+### map-update (correct)
+
+`items.map((item) => item.id === id ? updated : item)`
+
+> `map` constructs a new array from returned element values.
+
+### filter-remove (correct)
+
+`items.filter((item) => item.id !== id)`
+
+> `filter` returns a new array containing only retained elements.
+
+### with-update (correct)
+
+`items.with(index, updated)`
+
+> `with()` is the non-mutating counterpart to index assignment.
+
+### splice-remove
+
+`items.splice(index, 1)`
+
+> `splice()` changes the original array in place.
+
+### push-add
+
+`items.push(newItem)`
+
+> `push()` appends to the original array and returns its new length.

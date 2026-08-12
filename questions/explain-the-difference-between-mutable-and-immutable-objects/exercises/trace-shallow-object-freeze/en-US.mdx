@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const settings = Object.freeze({
+  theme: 'dark',
+  profile: { compact: false },
+});
+
+settings.profile.compact = true;
+console.log(settings.theme, settings.profile.compact);
+```
+
+## Options
+
+### dark-true (correct)
+
+`dark true`
+
+> `Object.freeze()` prevents changes to the outer object’s own properties, but it does not recursively freeze the nested `profile` object.
+
+### dark-false
+
+`dark false`
+
+> That would require a deep freeze; the nested object remains mutable.
+
+### undefined-true
+
+`undefined true`
+
+> Reading the frozen outer property still returns its existing value.
+
+### always-throws
+
+The nested assignment always throws because the outer object is frozen.
+
+> The assignment targets a different, unfrozen nested object rather than changing an own property of `settings`.

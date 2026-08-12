@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const prototype = { role: 'reader' };
+const user = Object.create(prototype);
+user.name = 'Ada';
+
+console.log(
+  'role' in user,
+  Object.hasOwn(user, 'role'),
+  Object.hasOwn(user, 'name'),
+);
+```
+
+## Options
+
+### true-false-true (correct)
+
+`true false true`
+
+> `in` includes the prototype chain, while `Object.hasOwn()` reports only properties directly owned by `user`.
+
+### false-false-true
+
+`false false true`
+
+> The inherited `role` still satisfies the `in` operator.
+
+### true-true-true
+
+`true true true`
+
+> Finding a property through lookup does not make it an own property of the receiver.
+
+### true-false-false
+
+`true false false`
+
+> `name` was assigned directly to `user`, so it is an own property.

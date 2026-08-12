@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about event-control methods are correct? Select all that apply.
+
+## Options
+
+### prevent-default-action (correct)
+
+`preventDefault()` cancels a cancelable browser action such as link navigation or form submission.
+
+> It affects the default action while leaving propagation separate.
+
+### stop-path (correct)
+
+`stopPropagation()` prevents the event from continuing along the remaining capture or bubble path.
+
+> Later nodes on the event path do not receive the event.
+
+### same-element-listeners (correct)
+
+`stopPropagation()` does not by itself stop other listeners already registered on the same element.
+
+> `stopImmediatePropagation()` is the method that also prevents later same-element listeners.
+
+### stop-cancels-default
+
+`stopPropagation()` automatically cancels the event’s default browser action.
+
+> Propagation and default behavior are independent controls.
+
+### prevent-stops-ancestors
+
+`preventDefault()` automatically prevents ancestor listeners from running.
+
+> The event can continue propagating after its default action has been canceled.

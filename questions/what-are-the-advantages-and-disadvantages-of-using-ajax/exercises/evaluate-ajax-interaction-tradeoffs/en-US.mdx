@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A team replaces a normal search-results navigation with in-page AJAX updates. Explain the benefits and the responsibilities the new design must take on.
+
+## Answer
+
+The page can update only the results region, transfer a smaller data response, and preserve input and scroll state, making repeated searches feel faster. The application must now represent searches in the URL and browser history when they are navigable, expose loading, empty, error, cancellation, and stale-response states, and define caching and retry behavior. It must render untrusted data safely and ensure indexable results still have meaningful server-rendered or prerendered routes where required. Measure client JavaScript and rendering cost rather than assuming the partial update is automatically faster.
+
+## Checklist
+
+- Identifies partial updates, smaller responses, or preserved in-page state as benefits.
+- Covers loading, failure, cancellation, race, and stale-response behavior.
+- Addresses URL/history, caching, and indexability where relevant.
+- Includes safe rendering and measurement of client-side cost.

@@ -1,0 +1,38 @@
+---
+type: single-select
+---
+
+What does this code log after both promises fulfill?
+
+```js
+const slow = new Promise((resolve) => setTimeout(() => resolve('slow'), 20));
+const fast = Promise.resolve('fast');
+
+Promise.all([slow, fast]).then((values) => console.log(values.join(',')));
+```
+
+## Options
+
+### slow-fast (correct)
+
+`slow,fast`
+
+> Promise.all preserves input order in its result array regardless of fulfillment timing.
+
+### fast-slow
+
+`fast,slow`
+
+> Completion order does not reorder the aggregate results.
+
+### fast-only
+
+`fast` only
+
+> The aggregate waits until every input fulfills before calling its fulfillment handler.
+
+### slow-only
+
+`slow` only
+
+> Every input contributes one value at its input index.

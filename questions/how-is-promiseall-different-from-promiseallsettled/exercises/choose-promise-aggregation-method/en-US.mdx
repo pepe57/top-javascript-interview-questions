@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A dashboard loads four independent widgets and must render every successful widget while showing an error for each failed one. Which aggregation method best matches that requirement?
+
+## Options
+
+### all-settled (correct)
+
+`Promise.allSettled()`
+
+> It waits for every input and returns a status record for each fulfillment or rejection.
+
+### promise-all
+
+`Promise.all()`
+
+> It rejects the aggregate as soon as an input rejects, so it does not directly provide every outcome record.
+
+### promise-race
+
+`Promise.race()`
+
+> It settles with only the first settled input and ignores the requirement to collect all widgets.
+
+### promise-any
+
+`Promise.any()`
+
+> It fulfills with the first successful input rather than reporting every success and failure.

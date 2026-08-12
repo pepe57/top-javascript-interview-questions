@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const base = (value) => value;
+const withBrackets = (next) => (value) => `[${next(value)}]`;
+const withUppercase = (next) => (value) => next(value).toUpperCase();
+
+const format = withBrackets(withUppercase(base));
+console.log(format('hello'));
+```
+
+## Options
+
+### bracketed-uppercase (correct)
+
+`[HELLO]`
+
+> Each decorator preserves the callable contract while adding behavior around the wrapped function.
+
+### uppercase-only
+
+`HELLO`
+
+> The outer bracket decorator also transforms the wrapped result.
+
+### bracketed-lowercase
+
+`[hello]`
+
+> The uppercase decorator runs before its result is wrapped in brackets.
+
+### nested-function-text
+
+It logs a function object.
+
+> Both decorator factories are fully applied, and the final call supplies the value.

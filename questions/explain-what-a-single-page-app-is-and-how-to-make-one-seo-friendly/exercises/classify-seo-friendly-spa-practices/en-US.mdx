@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices improve discoverability and sharing for indexable routes in a single-page application? Select all that apply.
+
+## Options
+
+### meaningful-initial-html (correct)
+
+Return meaningful route-specific HTML through server rendering or prerendering rather than only an empty shell.
+
+> Crawlers and users can discover content and metadata without waiting for all client JavaScript.
+
+### route-status-and-metadata (correct)
+
+Emit correct status codes, canonical URLs, titles, metadata, and structured data for each route.
+
+> These signals describe route identity, availability, and content to crawlers and link-preview clients.
+
+### crawlable-links (correct)
+
+Use real crawlable links for navigation to indexable destinations.
+
+> Link semantics let crawlers discover routes and preserve standard navigation behavior.
+
+### client-navigation-requires-shell
+
+Client-side route transitions require the first response to contain only an empty HTML shell.
+
+> An app can server-render or prerender the initial route and hydrate it for later client navigation.
+
+### streaming-guarantees-seo
+
+Enabling HTML streaming alone guarantees correct indexing regardless of content and metadata.
+
+> Streaming affects delivery; the route still needs meaningful output and must be tested with supported crawlers.

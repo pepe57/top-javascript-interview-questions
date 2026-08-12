@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements accurately describe JSONP? Select all that apply.
+
+## Options
+
+### classic-script-transport (correct)
+
+It loads a cross-origin classic script whose response invokes a callback with data.
+
+> JSONP relies on script embedding rather than XHR or Fetch response access.
+
+### get-only-shape (correct)
+
+It is limited to request patterns a script URL can express, effectively GET-style retrieval.
+
+> A `<script src>` load does not provide the general method and body control of modern request APIs.
+
+### response-is-executable (correct)
+
+The responding origin must be trusted because its response executes as JavaScript in the page.
+
+> Loading JSONP grants the remote response script execution privileges in the embedding page.
+
+### cors-preflight
+
+It works by passing a CORS preflight and then reading JSON through `fetch()`.
+
+> JSONP predates CORS and uses script inclusion, not Fetch or preflight authorization.
+
+### modern-write-api
+
+It is a suitable modern mechanism for authenticated cross-origin POST requests.
+
+> JSONP lacks general methods, request bodies, and a safe data-only response model; CORS-enabled APIs are preferred.

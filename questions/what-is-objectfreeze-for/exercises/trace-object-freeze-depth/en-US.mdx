@@ -1,0 +1,44 @@
+---
+type: single-select
+---
+
+What does this non-strict code log?
+
+```js
+const state = Object.freeze({
+  count: 1,
+  nested: { count: 2 },
+});
+
+state.count = 3;
+state.nested.count = 4;
+state.extra = true;
+
+console.log(state.count, state.nested.count, 'extra' in state);
+```
+
+## Options
+
+### one-four-false (correct)
+
+`1 4 false`
+
+> Freeze blocks changes and additions on the outer object but is shallow, so the nested object remains mutable.
+
+### three-four-true
+
+`3 4 true`
+
+> A frozen object’s own data properties are non-writable and it is non-extensible.
+
+### one-two-false
+
+`1 2 false`
+
+> That would require recursively freezing `nested` as well.
+
+### one-four-true
+
+`1 4 true`
+
+> The outer frozen object cannot receive a new `extra` property.

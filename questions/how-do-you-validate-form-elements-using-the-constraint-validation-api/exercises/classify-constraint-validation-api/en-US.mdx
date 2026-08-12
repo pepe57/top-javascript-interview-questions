@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about form constraint validation are correct? Select all that apply.
+
+## Options
+
+### html-basic-rules (correct)
+
+Attributes such as `required`, `type`, `min`, `max`, and `pattern` express basic constraints declaratively.
+
+> The browser incorporates those constraints into each eligible control’s validity state.
+
+### check-validity-event (correct)
+
+`checkValidity()` returns a boolean and fires `invalid` for invalid controls.
+
+> It performs validation without necessarily requesting the browser’s visible validation UI.
+
+### report-shows-ui (correct)
+
+`reportValidity()` also asks the browser to present validation feedback.
+
+> It combines the validity result with user-agent reporting behavior.
+
+### browser-is-security-boundary
+
+Passing browser validation means the server can trust the request without validating it.
+
+> Requests can bypass the form entirely, so server-side validation remains required.

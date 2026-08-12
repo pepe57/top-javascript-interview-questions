@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function Person(name) {
+  this.name = name;
+}
+Person.prototype.greet = function () {
+  return `Hi ${this.name}`;
+};
+
+const ada = new Person('Ada');
+console.log(ada.greet(), ada instanceof Person);
+```
+
+## Options
+
+### hi-ada-true (correct)
+
+`Hi Ada true`
+
+> `new` initializes the instance through `Person`, links it to `Person.prototype`, and therefore exposes the shared `greet` method.
+
+### hi-undefined-true
+
+`Hi undefined true`
+
+> The constructor assigns the supplied name to the new instance before `greet()` is called.
+
+### hi-ada-false
+
+`Hi Ada false`
+
+> The prototype link established by `new Person()` makes the `instanceof` check true.
+
+### greet-type-error
+
+It throws because `greet` is not an own property of `ada`.
+
+> Property lookup follows `ada`’s prototype and finds the method on `Person.prototype`.

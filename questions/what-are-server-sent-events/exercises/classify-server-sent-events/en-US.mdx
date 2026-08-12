@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements accurately describe Server-Sent Events and `EventSource`? Select all that apply.
+
+## Options
+
+### server-to-client (correct)
+
+SSE provides a long-lived server-to-client text event stream over HTTP.
+
+> The standard stream is unidirectional rather than a full-duplex channel.
+
+### event-source-get (correct)
+
+`EventSource` opens a GET request with limited custom request-header control.
+
+> That built-in request shape is simpler but less flexible than a custom Fetch request.
+
+### built-in-reconnect (correct)
+
+`EventSource` includes reconnection behavior and last-event-ID support.
+
+> Those capabilities make it convenient for resumable server update feeds.
+
+### binary-full-duplex
+
+SSE is the native choice for bidirectional binary game traffic.
+
+> WebSocket is better suited to full-duplex text or binary exchange; SSE carries server-to-client text.
+
+### fetch-custom-responsibility (correct)
+
+Consuming an SSE-formatted Fetch body can allow custom request options, but the application must handle parsing and reconnection.
+
+> Using the lower-level stream gives flexibility while giving up `EventSource` conveniences.

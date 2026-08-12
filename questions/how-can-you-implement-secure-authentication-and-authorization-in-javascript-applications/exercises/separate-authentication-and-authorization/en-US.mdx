@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A user is signed in and requests `DELETE /projects/42`. Explain the distinct authentication and authorization checks the server should perform.
+
+## Answer
+
+Authentication validates the session or token and establishes the caller’s identity. Authorization then loads or identifies project 42 and checks whether that identity has the specific delete permission for that resource, including tenant, ownership, role, and policy constraints. The server must perform both checks for the operation even if the UI hid or showed a delete button, and should fail without revealing unnecessary resource information.
+
+## Checklist
+
+- Uses authentication to establish a trusted caller identity.
+- Checks delete permission against the actual project and tenant or ownership context.
+- Does not rely on client-side visibility or role state.
+- Treats authentication and authorization as separate decisions.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which security-header mappings are correct? Select all that apply.
+
+## Options
+
+### csp-script-policy (correct)
+
+`Content-Security-Policy` constrains resource loading and capabilities as a defense-in-depth control against injection impact.
+
+> Directives such as `script-src` let the browser enforce which scripts may execute.
+
+### hsts-https (correct)
+
+`Strict-Transport-Security` tells supporting browsers to use HTTPS for the host during its policy lifetime.
+
+> It prevents later insecure HTTP navigation after the browser has learned the policy.
+
+### nosniff-content-type (correct)
+
+`X-Content-Type-Options: nosniff` tells browsers to respect declared content types instead of MIME-sniffing certain responses.
+
+> This reduces interpretation of a resource as an unintended executable type.
+
+### frame-ancestors-framing (correct)
+
+CSP `frame-ancestors` controls which origins may embed the page.
+
+> That server-enforced policy is a primary clickjacking defense.
+
+### referrer-enables-features
+
+`Referrer-Policy` grants camera and microphone access to embedded frames.
+
+> Referrer-Policy controls referrer information; Permissions-Policy controls selected browser capabilities.

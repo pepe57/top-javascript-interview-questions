@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about an event-loop turn are correct? Select all that apply.
+
+## Options
+
+### stack-current-task (correct)
+
+Function calls made by the current task execute on the JavaScript call stack.
+
+> The stack represents active nested execution within that task or callback.
+
+### host-work-outside-stack (correct)
+
+Timers and networking can make progress through host facilities while no corresponding callback is on the JavaScript stack.
+
+> The host queues JavaScript work when it becomes eligible to run.
+
+### microtasks-after-task (correct)
+
+After a task finishes and the stack empties, the runtime performs a microtask checkpoint.
+
+> Promise reactions and `queueMicrotask()` callbacks are drained at that boundary.
+
+### render-opportunity (correct)
+
+A browser may update rendering after the microtask checkpoint before selecting another task.
+
+> Long tasks or endless microtasks can therefore delay visual updates.
+
+### all-tasks-drained
+
+The runtime drains every queued timer and input task before allowing any rendering.
+
+> It selects eligible tasks turn by turn, with checkpoints and rendering opportunities between them.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which workload is the strongest candidate for a dedicated Web Worker?
+
+## Options
+
+### cpu-image-analysis (correct)
+
+Analyzing large image pixel buffers for several hundred milliseconds while the UI must remain responsive.
+
+> CPU-heavy computation can move off the main thread, and transferable buffers can reduce copying cost.
+
+### dom-button-update
+
+Changing a button’s text and class after a click.
+
+> Workers cannot access the DOM, and this tiny update does not justify messaging overhead.
+
+### single-fetch-wait
+
+Waiting for one ordinary Fetch request whose response needs little processing.
+
+> Fetch is already asynchronous; moving the wait to a worker does not remove meaningful main-thread CPU work.
+
+### small-addition
+
+Adding two numbers once.
+
+> Worker startup and message serialization cost far exceed the trivial computation.

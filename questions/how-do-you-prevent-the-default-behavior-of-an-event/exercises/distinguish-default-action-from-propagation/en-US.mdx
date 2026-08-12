@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A form submit handler should keep the browser on the current page while still allowing an ancestor analytics listener to observe the submit event. What should the handler call?
+
+## Options
+
+### prevent-default-only (correct)
+
+`event.preventDefault()` only
+
+> It cancels the form’s default navigation/submission action without stopping the event from propagating to ancestor listeners.
+
+### stop-propagation-only
+
+`event.stopPropagation()` only
+
+> Stopping propagation blocks ancestor listeners but does not cancel the form’s default action.
+
+### both-methods
+
+Both `preventDefault()` and `stopPropagation()`
+
+> That would cancel submission but also prevent the required ancestor analytics listener from observing the event.
+
+### return-false-listener
+
+Return `false` from an `addEventListener()` callback.
+
+> Returning `false` from a native `addEventListener()` callback does not cancel the default action.

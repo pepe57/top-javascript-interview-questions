@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function* values() {
+  yield 1;
+  return 2;
+}
+
+const iterator = values();
+console.log(iterator.next(), iterator.next(), iterator.next());
+```
+
+## Options
+
+### yield-return-complete (correct)
+
+`{ value: 1, done: false }`, `{ value: 2, done: true }`, then `{ value: undefined, done: true }`
+
+> The first `next()` pauses at `yield`; the second completes with the return value; subsequent calls stay complete.
+
+### both-not-done
+
+Both `1` and `2` are returned with `done: false`.
+
+> A generator `return` completes the iterator and produces `done: true`.
+
+### runs-at-call
+
+Calling `values()` immediately returns `1`, so the first `next()` returns `2`.
+
+> Calling a generator function creates an iterator without running the body to its first yield.
+
+### third-restarts
+
+The third `next()` restarts the generator and yields `1` again.
+
+> A completed generator iterator cannot restart; a new generator call is required.

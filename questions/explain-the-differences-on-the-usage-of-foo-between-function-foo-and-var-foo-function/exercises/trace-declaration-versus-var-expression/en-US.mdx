@@ -1,0 +1,44 @@
+---
+type: single-select
+---
+
+What happens when this classic script runs?
+
+```js
+declared();
+expressed();
+
+function declared() {
+  console.log('declared');
+}
+
+var expressed = function () {
+  console.log('expressed');
+};
+```
+
+## Options
+
+### logs-then-type-error (correct)
+
+It logs `declared`, then throws `TypeError` before the assignment to `expressed` runs.
+
+> The declaration is initialized with its function during setup, while the `var` binding initially contains `undefined`.
+
+### both-log
+
+It logs `declared`, then `expressed`.
+
+> The function expression is not created until evaluation reaches its assignment.
+
+### reference-error-first
+
+The first call throws `ReferenceError`.
+
+> Function declarations are available throughout their enclosing scope before their source location.
+
+### reference-error-second
+
+It logs `declared`, then the second call throws `ReferenceError`.
+
+> The `var` binding exists, so lookup succeeds; attempting to call its `undefined` value produces `TypeError`.

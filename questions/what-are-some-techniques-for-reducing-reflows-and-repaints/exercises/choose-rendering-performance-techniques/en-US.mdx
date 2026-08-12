@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which techniques can reduce avoidable layout and paint work? Select all that apply.
+
+## Options
+
+### batch-dom-writes (correct)
+
+Batch related DOM mutations instead of exposing many intermediate layouts.
+
+> Fewer live-tree update phases can reduce repeated style and layout work.
+
+### reads-before-writes (correct)
+
+Group layout reads before writes to avoid repeated forced synchronous layout.
+
+> Reading geometry after a mutation can force the browser to flush pending layout immediately.
+
+### transform-opacity (correct)
+
+Prefer animating `transform` and `opacity` when they satisfy the visual requirement.
+
+> Those properties can often avoid layout and use compositor-friendly updates.
+
+### temporary-will-change (correct)
+
+Apply `will-change` shortly before a known expensive change and remove it afterward.
+
+> Targeted preparation can help, while permanent broad hints consume resources.
+
+### will-change-everything
+
+Set `will-change` on every element permanently to maximize performance.
+
+> Excess compositor resources and memory can make performance worse.

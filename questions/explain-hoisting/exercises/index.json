@@ -1,0 +1,7 @@
+{
+  "ids": [
+    "classify-pre-declaration-behavior",
+    "trace-shared-var-binding",
+    "explain-scope-instantiation"
+  ]
+}

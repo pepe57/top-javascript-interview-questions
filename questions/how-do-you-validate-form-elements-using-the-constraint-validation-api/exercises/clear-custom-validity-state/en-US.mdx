@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A password-confirmation field previously called `setCustomValidity("Passwords differ")`. The values now match, but `reportValidity()` still marks the field invalid. What must the code do?
+
+## Options
+
+### clear-empty-message (correct)
+
+Call `setCustomValidity("")` before reporting validity again.
+
+> Any nonempty custom-validity message keeps the control invalid until explicitly cleared.
+
+### remove-required
+
+Remove the field’s `required` attribute.
+
+> The lingering custom error is independent of the required constraint.
+
+### call-check-twice
+
+Call `checkValidity()` twice so the browser resets the prior message.
+
+> Validity checks do not clear application-supplied custom error state.
+
+### prevent-default
+
+Call `event.preventDefault()` on the input event.
+
+> Preventing an event’s default action does not change the control’s validity state.

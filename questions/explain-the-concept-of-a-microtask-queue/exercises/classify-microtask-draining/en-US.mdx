@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about microtask checkpoints are correct? Select all that apply.
+
+## Options
+
+### stack-must-finish (correct)
+
+The current task or callback runs to completion before queued microtasks are drained.
+
+> JavaScript does not interrupt the active stack to run a newly queued microtask.
+
+### nested-microtasks-same-checkpoint (correct)
+
+A microtask queued by another microtask can run in the same checkpoint.
+
+> The queue is drained until empty, including work added during the drain.
+
+### starvation-risk (correct)
+
+Continually queuing new microtasks can delay rendering and later tasks.
+
+> An unbounded drain prevents the runtime from reaching its rendering or next-task opportunity.
+
+### one-per-task
+
+The runtime runs at most one microtask after each task.
+
+> A checkpoint drains the microtask queue rather than selecting only one callback.

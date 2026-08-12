@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A page needs to initialize a menu as soon as its markup and deferred scripts are ready. A large non-lazy hero image may still be downloading. Which event should the initializer use?
+
+## Options
+
+### dom-content-loaded (correct)
+
+`DOMContentLoaded`
+
+> It fires once parsing is complete and deferred/module scripts have executed without directly waiting for the hero image.
+
+### window-load
+
+The window `load` event
+
+> `load` waits for dependent resources such as the non-lazy image, delaying DOM-only initialization unnecessarily.
+
+### before-unload
+
+`beforeunload`
+
+> `beforeunload` relates to leaving the page, not readiness after parsing.
+
+### readystatechange-loading
+
+`readystatechange` when `readyState` is `"loading"`
+
+> The `loading` state means parsing is still in progress, so required menu markup may not exist yet.

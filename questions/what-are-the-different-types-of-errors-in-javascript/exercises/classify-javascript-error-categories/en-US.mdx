@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which error classifications are correct? Select all that apply.
+
+## Options
+
+### syntax-parse-time (correct)
+
+An unclosed string literal can produce a `SyntaxError` before the script executes.
+
+> The parser cannot construct a valid program from the source.
+
+### reference-runtime (correct)
+
+Reading an unresolved identifier can produce a runtime `ReferenceError`.
+
+> Name resolution fails when evaluation reaches that expression.
+
+### type-runtime (correct)
+
+Calling a non-callable value can produce a runtime `TypeError`.
+
+> The operation is incompatible with the type of the resolved value.
+
+### logical-no-throw (correct)
+
+A logical error can return the wrong result without throwing any exception.
+
+> Tests and debugging are required because the program remains syntactically and operationally valid.
+
+### catch-all-errors
+
+Every logical error is automatically represented by a built-in Error subclass and reaches `catch`.
+
+> Incorrect algorithms commonly finish normally with an incorrect value.

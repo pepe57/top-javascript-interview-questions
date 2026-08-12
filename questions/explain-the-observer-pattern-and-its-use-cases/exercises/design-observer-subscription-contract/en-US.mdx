@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+Design the behavioral contract for an in-process `subscribe(listener)` API used by multiple UI consumers. Cover cleanup, delivery, failures, and subscription changes during notification.
+
+## Answer
+
+Return an idempotent unsubscribe function so each consumer can release the listener. Define whether delivery is synchronous or queued and preserve a documented ordering. Decide whether one listener error stops delivery, is collected, or is reported separately rather than leaving failure behavior accidental. Iterate over a stable snapshot or explicitly define whether listeners added or removed during a notification affect that same notification. Use a direct call instead if there is only one known consumer that must return an immediate result.
+
+## Checklist
+
+- Returns an idempotent unsubscribe mechanism.
+- Defines timing and listener ordering.
+- Defines error isolation or propagation behavior.
+- Defines mutation behavior during a notification.

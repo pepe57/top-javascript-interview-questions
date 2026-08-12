@@ -1,0 +1,15 @@
+---
+type: self-review
+---
+
+A `Report` can optionally be encrypted, cached, compressed, and retried. Explain whether a subclass for every capability combination or composition is the better default, and when inheritance would still be appropriate.
+
+## Answer
+
+Composition is the better default because the capabilities are optional and independently variable; injecting or wrapping strategies avoids a rapidly growing subclass hierarchy and lets each capability change independently. Inheritance is appropriate when a subtype has a stable is-a relationship, honors the parent contract everywhere it is used, and needs a coherent specialization rather than a mix of unrelated optional behaviors.
+
+## Checklist
+
+- Recognizes the capabilities as independently variable concerns.
+- Explains how composition avoids a combinatorial subclass hierarchy.
+- Limits inheritance to a stable substitutable is-a relationship.

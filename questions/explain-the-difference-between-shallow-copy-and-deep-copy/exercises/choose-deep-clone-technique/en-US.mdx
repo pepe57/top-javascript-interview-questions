@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about JavaScript copying techniques are correct? Select all that apply.
+
+## Options
+
+### spread-is-shallow (correct)
+
+Array and object spread create shallow copies of the values they expand.
+
+> Nested object references are copied as references rather than recursively duplicated.
+
+### structured-clone-supports-cycles (correct)
+
+`structuredClone()` can copy many built-in data types and cyclic object graphs.
+
+> The structured-clone algorithm tracks graph identity instead of serializing only an acyclic JSON tree.
+
+### json-preserves-all-values
+
+`JSON.parse(JSON.stringify(value))` faithfully preserves `Date`, `Map`, `undefined`, cycles, and custom prototypes.
+
+> JSON serialization drops or transforms several of those values and throws on cycles.
+
+### clone-policy-depends-on-ownership (correct)
+
+Whether nested state should be shared or copied depends on ownership and identity requirements.
+
+> A deep copy is not automatically correct when parts of an object intentionally represent shared identities or resources.

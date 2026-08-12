@@ -1,0 +1,48 @@
+---
+type: single-select
+---
+
+What happens when this classic script runs?
+
+```js
+function read(kind) {
+  if (kind === 'var') {
+    return value;
+    var value = 1;
+  }
+
+  if (kind === 'let') {
+    return value;
+    let value = 1;
+  }
+}
+
+console.log(read('var'));
+console.log(read('let'));
+```
+
+## Options
+
+### logs-undefined-then-throws (correct)
+
+It logs `undefined`, then the second call throws `ReferenceError`.
+
+> The `var` binding is initialized to `undefined` during function-scope setup, while the `let` binding remains uninitialized in its block's temporal dead zone.
+
+### logs-undefined-twice
+
+It logs `undefined` twice.
+
+> A lexical binding is not initialized to `undefined` before its declaration; reading it in the temporal dead zone throws instead.
+
+### logs-values
+
+It logs `1`, then `1`.
+
+> The initializer expressions run only when evaluation reaches them, and both returns occur first.
+
+### throws-before-output
+
+The first call throws `ReferenceError`, so nothing is logged.
+
+> `var value` is initialized before the function body executes, so the first return can read it as `undefined`.

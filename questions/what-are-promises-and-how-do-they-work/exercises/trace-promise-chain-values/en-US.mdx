@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+Promise.resolve(2)
+  .then((value) => value * 3)
+  .then((value) => {
+    throw new Error(String(value));
+  })
+  .catch((error) => Number(error.message) + 1)
+  .then(console.log);
+
+console.log('sync');
+```
+
+## Options
+
+### sync-then-seven (correct)
+
+`sync`, then `7`
+
+> Promise reactions run as microtasks; returned `6` flows forward, the throw rejects the next promise, and `catch` recovers with `7`.
+
+### seven-then-sync
+
+`7`, then `sync`
+
+> Even an already fulfilled promise schedules its reactions after the current synchronous script.
+
+### sync-then-six
+
+`sync`, then `6`
+
+> The thrown error is handled and its numeric message is incremented before the final log.
+
+### sync-unhandled
+
+`sync`, followed by an unhandled rejection
+
+> The chain includes a rejection handler that catches the thrown error and returns a fulfilled value.

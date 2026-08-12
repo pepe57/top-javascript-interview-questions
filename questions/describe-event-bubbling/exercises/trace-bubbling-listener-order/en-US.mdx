@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+A user clicks the `button`. What does this code log?
+
+```js
+const outer = document.querySelector('#outer');
+const button = document.querySelector('button');
+
+outer.addEventListener('click', () => console.log('outer'));
+button.addEventListener('click', () => console.log('button'));
+document.body.addEventListener('click', () => console.log('body'));
+```
+
+## Options
+
+### button-outer-body (correct)
+
+`button`, then `outer`, then `body`
+
+> The event reaches its target and then bubbles through ancestors from the nearest ancestor outward.
+
+### body-outer-button
+
+`body`, then `outer`, then `button`
+
+> That is ancestor-to-target order; these listeners use the default bubbling phase rather than capture.
+
+### button-only
+
+`button` only
+
+> A click bubbles by default, so ancestor bubble listeners also receive it unless propagation is stopped.
+
+### outer-body-button
+
+`outer`, then `body`, then `button`
+
+> The target listener runs before ancestor listeners during the bubbling phase.

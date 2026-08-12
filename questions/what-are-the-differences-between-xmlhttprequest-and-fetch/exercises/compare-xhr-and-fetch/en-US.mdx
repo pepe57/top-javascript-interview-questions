@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly compare `XMLHttpRequest` and `fetch()`? Select all that apply.
+
+## Options
+
+### events-versus-promises (correct)
+
+XHR exposes an event/callback-oriented interface, while Fetch returns a promise for a `Response`.
+
+> Their primary composition styles differ even though both make HTTP requests.
+
+### fetch-http-status (correct)
+
+Fetch normally fulfills for HTTP 404 or 500, so callers must inspect the response status.
+
+> Its promise rejects for request-level failures such as network, CORS, or abort failures.
+
+### different-cancellation-api (correct)
+
+Fetch uses `AbortController` for cancellation, while XHR exposes an `abort()` method.
+
+> Both can be canceled, but through different API shapes.
+
+### xhr-upload-progress (correct)
+
+XHR currently offers more convenient standard browser upload-progress events.
+
+> Fetch response streams support download progress, but standard upload progress remains less direct.
+
+### xhr-no-cache
+
+XHR always bypasses the browser HTTP cache, while only Fetch can use it.
+
+> Both participate in browser HTTP caching; Fetch additionally exposes a request cache option.

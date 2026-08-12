@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const user = { name: 'Ada', role: undefined };
+const { name: label, role = 'guest' } = user;
+const [first, , third = 9] = [1, 2];
+
+console.log(label, role, first, third);
+```
+
+## Options
+
+### ada-guest-one-nine (correct)
+
+`Ada guest 1 9`
+
+> Object destructuring renames `name`, the `undefined` role triggers its default, the array hole skips `2`, and the missing third item triggers `9`.
+
+### ada-undefined-one-nine
+
+`Ada undefined 1 9`
+
+> A destructuring default applies when the extracted value is `undefined`, so `role` becomes `guest`.
+
+### ada-guest-one-two
+
+`Ada guest 1 2`
+
+> The extra comma skips the second array element; `third` reads a missing third element and uses its default.
+
+### reference-error
+
+It throws `ReferenceError` because `name` was renamed.
+
+> Renaming creates `label`; the code only reads that declared binding and does not reference `name` afterward.

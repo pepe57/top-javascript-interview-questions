@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices correctly use the `Intl` APIs? Select all that apply.
+
+## Options
+
+### currency-option (correct)
+
+Format money with `Intl.NumberFormat(locale, { style: "currency", currency })` while storing the currency separately from the amount.
+
+> The formatter needs an explicit currency code to apply locale-aware currency conventions.
+
+### date-time-zone (correct)
+
+Specify `timeZone` when a date must be displayed in a particular business or user time zone.
+
+> Otherwise output can depend on the runtime’s default time zone.
+
+### collator-comparison (correct)
+
+Use `Intl.Collator` for locale-aware string comparison and sorting.
+
+> It handles language-specific ordering and configurable sensitivity better than hand-built character rules.
+
+### semantic-output-tests (correct)
+
+Prefer semantic parts or representative expectations over assuming punctuation is identical in every locale-data version.
+
+> Exact spacing and separators can vary while the formatted meaning remains correct.
+
+### manual-concatenation
+
+Create every localized plural, date, and currency string by concatenating fixed English fragments.
+
+> Word order, plural categories, symbols, separators, and calendars vary across locales.

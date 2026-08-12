@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+let missing;
+const empty = null;
+
+console.log(
+  missing === undefined,
+  empty === null,
+  typeof neverDeclared,
+  typeof empty,
+);
+```
+
+## Options
+
+### true-true-undefined-object (correct)
+
+`true true undefined object`
+
+> The declared uninitialized binding contains `undefined`, null matches explicitly, `typeof` safely checks an undeclared name, and `typeof null` has its historical object result.
+
+### true-true-reference-error-object
+
+It throws `ReferenceError` at `typeof neverDeclared`.
+
+> `typeof` is specifically safe for an identifier with no declaration in scope.
+
+### true-false-undefined-null
+
+`true false undefined null`
+
+> `empty` is exactly null, while `typeof` never returns the string `null`.
+
+### false-true-undefined-object
+
+`false true undefined object`
+
+> A `let` declaration without an initializer is initialized to `undefined` when evaluated.

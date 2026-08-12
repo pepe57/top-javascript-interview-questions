@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A comment value is untrusted plain text and may contain `<img src=x onerror=...>`. Which assignment safely displays those characters without interpreting them as markup?
+
+## Options
+
+### text-content (correct)
+
+`element.textContent = comment`
+
+> `textContent` creates text content and does not invoke the HTML parser.
+
+### inner-html
+
+`element.innerHTML = comment`
+
+> `innerHTML` parses the string as markup and creates an XSS sink for untrusted content.
+
+### outer-html
+
+`element.outerHTML = comment`
+
+> This also parses HTML and replaces the element itself.
+
+### insert-adjacent-html
+
+`element.insertAdjacentHTML("beforeend", comment)`
+
+> The API explicitly parses its string argument as HTML.

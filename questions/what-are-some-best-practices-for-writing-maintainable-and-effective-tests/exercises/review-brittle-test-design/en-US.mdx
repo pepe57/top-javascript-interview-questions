@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A test mocks every helper, reproduces the production calculation to derive its expected value, and leaves fake timers enabled. Explain how to improve it.
+
+## Answer
+
+Rewrite the test around an observable behavior and use an explicit expected result that documents the contract instead of duplicating the implementation. Keep real deterministic collaborators when they improve confidence, and mock only slow, destructive, nondeterministic, or unavailable boundaries. Name the scenario and outcome clearly so a failure is diagnosable. Restore fake timers and every other mutated global after the test so execution order cannot contaminate later cases.
+
+## Checklist
+
+- Asserts observable behavior with an explicit expected value.
+- Avoids duplicating production logic in the assertion.
+- Mocks only boundaries where control or isolation adds value.
+- Restores timers and other mutated state.

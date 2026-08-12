@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements are important when designing or consuming an asynchronous callback API? Select all that apply.
+
+## Options
+
+### timing-and-count-contract (correct)
+
+The API should define when the callback can run and whether it may run more than once.
+
+> Consumers need timing and cardinality guarantees to manage state and cleanup correctly.
+
+### error-channel (correct)
+
+The contract should define how asynchronous failures reach the caller.
+
+> A surrounding synchronous `try...catch` cannot catch an error reported later unless the API routes it through an agreed channel.
+
+### cancellation-cleanup (correct)
+
+Long-lived operations should expose cancellation or unsubscription when callers may no longer need the result.
+
+> Cleanup prevents stale work, unwanted updates, and retained listeners or resources.
+
+### parallel-javascript
+
+Scheduling a callback guarantees that its JavaScript runs in parallel with other JavaScript on the same thread.
+
+> The callback runs later, but when selected it still occupies the JavaScript thread unless work was explicitly moved elsewhere.
+
+### return-value-to-caller
+
+Returning a value from a later callback returns that value from the function that originally registered it.
+
+> The registering function has already returned; callback results need another communication mechanism.

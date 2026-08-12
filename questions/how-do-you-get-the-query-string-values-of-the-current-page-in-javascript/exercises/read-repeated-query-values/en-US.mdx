@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+The current URL ends with `?tag=js&tag=web&empty=`. What does this code log?
+
+```js
+const params = new URLSearchParams(window.location.search);
+console.log(
+  params.get('tag'),
+  params.getAll('tag').length,
+  params.get('empty'),
+);
+```
+
+## Options
+
+### js-two-empty-string (correct)
+
+`js 2` followed by an empty string value
+
+> `get()` returns the first matching value, `getAll()` returns both values, and a present parameter with no content has the empty string value.
+
+### web-one-null
+
+`web 1 null`
+
+> `get()` uses the first value, repeated parameters are preserved, and `empty` is present rather than missing.
+
+### js-one-null
+
+`js 1 null`
+
+> `getAll()` includes both `tag` occurrences and the empty parameter resolves to `""`.
+
+### array-two-undefined
+
+`["js", "web"] 2 undefined`
+
+> `get()` returns one string, not an array, and missing values use `null` rather than `undefined`.

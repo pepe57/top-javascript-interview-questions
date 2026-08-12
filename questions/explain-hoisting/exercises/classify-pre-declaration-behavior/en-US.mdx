@@ -1,0 +1,51 @@
+---
+type: multi-select
+---
+
+Each snippet runs independently as a classic script. Which descriptions match the actual behavior? Select all that apply.
+
+## Options
+
+### var-reads-undefined (correct)
+
+```js
+console.log(total);
+var total = 4;
+```
+
+This logs `undefined`.
+
+> Scope setup creates the `var` binding and initializes it to `undefined`; the assignment to `4` happens only when evaluation reaches it.
+
+### class-typeof-is-undefined
+
+```js
+console.log(typeof Widget);
+class Widget {}
+```
+
+This logs `"undefined"`.
+
+> The `Widget` binding exists but remains uninitialized in the temporal dead zone, so even `typeof Widget` throws `ReferenceError`.
+
+### var-function-expression-is-callable
+
+```js
+start();
+var start = () => {};
+```
+
+This calls the function successfully.
+
+> The `var` binding initially contains `undefined`; calling it before the function expression is evaluated throws `TypeError`.
+
+### function-declaration-is-callable (correct)
+
+```js
+launch();
+function launch() {}
+```
+
+This calls the function successfully.
+
+> Scope setup initializes a function declaration's binding with its function object before the script's statements run.

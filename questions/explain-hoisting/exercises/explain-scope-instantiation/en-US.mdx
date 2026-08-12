@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+An interviewer says, "JavaScript hoists declarations by moving them to the top of the scope." Give a more precise explanation, including why `var`, function declarations, and lexical declarations behave differently before their source locations.
+
+## Answer
+
+JavaScript does not move source text. Before evaluating a scope's statements, it instantiates the scope and creates its declared bindings. A `var` binding is initialized to `undefined`, while a function declaration's binding is initialized with its function object. Bindings for `let`, `const`, and `class` are also created during scope setup, but remain uninitialized in the temporal dead zone until their declarations are evaluated. Assignments and lexical initialization still occur at their original source locations.
+
+## Checklist
+
+- Replaces the source-moving metaphor with binding creation during scope instantiation.
+- Distinguishes `var` initialization from function-declaration initialization.
+- Explains that lexical bindings exist but remain uninitialized in the temporal dead zone.
+- Keeps assignments and lexical initialization at their original evaluation points.

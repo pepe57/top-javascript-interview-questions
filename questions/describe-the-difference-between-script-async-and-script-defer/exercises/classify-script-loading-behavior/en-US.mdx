@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about classic external scripts are correct? Select all that apply.
+
+## Options
+
+### classic-blocks-parser (correct)
+
+A classic `<script src="app.js">` encountered during parsing normally pauses HTML parsing while it loads and executes.
+
+> Without `async` or `defer`, the parser waits for the external classic script.
+
+### async-runs-when-ready (correct)
+
+An `async` script downloads in parallel and executes as soon as it is ready, so relative order between async scripts is not guaranteed.
+
+> Availability rather than document order determines when independent async scripts execute.
+
+### defer-keeps-document-order (correct)
+
+Deferred classic scripts execute after parsing and preserve their document order.
+
+> `defer` combines parallel downloading with ordered execution after the document has been parsed.
+
+### async-waits-for-dom
+
+An `async` script always waits until the full document has been parsed before executing.
+
+> An async script can interrupt parsing as soon as its download completes.
+
+### defer-blocks-download
+
+A `defer` script waits to begin downloading until parsing is complete.
+
+> Deferred scripts download in parallel with parsing; only their execution is deferred.

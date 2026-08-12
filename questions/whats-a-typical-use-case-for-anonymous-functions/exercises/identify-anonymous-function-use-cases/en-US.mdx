@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which are sensible uses of an anonymous function or arrow expression? Select all that apply.
+
+## Options
+
+### short-map-transform (correct)
+
+`items.map((item) => item.id)` for a short transformation used only at that call site.
+
+> The local callback is concise and its purpose is evident from the higher-order operation.
+
+### event-listener-callback (correct)
+
+A small event callback whose lifecycle and cleanup are owned at the registration site.
+
+> A one-off callback can be clearer inline when it does not need reuse or separate testing.
+
+### iife-scope (correct)
+
+A legacy IIFE used to create a private scope before standardized modules.
+
+> The function expression executes immediately and keeps its bindings out of global scope.
+
+### deep-recursion-debugging
+
+A large recursive algorithm that must refer to itself and appear clearly in stack traces should always remain anonymous.
+
+> A meaningful function name improves self-reference, debugging, profiling, and readability.
+
+### anonymous-means-async
+
+Making a function anonymous causes the runtime to schedule it asynchronously.
+
+> Timing depends on the receiving API, not whether the function has a name.

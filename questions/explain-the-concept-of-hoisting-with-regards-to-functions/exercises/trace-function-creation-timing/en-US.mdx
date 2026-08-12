@@ -1,0 +1,42 @@
+---
+type: single-select
+---
+
+What happens when this classic script runs?
+
+```js
+console.log(typeof declared);
+console.log(typeof expressed);
+
+declared();
+expressed();
+
+function declared() {}
+var expressed = function () {};
+```
+
+## Options
+
+### function-undefined-then-type-error (correct)
+
+It logs `function`, then `undefined`; `declared()` succeeds and `expressed()` throws `TypeError`.
+
+> The declaration is initialized with its function during scope setup, while the `var` binding starts as `undefined` until the expression is evaluated.
+
+### function-function-both-work
+
+It logs `function` twice and both calls succeed.
+
+> The function expression is not created until evaluation reaches its assignment.
+
+### undefined-undefined-first-fails
+
+It logs `undefined` twice and `declared()` fails first.
+
+> A function declaration is initialized before statements execute, so it is already callable.
+
+### reference-error-on-expressed-typeof
+
+The second `typeof` throws `ReferenceError`.
+
+> The `var expressed` binding already exists and contains `undefined`, so `typeof` is safe and returns `undefined`.

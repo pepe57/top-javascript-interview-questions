@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements correctly address common `this` pitfalls? Select all that apply.
+
+## Options
+
+### bind-detached-callback (correct)
+
+Use `object.method.bind(object)` when a callback must permanently invoke a regular method with that receiver.
+
+> `bind` creates a wrapper with a stored `this` value.
+
+### arrow-captures-outer (correct)
+
+Use an arrow for a nested callback when it should reuse the enclosing method’s receiver.
+
+> The arrow resolves `this` lexically instead of from its callback invocation.
+
+### arrow-object-method
+
+Define every object method as an arrow property so `obj.method()` automatically binds `obj`.
+
+> An arrow ignores the property-call receiver and captures `this` from the surrounding creation scope.
+
+### call-site-matters (correct)
+
+Inspect how an ordinary function is called, not merely where the function was written.
+
+> Ordinary `this` binding is primarily determined by invocation form.

@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about a bubbling click event are correct? Select all that apply.
+
+## Options
+
+### target-stays-origin (correct)
+
+`event.target` continues to identify the deepest element where the event originated as ancestor listeners run.
+
+> `target` describes the origin of the dispatch, not the listener currently handling it.
+
+### current-target-changes (correct)
+
+`event.currentTarget` identifies the element whose listener is currently executing.
+
+> Each listener observes its own registered element through `currentTarget`.
+
+### prevent-default-stops-bubbling
+
+`event.preventDefault()` prevents the event from reaching ancestor listeners.
+
+> `preventDefault()` cancels a default browser action; `stopPropagation()` controls propagation.
+
+### stop-propagation-blocks-ancestors (correct)
+
+Calling `event.stopPropagation()` at the target prevents later ancestor listeners on the event path from running.
+
+> Stopping propagation prevents the event from continuing along the remaining propagation path.

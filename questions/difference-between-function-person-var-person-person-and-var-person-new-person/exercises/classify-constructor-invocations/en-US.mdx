@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Assume `Person` is an ordinary constructible function intended to initialize `this.name`. Which statements are correct? Select all that apply.
+
+## Options
+
+### declaration-creates-function (correct)
+
+`function Person() {}` declares a function object but does not create a `Person` instance by itself.
+
+> The declaration defines the callable/constructible function; an invocation is required to create an instance.
+
+### new-creates-instance (correct)
+
+`new Person()` creates an object linked to `Person.prototype` and invokes `Person` with that object as `this`.
+
+> Those steps are central to constructor invocation with `new`.
+
+### plain-call-links-prototype
+
+`Person()` automatically creates and returns an object linked to `Person.prototype`.
+
+> A plain call does not perform the instance-creation or prototype-linking steps of `new`.
+
+### plain-call-return-matters (correct)
+
+If `Person()` has no explicit return, assigning its plain-call result usually assigns `undefined`.
+
+> An ordinary function with no reached return value evaluates to `undefined`.
+
+### new-always-returns-explicit-primitive
+
+If the constructor explicitly returns a primitive, `new Person()` returns that primitive instead of the new instance.
+
+> A primitive constructor return is ignored; only an explicit object return can replace the newly created instance.

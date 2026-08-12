@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly compare CommonJS and ECMAScript modules? Select all that apply.
+
+## Options
+
+### commonjs-syntax (correct)
+
+CommonJS conventionally uses `require()` with `module.exports` or `exports`.
+
+> Those APIs define its loading and export style in Node.js ecosystems.
+
+### esm-static-linking (correct)
+
+Static ESM `import` and `export` declarations are analyzed and linked before module evaluation.
+
+> Their top-level static structure enables early linking and bundler analysis.
+
+### dynamic-import-promise (correct)
+
+`import()` is the ESM mechanism for dynamic loading and returns a promise.
+
+> It can be used conditionally without turning static import declarations into function calls.
+
+### browser-native-commonjs
+
+Browsers execute CommonJS `require()` natively in ordinary script files without a loader or bundler.
+
+> CommonJS is not a native browser module system; toolchain or runtime support is needed.
+
+### formats-always-interchangeable
+
+A file can freely mix both formats with identical behavior in every runtime.
+
+> Interop, file interpretation, resolution, and evaluation semantics depend on the host and package configuration.

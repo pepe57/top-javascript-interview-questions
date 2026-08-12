@@ -1,0 +1,37 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const score = 72;
+const label = score >= 80 ? 'high' : score >= 60 ? 'medium' : 'low';
+console.log(label);
+```
+
+## Options
+
+### medium (correct)
+
+`medium`
+
+> The first condition is false, then the nested false branch tests `score >= 60`, which is true.
+
+### high
+
+`high`
+
+> A score of 72 does not satisfy the first `>= 80` condition.
+
+### low
+
+`low`
+
+> The second condition succeeds, so evaluation does not select its false branch.
+
+### boolean-true
+
+`true`
+
+> The conditional expression returns one of its string expressions, not the condition value itself.

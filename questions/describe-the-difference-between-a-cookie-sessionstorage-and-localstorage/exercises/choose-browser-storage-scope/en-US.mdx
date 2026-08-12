@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A checkout draft should survive reloads in the current tab, remain isolated from another tab on the same origin, and disappear when the tab closes. Which storage mechanism best matches those requirements?
+
+## Options
+
+### session-storage (correct)
+
+`sessionStorage`
+
+> `sessionStorage` is scoped to an origin and a page session, survives reloads, and is normally cleared when that tab closes.
+
+### local-storage
+
+`localStorage`
+
+> `localStorage` persists until cleared and is shared with other same-origin tabs, so it violates both isolation and lifetime requirements.
+
+### persistent-cookie
+
+A persistent cookie
+
+> A persistent cookie can outlive the tab and is sent with matching requests, neither of which is needed here.
+
+### session-cookie
+
+A session cookie
+
+> A session cookie is browser-session scoped rather than reliably isolated to one tab.

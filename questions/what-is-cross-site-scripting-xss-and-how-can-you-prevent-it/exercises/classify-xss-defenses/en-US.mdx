@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices correctly reduce Cross-Site Scripting risk? Select all that apply.
+
+## Options
+
+### safe-text-api (correct)
+
+Insert untrusted plain text with `textContent` or framework text interpolation.
+
+> These APIs represent the value as text instead of parsing it as executable markup.
+
+### contextual-encoding (correct)
+
+Encode output for the specific HTML, attribute, URL, CSS, or JavaScript context where it will appear.
+
+> Different parsers have different escaping rules; one universal encoding does not fit every sink.
+
+### sanitize-intentional-html (correct)
+
+Use a maintained HTML sanitizer when the product intentionally permits a constrained HTML subset.
+
+> Sanitization removes or rewrites dangerous markup while retaining allowed structure.
+
+### csp-defense-depth (correct)
+
+Add a nonce- or hash-based CSP as defense in depth.
+
+> A strong policy can block unauthorized script execution if an injection bug remains.
+
+### input-validation-alone
+
+Rejecting angle brackets during input validation is a complete XSS defense for every future output context.
+
+> Valid data can become dangerous in a different parser context; protection belongs at each sink.

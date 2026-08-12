@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+A user clicks the `span` inside the button. What relationship holds in the regular-function listener?
+
+```js
+button.addEventListener('click', function (event) {
+  console.log(
+    this === button,
+    event.currentTarget === button,
+    event.target === button,
+  );
+});
+```
+
+## Options
+
+### true-true-false (correct)
+
+`true true false`
+
+> For a regular listener `this` equals the registered element and therefore `currentTarget`; the nested span remains the event target.
+
+### true-false-false
+
+`true false false`
+
+> `event.currentTarget` is also the button whose listener is executing.
+
+### false-true-false
+
+`false true false`
+
+> The browser invokes a non-arrow event listener with `this` set to the same element as `currentTarget`.
+
+### true-true-true
+
+`true true true`
+
+> The deepest clicked span is `event.target`, even though the button owns the listener.

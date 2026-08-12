@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+Explain how the classic IIFE Module pattern hides state, and when an ES module or per-instance closure is the better modern choice.
+
+## Answer
+
+The IIFE creates a function scope once, closes over private bindings, and returns a small public object whose methods retain access to those bindings. This prevents direct global access but creates one shared module instance. For new file-based code, ES modules provide explicit imports, exports, and module scope without the wrapper. Use a factory closure or private class fields when each created instance needs independent private state rather than one value shared by every importer.
+
+## Checklist
+
+- Explains privacy through IIFE scope and closure.
+- Identifies the returned object as the explicit public API.
+- Prefers ES module scope for modern file-level encapsulation.
+- Uses closures or private fields for per-instance private state.

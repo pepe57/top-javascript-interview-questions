@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A browser application needs to share a `formatPrice` function without adding globals. Which approach uses the standard JavaScript module boundary?
+
+## Options
+
+### esm-export-import (correct)
+
+Export it from one module and import it from another with ESM `export` and `import` syntax.
+
+> ES modules provide explicit per-file public APIs and their own module scopes.
+
+### window-property
+
+Assign it to `window.formatPrice` and read that global from every file.
+
+> A mutable global creates hidden coupling and collision risk instead of an explicit dependency.
+
+### duplicate-function
+
+Copy the function source into each script that needs it.
+
+> Duplicated implementations drift and do not create one maintained shared module.
+
+### browser-commonjs-native
+
+Call CommonJS `require()` directly in an ordinary browser script with no loader or build step.
+
+> Browsers do not natively provide the CommonJS loader API.

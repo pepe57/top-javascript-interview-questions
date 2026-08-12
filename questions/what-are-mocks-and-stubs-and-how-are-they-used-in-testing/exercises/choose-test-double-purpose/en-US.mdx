@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which uses of test doubles are appropriate? Select all that apply.
+
+## Options
+
+### stub-controlled-response (correct)
+
+Stub a payment boundary to return a deterministic approved or declined response in a unit test.
+
+> The stub supplies controlled behavior for a slow or destructive external dependency.
+
+### spy-observable-call (correct)
+
+Use a spy when whether and how a documented collaborator was called is itself part of the observable contract.
+
+> A spy records interaction data without necessarily replacing all behavior.
+
+### mock-expectation (correct)
+
+A mock can combine configured behavior with an expectation that a specific interaction occurs.
+
+> Terminology varies, but interaction verification is a common mock role.
+
+### mock-every-helper
+
+Mock every internal helper so a refactor that preserves behavior must rewrite the tests.
+
+> That couples tests to implementation structure and reduces their value as refactoring support.
+
+### doubles-prove-integration
+
+Passing tests with doubles prove that the real payment client and application still agree on their protocol.
+
+> A separate integration or contract test is needed to verify the real boundary.

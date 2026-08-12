@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about JavaScript error propagation are correct? Select all that apply.
+
+## Options
+
+### sync-walks-stack (correct)
+
+A synchronous exception moves up the current call stack until a matching `catch` handles it or it becomes uncaught.
+
+> Synchronous callers form the propagation path for the active exception.
+
+### rejection-follows-chain (correct)
+
+A promise rejection continues through returned promise links until a rejection handler handles it.
+
+> Missing fulfillment handlers do not consume a rejection; it propagates to a later `catch()` or rejection callback.
+
+### callback-needs-error-channel (correct)
+
+A later callback failure needs an API-defined error callback, event, promise, or similar channel to reach registering code reliably.
+
+> The stack that registered the callback is gone by the time the callback executes.
+
+### outer-catch-catches-timer
+
+A `try...catch` around `setTimeout(() => { throw error; })` catches the later timer exception.
+
+> The timer callback executes on a later stack outside the dynamic extent of that `try` block.

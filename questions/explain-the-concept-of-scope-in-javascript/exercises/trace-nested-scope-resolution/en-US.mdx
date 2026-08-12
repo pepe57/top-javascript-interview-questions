@@ -1,0 +1,46 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const value = 'global';
+
+function read() {
+  var suffix = 'function';
+  if (true) {
+    const value = 'block';
+    console.log(`${value}:${suffix}`);
+  }
+  console.log(value);
+}
+
+read();
+```
+
+## Options
+
+### block-function-global (correct)
+
+`block:function`, then `global`
+
+> The block binding shadows the global only inside the block, while the function-scoped `suffix` is visible to the nested block.
+
+### block-function-block
+
+`block:function`, then `block`
+
+> The block-scoped `value` is no longer visible after the closing brace.
+
+### global-function-global
+
+`global:function`, then `global`
+
+> The nearer block declaration shadows `value` for the first log.
+
+### reference-error-suffix
+
+The first log throws because `suffix` was declared outside the block.
+
+> Nested scopes can read unshadowed bindings from their enclosing function scope.

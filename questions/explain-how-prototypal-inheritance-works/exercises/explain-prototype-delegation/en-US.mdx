@@ -1,0 +1,15 @@
+---
+type: self-review
+---
+
+Explain why two objects created with the same prototype can share a method without copying it, and what happens when one object defines an own property with the same name.
+
+## Answer
+
+Each object stores an internal prototype link to the shared prototype. When a requested property is absent as an own property, lookup delegates along that link, so both objects can resolve the same method object. Defining an own property with the same name shadows the prototype property for that object only; it does not modify the shared prototype or the other object.
+
+## Checklist
+
+- Describes lookup delegation through the internal prototype link.
+- Explains that the method is shared rather than copied into each object.
+- Distinguishes own-property shadowing from modifying the prototype.

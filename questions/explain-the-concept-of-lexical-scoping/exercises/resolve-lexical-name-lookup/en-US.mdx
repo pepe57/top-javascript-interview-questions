@@ -1,0 +1,49 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const label = 'global';
+
+function makeReader() {
+  const label = 'creation';
+  return function read() {
+    return label;
+  };
+}
+
+function invoke(reader) {
+  const label = 'call';
+  return reader();
+}
+
+console.log(invoke(makeReader()));
+```
+
+## Options
+
+### global
+
+`global`
+
+> Lookup finds the `label` in `makeReader` before it reaches the global scope.
+
+### creation (correct)
+
+`creation`
+
+> The returned function resolves names through the scopes where it was defined, so it reads `makeReader`'s `label`.
+
+### call
+
+`call`
+
+> Lexical lookup does not search the local variables of the function that happens to call `reader`.
+
+### reference-error
+
+It throws `ReferenceError` because `makeReader` has returned.
+
+> The returned function retains access to its lexical environment after the outer call finishes.

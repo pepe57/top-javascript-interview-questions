@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+Which description of this code is precise?
+
+```js
+function greet(name = 'Guest') {
+  return `Hello, ${name}`;
+}
+
+const displayName = 'Ada';
+greet(displayName);
+```
+
+## Options
+
+### name-parameter-display-name-argument (correct)
+
+`name` is a parameter, and `displayName` is the argument expression supplied by the call.
+
+> Parameters appear in a function definition; arguments are the values or expressions supplied when the function is invoked.
+
+### display-name-parameter-name-argument
+
+`displayName` is a parameter, and `name` is an argument.
+
+> `displayName` appears at the call site, while `name` is declared in the function's parameter list.
+
+### guest-is-always-argument
+
+`'Guest'` is an argument passed to every call of `greet`.
+
+> `'Guest'` is a default parameter initializer used only when the corresponding argument is missing or `undefined`.
+
+### greet-is-parameter
+
+`greet` is the parameter, and `displayName` is the function declaration.
+
+> `greet` names the function; neither its declaration role nor the call-site variable makes it a parameter.

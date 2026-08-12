@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about ECMAScript module imports and exports are correct? Select all that apply.
+
+## Options
+
+### named-import-matches (correct)
+
+A named import must reference an exported name unless it uses `as` to choose a different local binding.
+
+> The module linker resolves named exports explicitly.
+
+### default-local-name (correct)
+
+An importer can choose its local binding name for a module’s single default export.
+
+> Default import syntax does not require matching an exported identifier name.
+
+### static-for-normal-dependencies (correct)
+
+Static imports are appropriate for normal unconditional dependencies and are linked before evaluation.
+
+> Their fixed structure supports early errors and static tooling.
+
+### dynamic-import-conditional (correct)
+
+`import()` is suitable for a genuinely conditional or on-demand dependency.
+
+> It performs dynamic loading and returns a promise for the module namespace.
+
+### resolution-identical
+
+Every browser, Node.js version, and bundler resolves the same bare specifier identically without configuration.
+
+> Resolution is host-specific and can depend on URLs, import maps, package metadata, or bundler aliases.

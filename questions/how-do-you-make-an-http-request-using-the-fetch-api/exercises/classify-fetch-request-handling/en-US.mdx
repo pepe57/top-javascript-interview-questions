@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices correctly handle a JSON Fetch request? Select all that apply.
+
+## Options
+
+### check-response-ok (correct)
+
+Check `response.ok` or `response.status` and throw an application error for unacceptable HTTP statuses.
+
+> Fetch normally fulfills for HTTP 4xx and 5xx responses.
+
+### await-body-parser (correct)
+
+Await `response.json()` before using the parsed body.
+
+> Body consumption is asynchronous and returns a promise.
+
+### serialize-json-body (correct)
+
+For a JSON POST, serialize the payload and send an appropriate `Content-Type` header when the API expects it.
+
+> Fetch does not automatically JSON-encode an arbitrary object body.
+
+### catch-only-http
+
+Rely on `.catch()` alone to handle a server’s 500 response.
+
+> A normal 500 response does not reject the Fetch promise.
+
+### response-is-data
+
+Treat the fulfilled `Response` object itself as the already parsed JSON payload.
+
+> The Response contains status, headers, and a body stream that must be consumed explicitly.

@@ -1,0 +1,42 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const original = {
+  profile: { name: 'Ada' },
+  active: true,
+};
+const copy = { ...original, active: false };
+copy.profile.name = 'Lin';
+
+console.log(original.profile.name, original.active, copy.active);
+```
+
+## Options
+
+### lin-true-false (correct)
+
+`Lin true false`
+
+> Object spread creates a new outer object and applies the later `active` override, but the nested `profile` reference is shared.
+
+### ada-true-false
+
+`Ada true false`
+
+> That would require a deep copy of `profile`; spread copies only the property value, which is the same nested object reference.
+
+### lin-false-false
+
+`Lin false false`
+
+> The outer objects are distinct, so overriding `copy.active` does not change `original.active`.
+
+### ada-false-false
+
+`Ada false false`
+
+> Spread neither deep-copies `profile` nor mutates the original outer `active` property.

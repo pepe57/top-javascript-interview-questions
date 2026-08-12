@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about a modern Content Security Policy are correct? Select all that apply.
+
+## Options
+
+### browser-enforces-policy (correct)
+
+The browser checks applicable resource loads and script execution against directives supplied with the document.
+
+> CSP is a browser-enforced capability and source policy.
+
+### nonce-per-response (correct)
+
+A nonce-based script policy should use an unpredictable fresh nonce for each response and place it on authorized scripts.
+
+> Reusing a predictable nonce would let injected markup satisfy the same authorization check.
+
+### header-more-capable (correct)
+
+An HTTP response header supports directives and timing guarantees that a `<meta>` policy cannot fully provide.
+
+> For example, `frame-ancestors` is not supported in a meta-delivered policy.
+
+### repairs-injection
+
+CSP removes the underlying injection flaw, so output encoding is no longer necessary.
+
+> CSP limits exploit impact as defense in depth; the application must still prevent unsafe injection.
+
+### allow-all-self-secure
+
+`script-src 'self'` is always sufficient even when the origin hosts user-uploaded JavaScript files.
+
+> Trusting an entire origin can authorize attacker-controlled scripts served from that origin; nonces or hashes provide tighter control.

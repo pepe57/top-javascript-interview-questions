@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which mechanism can provide content specifically when a browser does not execute JavaScript?
+
+## Options
+
+### noscript-element (correct)
+
+Place the fallback message or navigation inside a `<noscript>` element.
+
+> The browser renders `noscript` content in the relevant context when scripting is disabled or unsupported.
+
+### runtime-feature-check
+
+Run `if (!window.JavaScript) showMessage()` from a script.
+
+> No detection script can execute in the condition it is trying to detect.
+
+### dom-content-loaded
+
+Show the fallback from a `DOMContentLoaded` listener.
+
+> The listener itself requires JavaScript execution.
+
+### css-script-query
+
+Use a CSS media query named `scripting-disabled` in every browser.
+
+> There is no broadly supported universal media query with that name for this purpose.

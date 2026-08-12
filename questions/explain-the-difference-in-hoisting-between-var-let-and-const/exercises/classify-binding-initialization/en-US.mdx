@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements accurately describe scope setup and declaration evaluation? Select all that apply.
+
+## Options
+
+### var-starts-undefined (correct)
+
+A `var` binding is initialized to `undefined` before the scope's statements execute.
+
+> Scope instantiation initializes `var`; only its initializer or later assignment waits for statement evaluation.
+
+### lexical-bindings-do-not-exist
+
+Bindings declared with `let` and `const` do not exist until evaluation reaches their declarations.
+
+> The bindings are created when the block is instantiated but remain uninitialized in the temporal dead zone.
+
+### lexical-bindings-start-uninitialized (correct)
+
+Bindings declared with `let` and `const` remain uninitialized until their declarations are evaluated.
+
+> This uninitialized state is why any early read of either binding throws `ReferenceError`.
+
+### initializers-run-during-setup
+
+Initializer expressions for `var`, `let`, and `const` all run during scope instantiation.
+
+> Initializers are evaluated at their source locations, after scope setup has created the bindings.

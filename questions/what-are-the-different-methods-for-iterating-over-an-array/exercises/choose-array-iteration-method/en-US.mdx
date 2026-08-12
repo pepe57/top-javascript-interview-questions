@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which iteration-method choices match the stated goal? Select all that apply.
+
+## Options
+
+### map-transform (correct)
+
+Use `map()` to transform every element into a new result array.
+
+> `map` preserves positional correspondence while collecting callback results.
+
+### some-condition (correct)
+
+Use `some()` to stop once at least one element satisfies a condition.
+
+> `some` returns a boolean and short-circuits on the first truthy predicate result.
+
+### for-of-sequential-await (correct)
+
+Use `for...of` when each asynchronous iteration must be awaited sequentially.
+
+> The loop can pause at each `await` and supports normal control flow.
+
+### foreach-await
+
+Use `forEach(async () => ...)` when the outer function must wait automatically for every callback promise.
+
+> `forEach` ignores callback return values and does not await the resulting promises.
+
+### map-side-effects-only
+
+Use `map()` for side effects when the returned array will always be discarded.
+
+> `forEach` or a loop expresses side effects more clearly when no transformed array is needed.

@@ -1,0 +1,42 @@
+---
+type: single-select
+---
+
+Assume the server responds normally with HTTP 404. Which outcome does this function produce?
+
+```js
+async function load() {
+  try {
+    const response = await fetch('/missing');
+    return response.status;
+  } catch {
+    return 'caught';
+  }
+}
+```
+
+## Options
+
+### returns-404 (correct)
+
+It returns `404`.
+
+> Fetch fulfills with a Response for an HTTP error status; the code never checks `response.ok` or throws.
+
+### returns-caught
+
+It returns `caught`.
+
+> The catch block handles rejected Fetch promises, not ordinary fulfilled 404 responses.
+
+### returns-undefined
+
+It returns `undefined`.
+
+> The fulfilled Response exposes its numeric status, which is explicitly returned.
+
+### unhandled-rejection
+
+It creates an unhandled rejection.
+
+> No rejection occurs for the described HTTP response, and a rejected `await` would be handled by the catch block.

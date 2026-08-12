@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function sumTo(value) {
+  if (value === 0) return 0;
+  return value + sumTo(value - 1);
+}
+
+console.log(sumTo(4));
+```
+
+## Options
+
+### ten (correct)
+
+`10`
+
+> The recursive calls reduce the input to the base case and combine `4 + 3 + 2 + 1 + 0` while unwinding.
+
+### four
+
+`4`
+
+> Each non-base call adds its current value to the recursive result.
+
+### zero
+
+`0`
+
+> The base case stops recursion but its zero result is then combined by every pending call.
+
+### infinite-recursion
+
+It never terminates.
+
+> Every call decreases a nonnegative integer and eventually reaches the `value === 0` base case.

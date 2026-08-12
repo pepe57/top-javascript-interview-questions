@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which controls belong in a secure authentication and authorization design? Select all that apply.
+
+## Options
+
+### proven-identity-system (correct)
+
+Use a proven identity provider or maintained framework instead of inventing an authentication protocol.
+
+> Mature systems reduce the risk of subtle credential, recovery, and protocol mistakes.
+
+### secure-session-cookie (correct)
+
+When using browser cookies for sessions, prefer `HttpOnly`, `Secure`, and appropriately scoped cookie attributes.
+
+> These attributes reduce script access and insecure or overly broad attachment.
+
+### server-authorization-every-operation (correct)
+
+Enforce authorization on every server-side operation using the actual resource and permission model.
+
+> Possessing an authenticated session does not imply permission for every resource or action.
+
+### hidden-button-enforces-role
+
+Hiding an admin button in client JavaScript is sufficient authorization for the corresponding API.
+
+> A caller can invoke the API directly; the trusted server must enforce access.
+
+### csrf-for-cookie-sessions (correct)
+
+Cookie-authenticated state-changing requests may need `SameSite` settings plus a CSRF token or equivalent defense.
+
+> Cookies are ambient credentials and can otherwise accompany forged cross-site requests.

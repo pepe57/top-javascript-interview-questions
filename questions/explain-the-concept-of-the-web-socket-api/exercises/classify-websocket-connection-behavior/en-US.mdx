@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements accurately describe browser WebSockets? Select all that apply.
+
+## Options
+
+### persistent-full-duplex (correct)
+
+After the handshake, client and server can send messages independently over a persistent full-duplex connection.
+
+> Neither side needs to wait for a new request-response cycle before sending the next message.
+
+### event-driven-lifecycle (correct)
+
+Client code handles connection lifecycle through events such as `open`, `message`, `error`, and `close`.
+
+> Those events expose readiness, incoming data, failure signals, and shutdown.
+
+### ordinary-fetch-response
+
+Each server message is delivered as the resolution of a new `fetch()` promise.
+
+> WebSocket messages arrive through the socket’s message events, not independent Fetch calls.
+
+### secure-scheme (correct)
+
+A production HTTPS page should normally connect using the secure `wss:` scheme.
+
+> `wss:` protects the WebSocket transport with TLS and avoids insecure mixed-content connections.
+
+### automatic-reconnect
+
+The browser automatically reconnects a closed WebSocket and replays missed application messages.
+
+> Reconnection, backoff, resubscription, and missed-message recovery are application responsibilities.

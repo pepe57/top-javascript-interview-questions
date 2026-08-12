@@ -1,0 +1,46 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function run() {
+  try {
+    throw new Error('failure');
+  } catch {
+    console.log('caught');
+    return 'result';
+  } finally {
+    console.log('cleanup');
+  }
+}
+
+console.log(run());
+```
+
+## Options
+
+### caught-cleanup-result (correct)
+
+`caught`, then `cleanup`, then `result`
+
+> The catch handles the throw and prepares the return value, but `finally` executes before control returns to the caller.
+
+### caught-result-cleanup
+
+`caught`, then `result`, then `cleanup`
+
+> The caller cannot log the returned result until the function’s `finally` block finishes.
+
+### cleanup-caught-result
+
+`cleanup`, then `caught`, then `result`
+
+> `catch` handles the exception before `finally` performs cleanup.
+
+### caught-only
+
+`caught` only
+
+> A return inside `catch` does not skip `finally`, and the caller then logs the returned string.

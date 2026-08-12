@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A site stores configuration, current-user data, caches, and helper functions directly on `window`. Explain the risks and a migration direction.
+
+## Answer
+
+Shared global names can collide across scripts, any script can mutate sensitive or correctness-critical state, dependencies become invisible, and long-lived global references can retain obsolete objects. Move code into ES modules with explicit exports, pass configuration and dependencies through constructors or functions, keep user state in an explicitly owned scoped store, and expose only a deliberately versioned browser-global API when external integration genuinely requires one. Migrate incrementally behind adapters so callers stop reading and writing arbitrary `window` properties.
+
+## Checklist
+
+- Identifies naming, mutation, hidden-dependency, or retention risks.
+- Moves implementation into module scope with explicit APIs.
+- Passes configuration and state through owned dependencies or stores.
+- Limits any remaining global to a deliberate versioned integration boundary.

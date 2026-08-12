@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices correctly defend a server-side JavaScript application against SQL injection? Select all that apply.
+
+## Options
+
+### bind-data-values (correct)
+
+Use parameterized queries or prepared statements so untrusted values are sent separately from SQL text.
+
+> The database parses the program structure independently from bound data values.
+
+### allowlist-identifiers (correct)
+
+Map requested sort-column names to a fixed server-side allowlist when identifiers cannot be parameterized.
+
+> Untrusted text should not be inserted directly into the query grammar.
+
+### manual-concatenation
+
+Escape a few quote characters and concatenate the cleaned string into the query.
+
+> Manual escaping is easy to get wrong across encodings and contexts; parameter binding is the robust value boundary.
+
+### validate-business-rules (correct)
+
+Validate input for business meaning in addition to binding it as data.
+
+> Parameterization prevents syntax injection, while validation enforces allowed values and application rules.
+
+### orm-automatic
+
+Using any ORM automatically makes raw fragments and interpolated queries injection-safe.
+
+> ORM escape hatches and unsafe interpolation can still create injectable SQL; query construction must be reviewed.

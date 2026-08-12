@@ -1,0 +1,44 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function First() {
+  this.value = 1;
+  return { value: 2 };
+}
+function Second() {
+  this.value = 3;
+  return 4;
+}
+
+console.log(new First().value, new Second().value);
+```
+
+## Options
+
+### two-three (correct)
+
+`2 3`
+
+> An explicit object replaces the created First instance, while the primitive return from Second is ignored in favor of its initialized instance.
+
+### one-three
+
+`1 3`
+
+> The explicit object returned by First replaces its newly created object.
+
+### two-four
+
+`2 4`
+
+> A primitive constructor return does not replace the new instance.
+
+### one-four
+
+`1 4`
+
+> This reverses both explicit-return rules for constructor calls.

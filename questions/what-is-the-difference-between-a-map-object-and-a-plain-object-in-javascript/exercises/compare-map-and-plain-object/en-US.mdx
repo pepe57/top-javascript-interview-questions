@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly compare a `Map` with a plain object? Select all that apply.
+
+## Options
+
+### map-any-key (correct)
+
+A Map can use object identities and other non-string values directly as keys.
+
+> Plain-object property keys are strings or symbols after property-key coercion.
+
+### map-size-iteration (correct)
+
+A Map exposes `size` and iterable `keys()`, `values()`, and `entries()` APIs.
+
+> Those operations are part of its collection-focused interface.
+
+### object-record-fit (correct)
+
+A plain object is often convenient for a fixed record with named fields and JSON-shaped serialization.
+
+> Property syntax and JSON support fit record-like data well.
+
+### object-prototype-collision (correct)
+
+An ordinary object literal inherits from `Object.prototype`, so arbitrary user keys require care or a null-prototype object.
+
+> Map entries do not collide with Map prototype methods through key lookup.
+
+### map-json-native
+
+`JSON.stringify(new Map([["a", 1]]))` automatically serializes the entry as `{"a":1}`.
+
+> Map entries need explicit conversion or a custom replacer for JSON serialization.

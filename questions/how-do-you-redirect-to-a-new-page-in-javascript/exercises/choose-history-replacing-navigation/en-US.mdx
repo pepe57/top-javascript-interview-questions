@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+After a one-time OAuth callback completes, the app should navigate to `/dashboard` and prevent Back from returning to the callback URL. Which browser API best matches that requirement?
+
+## Options
+
+### location-replace (correct)
+
+`location.replace("/dashboard")`
+
+> `replace()` replaces the current history entry instead of adding a new one.
+
+### location-assign
+
+`location.assign("/dashboard")`
+
+> `assign()` adds a history entry, so Back can return to the callback URL.
+
+### location-reload
+
+`location.reload()`
+
+> Reloading keeps the current callback URL rather than navigating to the dashboard.
+
+### history-back
+
+`history.back()`
+
+> Going backward does not select the required destination and depends on the user’s prior history.

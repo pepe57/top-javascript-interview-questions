@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+Give a concise interview explanation of how JavaScript chooses `this` for an ordinary function. Include default, implicit, explicit, bound, and constructor calls, then explain how arrow functions differ.
+
+## Answer
+
+For an ordinary function, `this` is determined by the invocation. A constructor call with `new` uses the new instance. `call()` and `apply()` supply an explicit receiver, while `bind()` creates a function with a stored receiver that later ordinary calls cannot replace; construction still takes precedence when the target is constructible. A method call uses the object before the dot as its implicit receiver. A plain call uses the default binding: `undefined` in strict mode and the global object in non-strict script code. Arrow functions skip these call-site rules and resolve `this` lexically from their enclosing scope.
+
+## Checklist
+
+- Distinguishes plain-call default binding from method-call implicit binding.
+- Covers `call()`, `apply()`, and the persistent receiver created by `bind()`.
+- Gives constructor binding precedence over a stored bound receiver.
+- Explains that arrow functions use lexical rather than call-site `this`.

@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function makeCounter(start) {
+  let count = start;
+  return () => ++count;
+}
+
+const first = makeCounter(0);
+const second = makeCounter(10);
+
+console.log(first(), first(), second(), first());
+```
+
+## Options
+
+### one-two-eleven-three (correct)
+
+`1 2 11 3`
+
+> Each returned function updates its retained `count` binding, and the two factory calls created independent lexical environments.
+
+### one-one-eleven-one
+
+`1 1 11 1`
+
+> A closure retains the binding itself rather than recreating `count` from `start` on each invocation.
+
+### one-two-thirteen-four
+
+`1 2 13 4`
+
+> The counters do not share state because each call to `makeCounter` creates a separate `count` binding.
+
+### reference-error
+
+The first call throws `ReferenceError` because `makeCounter` has returned.
+
+> The returned arrow keeps its lexical environment reachable after the outer function call completes.

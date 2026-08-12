@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about aborting a Fetch request are correct? Select all that apply.
+
+## Options
+
+### pass-controller-signal (correct)
+
+Pass `controller.signal` in the Fetch options and call `controller.abort()` when the result is no longer needed.
+
+> The signal connects the caller’s cancellation request to Fetch and body consumption.
+
+### aborted-signal-stays-aborted (correct)
+
+Create a new controller for a later operation because an aborted signal remains aborted.
+
+> Abort state is permanent and cannot be reset on the same signal.
+
+### handle-expected-cancellation (correct)
+
+Treat the abort rejection as expected control flow when cancellation was intentional.
+
+> Callers should distinguish cancellation from failures that need user-facing error reporting.
+
+### server-rollback-guaranteed
+
+Aborting guarantees the server stops and rolls back any work already started.
+
+> Client cancellation does not provide transactional rollback at the application server.
+
+### writes-need-idempotency (correct)
+
+Important writes may still need idempotency or an application-level cancellation protocol.
+
+> The client can lose interest while the server continues processing or completes the request.

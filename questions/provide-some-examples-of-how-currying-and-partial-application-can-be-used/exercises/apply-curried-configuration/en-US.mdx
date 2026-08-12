@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const format = (currency) => (locale) => (amount) =>
+  `${currency}:${locale}:${amount}`;
+
+const usdForUs = format('USD')('en-US');
+console.log(usdForUs(12), usdForUs(20));
+```
+
+## Options
+
+### configured-two-values (correct)
+
+`USD:en-US:12 USD:en-US:20`
+
+> The first two curried calls configure reusable currency and locale closures, leaving only the amount for later calls.
+
+### only-last-value
+
+`12 20`
+
+> The returned function retains and includes both earlier arguments.
+
+### function-values
+
+`function function`
+
+> After supplying currency and locale, `usdForUs` expects an amount and each call returns a string.
+
+### second-overwrites-first
+
+`USD:en-US:20 USD:en-US:20`
+
+> Each invocation receives its own amount; calling the configured function again does not mutate the previous result.

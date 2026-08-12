@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which pairing best matches the collection requirements?
+
+## Options
+
+### set-unique-map-associations (correct)
+
+Use a `Set` for unique selected IDs and a `Map` to associate each object key with cached metadata.
+
+> Sets model unique values, while Maps model key-value associations with keys of any type.
+
+### map-unique-set-associations
+
+Use a `Map` with no values for uniqueness and a `Set` for object-to-metadata pairs.
+
+> This reverses the built-ins’ primary data models.
+
+### set-duplicate-log
+
+Use a `Set` when duplicate values and their insertion counts must be preserved.
+
+> A Set keeps one entry per equal value and does not retain duplicate counts.
+
+### map-string-keys-only
+
+Avoid `Map` because its keys must be strings.
+
+> Map keys can be primitives or object identities.

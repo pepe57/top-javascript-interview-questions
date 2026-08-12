@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about nested JavaScript scopes are correct? Select all that apply.
+
+## Options
+
+### nested-reads-outward (correct)
+
+A nested function can read an unshadowed binding from an enclosing function or global scope.
+
+> Name lookup proceeds outward through lexical environments until it finds a matching binding.
+
+### var-ignores-ordinary-blocks (correct)
+
+A `var` declared inside an `if` block belongs to the containing function when one exists.
+
+> Ordinary block boundaries do not scope `var`; the nearest function or script scope does.
+
+### lexical-escapes-block
+
+A `let` declared inside an `if` block remains available after that block finishes.
+
+> `let` is block-scoped, so its binding cannot be resolved outside the declaring block.
+
+### function-locals-become-global
+
+Calling a function makes its local variables accessible from global scope.
+
+> Function-local bindings stay inside that function's lexical environment regardless of whether the function has executed.

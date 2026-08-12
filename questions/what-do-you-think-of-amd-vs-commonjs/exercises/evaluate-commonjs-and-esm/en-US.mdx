@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly describe CommonJS and ESM in current JavaScript projects? Select all that apply.
+
+## Options
+
+### esm-new-default (correct)
+
+ESM is the language-standard module system and is the best default for most new browser, Node.js, and bundler code.
+
+> Its syntax is standardized across JavaScript hosts, subject to host-specific resolution.
+
+### static-esm-analysis (correct)
+
+Static ESM imports and exports enable ahead-of-time linking and dependency analysis.
+
+> Their top-level structure supports live bindings, early errors, and bundler optimization.
+
+### commonjs-legacy-relevance (correct)
+
+CommonJS remains important when maintaining existing Node.js packages and applications.
+
+> Large parts of the ecosystem still publish or consume `require()` and `module.exports` graphs.
+
+### interop-needs-testing (correct)
+
+Package authors should define formats through extensions, `type`, and `exports`, then test the packed artifact in claimed environments.
+
+> ESM/CommonJS interoperability depends on runtime version, graph shape, and package metadata.
+
+### amd-new-default
+
+AMD is the preferred standard for new native browser modules.
+
+> AMD is mainly a historical or legacy-maintenance concern; browsers support ESM natively.

@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function join(prefix, ...parts) {
+  return `${prefix}:${parts.join('-')}`;
+}
+
+const values = ['a', 'b'];
+console.log(join('items', ...values));
+```
+
+## Options
+
+### items-a-b (correct)
+
+`items:a-b`
+
+> Spread expands `values` into call arguments, while the rest parameter collects arguments after `prefix` into `parts`.
+
+### items-array-string
+
+`items:a,b`
+
+> The array is expanded before the call rather than passed as one value in `parts`.
+
+### items-only
+
+`items:`
+
+> Spread supplies both array elements as remaining arguments.
+
+### syntax-error
+
+It throws because spread and rest cannot appear in the same call flow.
+
+> The identical token has valid complementary meanings in the call and parameter positions.

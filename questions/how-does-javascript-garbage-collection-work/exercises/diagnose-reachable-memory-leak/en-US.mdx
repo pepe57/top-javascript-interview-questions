@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A modal is opened and closed repeatedly, and heap usage grows each time. Describe a practical browser-debugging approach.
+
+## Answer
+
+Reproduce the same open/close cycle enough times to distinguish growth from one-time initialization, then take comparable heap snapshots after allowing normal collection opportunities. Compare retained object counts, locate detached modal DOM nodes or related state, and follow retaining paths back to roots. Common causes include listeners not removed from long-lived targets, timers, subscriptions, closures, or caches. Fix the ownership cleanup, repeat the cycle, and verify the objects no longer remain retained rather than trying to force collection in product code.
+
+## Checklist
+
+- Uses repeatable actions and comparable heap snapshots.
+- Follows retaining paths from leaked objects to roots.
+- Checks listeners, timers, subscriptions, closures, and caches.
+- Verifies cleanup by repeating the scenario after the fix.

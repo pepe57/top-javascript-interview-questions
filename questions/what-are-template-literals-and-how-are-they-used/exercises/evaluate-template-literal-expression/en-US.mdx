@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const name = 'Ada';
+const count = 2;
+const message = `${name} has ${count + 1}
+items`;
+console.log(message);
+```
+
+## Options
+
+### interpolated-multiline (correct)
+
+`Ada has 3` on the first line and `items` on the second line.
+
+> Template literals evaluate expressions and preserve the embedded newline.
+
+### literal-placeholders
+
+`${name} has ${count + 1}` followed by `items`.
+
+> `${...}` expressions are interpolated inside a template literal.
+
+### ada-has-two
+
+`Ada has 2` followed by `items`.
+
+> The interpolation evaluates `count + 1`, producing `3`.
+
+### single-line-backslash-n
+
+`Ada has 3\nitems` on one line.
+
+> The source contains an actual newline in the template literal, not a backslash character followed by `n`.

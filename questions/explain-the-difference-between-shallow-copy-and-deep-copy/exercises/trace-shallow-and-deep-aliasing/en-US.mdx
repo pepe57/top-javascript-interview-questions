@@ -1,0 +1,42 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const source = { nested: { count: 1 } };
+const shallow = { ...source };
+const deep = structuredClone(source);
+
+shallow.nested.count = 2;
+deep.nested.count = 3;
+
+console.log(source.nested.count, shallow.nested.count, deep.nested.count);
+```
+
+## Options
+
+### two-two-three (correct)
+
+`2 2 3`
+
+> The shallow copy shares the nested object with `source`, while `structuredClone()` creates an independent nested object for `deep`.
+
+### one-two-three
+
+`1 2 3`
+
+> Object spread copies the nested reference, so changing it through `shallow` also changes `source`.
+
+### three-three-three
+
+`3 3 3`
+
+> The structured clone does not share its nested object with either shallow object.
+
+### two-three-three
+
+`2 3 3`
+
+> `shallow.nested` and `source.nested` are the same object and cannot end with different counts.

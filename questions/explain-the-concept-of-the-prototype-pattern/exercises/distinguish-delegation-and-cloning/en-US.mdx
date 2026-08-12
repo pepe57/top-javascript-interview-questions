@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly distinguish prototype delegation from cloning? Select all that apply.
+
+## Options
+
+### object-create-links (correct)
+
+`Object.create(template)` creates an empty object whose property lookup delegates to `template`.
+
+> It establishes a prototype link rather than copying template state into the new object.
+
+### object-create-deep-copies
+
+`Object.create(template)` deep-copies every nested property from `template`.
+
+> No property copy occurs; missing own properties are resolved through the prototype link.
+
+### clone-policy-required (correct)
+
+A cloning design must define whether nested state is shared, shallow-copied, or deep-copied.
+
+> The correct behavior depends on ownership and identity requirements for nested values.
+
+### delegation-shares-behavior (correct)
+
+Prototype delegation can let many objects share methods without copying each method onto every object.
+
+> Each object resolves the method through the common prototype.
+
+### clone-always-safer
+
+Cloning an arbitrary configured instance is always safer than calling a constructor or factory.
+
+> Cloning can violate invariants or mishandle closures, private state, external resources, and nested identities.

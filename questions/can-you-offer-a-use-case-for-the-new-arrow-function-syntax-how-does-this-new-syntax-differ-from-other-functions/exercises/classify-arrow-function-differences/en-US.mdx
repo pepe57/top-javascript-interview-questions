@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements distinguish arrow functions from ordinary functions? Select all that apply.
+
+## Options
+
+### lexical-this (correct)
+
+An arrow resolves `this` from its enclosing lexical scope.
+
+> Arrows do not create their own `this` binding based on how they are invoked.
+
+### direct-object-method
+
+An arrow assigned directly as an object property receives that object as `this` when called as a method.
+
+> The property-call receiver does not bind an arrow; it continues to use `this` from the surrounding scope where it was created.
+
+### lexical-arguments (correct)
+
+An arrow has no own `arguments` object and resolves `arguments` from an enclosing non-arrow function when available.
+
+> Ordinary functions create their own `arguments` binding, while arrows capture the surrounding one.
+
+### constructor-with-prototype
+
+An arrow can be called with `new` and provides a `prototype` for its instances.
+
+> Arrows are not constructors, calling one with `new` throws `TypeError`, and they do not have a `prototype` property.
+
+### implicit-expression-return (correct)
+
+An arrow with an expression body can return that expression without a `return` statement.
+
+> The concise body form provides an implicit return; ordinary function bodies require an explicit `return` for the same value.

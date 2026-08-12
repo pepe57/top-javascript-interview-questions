@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A server-rendered application currently uses several inline boot scripts and has no CSP. Outline a safe migration toward a nonce-based enforcement policy.
+
+## Answer
+
+Generate an unpredictable nonce for every HTML response, place it on each authorized boot script, and include the same nonce in a `script-src` directive sent as an HTTP response header. Start with `Content-Security-Policy-Report-Only` to inventory legitimate dependencies and violations without breaking users, then tighten explicit directives such as `default-src`, `object-src`, `base-uri`, connections, and framing. After resolving reports and testing critical flows, switch to enforcement while retaining safe output handling because CSP does not fix injection bugs.
+
+## Checklist
+
+- Uses a fresh response-specific nonce on authorized scripts and in the header.
+- Begins with report-only observation and reviews violations.
+- Tightens other resource and capability directives before enforcement.
+- Keeps injection prevention as a separate required control.

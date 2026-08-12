@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const first = Symbol('id');
+const second = Symbol('id');
+const sharedA = Symbol.for('shared');
+const sharedB = Symbol.for('shared');
+const object = { [first]: 1, visible: 2 };
+
+console.log(first === second, sharedA === sharedB, Object.keys(object).length);
+```
+
+## Options
+
+### false-true-one (correct)
+
+`false true 1`
+
+> Each direct Symbol call creates a distinct value, the global registry reuses `shared`, and `Object.keys()` skips symbol-keyed properties.
+
+### true-true-two
+
+`true true 2`
+
+> Descriptions do not make direct Symbols equal, and symbol keys are not returned by `Object.keys()`.
+
+### false-false-one
+
+`false false 1`
+
+> `Symbol.for()` returns the same registry symbol for the same key.
+
+### false-true-two
+
+`false true 2`
+
+> Only the string-keyed `visible` property appears in `Object.keys()`.

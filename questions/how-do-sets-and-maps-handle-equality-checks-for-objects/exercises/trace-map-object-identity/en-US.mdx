@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const first = { id: 1 };
+const second = { id: 1 };
+const map = new Map([[first, 'stored']]);
+const set = new Set([first, second, first]);
+
+console.log(map.get(second), map.get(first), set.size);
+```
+
+## Options
+
+### undefined-stored-two (correct)
+
+`undefined stored 2`
+
+> The two literals are distinct object identities; only the repeated `first` reference matches an existing key or set entry.
+
+### stored-stored-one
+
+`stored stored 1`
+
+> Map and Set do not perform deep structural equality for object values.
+
+### undefined-stored-three
+
+`undefined stored 3`
+
+> Adding the exact same `first` reference twice does not create another Set entry.
+
+### stored-stored-two
+
+`stored stored 2`
+
+> Although the set has two object identities, `second` is not the key stored in the map.

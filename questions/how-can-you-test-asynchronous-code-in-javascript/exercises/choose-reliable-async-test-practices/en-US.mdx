@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices make asynchronous JavaScript tests reliable? Select all that apply.
+
+## Options
+
+### await-work (correct)
+
+Return or `await` the promise under test so the runner knows when the assertion phase is complete.
+
+> Otherwise the test can finish before the asynchronous result or rejection occurs.
+
+### test-rejection (correct)
+
+Exercise both fulfilled and rejected paths when both are part of the contract.
+
+> Happy-path coverage alone cannot verify error mapping and cleanup.
+
+### fake-timers (correct)
+
+Use fake timers for deterministic timer-driven unit tests and advance them explicitly.
+
+> Controlled time avoids real delays and timing races.
+
+### arbitrary-sleep
+
+Wait an arbitrary long real-time delay before asserting so the operation probably finishes.
+
+> Sleeps make suites slow and flaky because completion is not tied to the actual signal.
+
+### restore-global-state (correct)
+
+Restore timers, mocks, listeners, and servers after each test.
+
+> Cleanup prevents one test’s environment from changing later tests.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A parent list uses one bubbling listener to detect pointer entry for dynamically added child rows. Which event is the direct fit?
+
+## Options
+
+### mouseover (correct)
+
+`mouseover`, with target/related-target filtering as needed
+
+> `mouseover` bubbles, so the parent can observe entries involving descendants through delegation.
+
+### mouseenter
+
+`mouseenter` on the parent only
+
+> `mouseenter` does not bubble and does not provide a delegated event for each child row.
+
+### load
+
+`load`
+
+> Load events describe resource readiness rather than pointer movement.
+
+### click
+
+`click`
+
+> Click requires activation and does not represent pointer entry.

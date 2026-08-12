@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which choices make a custom JavaScript error useful to callers and diagnostics? Select all that apply.
+
+## Options
+
+### extends-error (correct)
+
+Extend `Error` and call `super(message, options)` from the constructor.
+
+> This establishes normal error behavior and initializes the base diagnostic fields.
+
+### stable-structured-fields (correct)
+
+Expose stable fields such as a machine-readable code and relevant domain context.
+
+> Callers can branch on structured meaning without parsing a human message.
+
+### preserve-cause (correct)
+
+Attach an underlying failure with the standard `cause` option when wrapping it.
+
+> The causal chain retains diagnostic context from the original failure.
+
+### string-only-throw
+
+Throw only a formatted string because strings preserve stack and cause information better than `Error` objects.
+
+> Strings lack the standard error stack, type, cause, and structured properties.
+
+### message-parsing-api
+
+Require callers to detect the error solely by searching its localized message text.
+
+> Messages are for people and can change; type and stable codes are safer programmatic contracts.

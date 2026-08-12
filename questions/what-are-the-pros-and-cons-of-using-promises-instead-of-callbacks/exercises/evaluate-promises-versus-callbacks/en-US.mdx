@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly describe Promises compared with callback APIs? Select all that apply.
+
+## Options
+
+### one-eventual-outcome (correct)
+
+A Promise standardizes one eventual fulfillment or rejection.
+
+> This avoids callback contracts that might otherwise be ambiguous about call count and error routing.
+
+### composable-flow (correct)
+
+Promise chains, `async`/`await`, and combinators compose sequential and parallel asynchronous outcomes.
+
+> Returned values and errors propagate through a consistent abstraction.
+
+### repeated-events
+
+A single Promise is the natural representation for an unbounded stream of repeated events.
+
+> A Promise settles once; event listeners, async iterables, or observable streams fit repeated values better.
+
+### built-in-cancellation
+
+A Promise automatically cancels its underlying operation when no `.then()` handlers remain.
+
+> Cancellation needs an explicit operation-level mechanism.
+
+### caller-must-return-await (correct)
+
+Callers must return or await promise work to preserve error propagation and completion tracking.
+
+> Dropping a promise can create early completion or an unhandled rejection.

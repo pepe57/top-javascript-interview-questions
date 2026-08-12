@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly evaluate different definitions of an “empty object”? Select all that apply.
+
+## Options
+
+### keys-enumerable-strings (correct)
+
+`Object.keys(value).length === 0` tests for no own enumerable string-keyed properties.
+
+> `Object.keys()` intentionally excludes symbols, inherited keys, and non-enumerable own keys.
+
+### reflect-all-own-keys (correct)
+
+`Reflect.ownKeys(value).length === 0` counts both string and symbol own keys, including non-enumerable ones.
+
+> `Reflect.ownKeys()` represents the broad own-key definition.
+
+### for-in-own-only
+
+A bare `for...in` loop examines only the object’s own properties.
+
+> `for...in` also visits enumerable inherited string keys unless they are filtered.
+
+### validate-input-domain (correct)
+
+The utility should separately decide whether arrays, Maps, Sets, primitives, and `null` are valid inputs.
+
+> Those values have their own meaningful emptiness semantics or can fail ordinary object operations.
+
+### json-universal
+
+`JSON.stringify(value) === "{}"` is a universal emptiness test for every object kind.
+
+> Serialization omits many properties and treats built-ins and custom serialization behavior differently.

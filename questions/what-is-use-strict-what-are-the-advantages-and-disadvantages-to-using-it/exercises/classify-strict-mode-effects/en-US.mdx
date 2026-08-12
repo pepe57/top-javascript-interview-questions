@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about strict mode are correct? Select all that apply.
+
+## Options
+
+### implicit-global-error (correct)
+
+Assigning to an undeclared identifier throws instead of creating an accidental global.
+
+> Strict mode disallows implicit global assignment.
+
+### plain-call-undefined-this (correct)
+
+A plain ordinary-function call receives `this === undefined` rather than the global object.
+
+> Strict mode disables default receiver coercion for such calls.
+
+### silent-write-throws (correct)
+
+Assignments that would silently fail in sloppy mode can throw in strict mode.
+
+> This surfaces writes to non-writable properties and similar mistakes.
+
+### modules-already-strict (correct)
+
+ES modules and class bodies already use strict semantics without a directive.
+
+> Adding a redundant directive does not make them stricter.
+
+### directive-any-parameters
+
+A function with default or rest parameters can always contain its own `"use strict"` directive prologue.
+
+> A strict directive is a syntax error in a function with a non-simple parameter list.

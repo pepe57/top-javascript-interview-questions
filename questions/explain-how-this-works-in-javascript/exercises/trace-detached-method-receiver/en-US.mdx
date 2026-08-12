@@ -1,0 +1,45 @@
+---
+type: single-select
+---
+
+What does this strict-mode code log?
+
+```js
+'use strict';
+
+const counter = {
+  value: 7,
+  read() {
+    return this?.value;
+  },
+};
+
+const read = counter.read;
+console.log(counter.read(), read());
+```
+
+## Options
+
+### seven-undefined (correct)
+
+`7 undefined`
+
+> The method call uses `counter` as its receiver; the detached plain call has `this === undefined` in strict mode, and optional chaining returns `undefined`.
+
+### seven-seven
+
+`7 7`
+
+> Assigning the function to `read` does not permanently retain the object from which it was retrieved.
+
+### undefined-seven
+
+`undefined 7`
+
+> The property call `counter.read()` supplies `counter` as `this`, while the detached call does not.
+
+### throws
+
+It logs `7`, then throws `TypeError`.
+
+> Although `this` is undefined for the detached call, `this?.value` safely evaluates to `undefined`.

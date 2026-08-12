@@ -1,0 +1,51 @@
+---
+type: single-select
+---
+
+A list contains buttons whose labels include nested icons. Buttons can also be added later. Which delegated handler reliably finds the clicked action?
+
+## Options
+
+### closest-with-boundary (correct)
+
+```js
+list.addEventListener('click', (event) => {
+  const button = event.target.closest('button[data-action]');
+  if (!button || !list.contains(button)) return;
+  runAction(button.dataset.action);
+});
+```
+
+> `closest()` handles clicks on nested icon elements, and the containment check keeps the match inside the delegated root.
+
+### target-matches-only
+
+```js
+list.addEventListener('click', (event) => {
+  if (event.target.matches('button[data-action]')) {
+    runAction(event.target.dataset.action);
+  }
+});
+```
+
+> A click on an icon inside the button makes the icon the target, so a direct target match misses that action.
+
+### current-target-action
+
+```js
+list.addEventListener('click', (event) => {
+  runAction(event.currentTarget.dataset.action);
+});
+```
+
+> `currentTarget` is the list that owns the listener, not the descendant action button.
+
+### query-first-button
+
+```js
+list.addEventListener('click', () => {
+  runAction(list.querySelector('button').dataset.action);
+});
+```
+
+> Querying the first button ignores which descendant actually originated the click.

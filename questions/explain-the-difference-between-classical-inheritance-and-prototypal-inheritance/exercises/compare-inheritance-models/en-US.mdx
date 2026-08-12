@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly compare classical and JavaScript prototypal inheritance? Select all that apply.
+
+## Options
+
+### classical-class-blueprints (correct)
+
+Classical models conventionally define classes as blueprints and create instances from those classes.
+
+> The inheritance relationship is expressed primarily between class definitions.
+
+### prototype-object-delegation (correct)
+
+JavaScript objects can delegate missing-property lookup directly to another object through a prototype link.
+
+> Object-to-object lookup delegation is the runtime mechanism behind prototypal inheritance.
+
+### js-class-uses-prototypes (correct)
+
+JavaScript `class` and `extends` syntax is implemented using constructor and prototype chains.
+
+> The syntax presents a class-oriented interface without replacing the underlying prototype model.
+
+### prototype-copies-properties
+
+Prototypal inheritance copies every inherited property onto each child object.
+
+> Inherited properties remain on prototypes and are found through lookup delegation.
+
+### classes-disable-delegation
+
+Using JavaScript classes prevents prototype lookup from occurring.
+
+> Class instances still resolve methods through their constructor’s prototype chain.

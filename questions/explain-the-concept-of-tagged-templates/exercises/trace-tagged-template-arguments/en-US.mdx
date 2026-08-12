@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function inspect(strings, ...values) {
+  console.log(strings.length, values.join('|'));
+}
+
+inspect`A${1}B${2}C`;
+```
+
+## Options
+
+### three-one-two (correct)
+
+`3 1|2`
+
+> Two substitutions split the literal into three string segments, and their evaluated values are passed separately in order.
+
+### two-one-two
+
+`2 1|2`
+
+> The strings array has one more segment than the number of substitutions, including text after the final value.
+
+### one-combined
+
+`1 A1B2C`
+
+> A tag receives raw structural parts and values rather than one already-interpolated string.
+
+### three-a-b-c
+
+`3 A|B|C`
+
+> The rest parameter receives substitution values `1` and `2`; literal segments remain in `strings`.

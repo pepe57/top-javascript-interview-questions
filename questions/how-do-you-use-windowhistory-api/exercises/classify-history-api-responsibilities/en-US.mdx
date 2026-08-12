@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about the browser History API are correct? Select all that apply.
+
+## Options
+
+### push-adds-entry (correct)
+
+`history.pushState()` adds a same-origin session-history entry without reloading the document.
+
+> It changes the current URL/history position while the application stays in the same document.
+
+### replace-updates-current (correct)
+
+`history.replaceState()` changes the current entry instead of adding another Back-button step.
+
+> Replacement is useful for canonicalizing or initializing the current route state.
+
+### popstate-renders-navigation (correct)
+
+An SPA should listen for `popstate` and render the view corresponding to a traversed history entry.
+
+> Back and Forward change history, but application code remains responsible for updating the UI.
+
+### push-fetches-content
+
+`pushState()` automatically fetches the new URL and renders its response body.
+
+> The API changes history metadata only; it does not perform routing or data loading.
+
+### cross-origin-url
+
+`pushState()` can add an arbitrary cross-origin URL to the current document’s history.
+
+> The new URL must satisfy the API’s same-origin restriction.

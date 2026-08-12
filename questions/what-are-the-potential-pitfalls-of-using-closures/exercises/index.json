@@ -1,0 +1,3 @@
+{
+  "ids": ["identify-retained-closure-paths", "fix-loop-binding-sharing"]
+}

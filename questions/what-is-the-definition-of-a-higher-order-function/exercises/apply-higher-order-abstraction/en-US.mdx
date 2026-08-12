@@ -1,0 +1,53 @@
+---
+type: single-select
+---
+
+Which implementation creates a reusable higher-order abstraction that can add logging around different functions without calling them during setup?
+
+## Options
+
+### wrapper-factory (correct)
+
+```js
+function withLogging(operation) {
+  return (...args) => {
+    console.log('called', args);
+    return operation(...args);
+  };
+}
+```
+
+> It accepts any operation and returns a new function that defers the original call while adding shared behavior.
+
+### specialized-call
+
+```js
+function loggedSave(record) {
+  console.log('called', record);
+  return save(record);
+}
+```
+
+> This adds logging to one hard-coded operation rather than abstracting over a function argument or returning a wrapper.
+
+### eager-result
+
+```js
+function withLogging(operation) {
+  console.log('called');
+  return operation();
+}
+```
+
+> Although it accepts a function, it invokes it immediately and returns its result instead of producing the requested deferred wrapper.
+
+### value-logger
+
+```js
+function logValue(value) {
+  console.log('called', value);
+  return value;
+}
+```
+
+> This function accepts and returns ordinary values, so it cannot wrap different operations.

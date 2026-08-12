@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which transformation is currying rather than merely partial application?
+
+## Options
+
+### unary-function-chain (correct)
+
+Transform `calculate(a, b, c)` into calls shaped like `calculate(a)(b)(c)`.
+
+> Currying systematically turns a multi-argument function into a sequence of unary functions.
+
+### fix-first-argument
+
+Turn `calculate(a, b, c)` into `calculateForA(b, c)` by fixing only `a`.
+
+> That reduces the remaining arity by supplying some arguments, which is partial application.
+
+### bind-receiver-only
+
+Create `calculate.bind(receiver)` without fixing any data arguments.
+
+> This binds `this`; it neither creates the unary chain of currying nor necessarily partially applies an argument.
+
+### collect-rest-arguments
+
+Change the function to accept `(...args)` and process an array.
+
+> A rest parameter collects arguments but does not transform invocation into successive unary calls.

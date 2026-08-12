@@ -1,0 +1,51 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const output = [];
+const value = 2;
+
+switch (value) {
+  case 1:
+    output.push('one');
+    break;
+  case 2:
+    output.push('two');
+  case 3:
+    output.push('three');
+    break;
+  default:
+    output.push('other');
+}
+
+console.log(output.join(','));
+```
+
+## Options
+
+### two-three (correct)
+
+`two,three`
+
+> Case 2 matches and lacks a break, so execution falls through case 3 until its break.
+
+### two-only
+
+`two`
+
+> A matching case does not stop automatically at the next case label.
+
+### three-only
+
+`three`
+
+> The case 2 body executes before falling through to case 3.
+
+### two-three-other
+
+`two,three,other`
+
+> The break in case 3 exits the switch before default.

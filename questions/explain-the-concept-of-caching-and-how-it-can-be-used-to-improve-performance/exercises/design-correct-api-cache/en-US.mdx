@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A team wants to cache a personalized `/api/dashboard` response for faster navigation. Explain the minimum decisions needed to make that cache correct.
+
+## Answer
+
+The cache key must include every input that can change the representation, especially the authenticated user and relevant query or locale values. The team must choose a freshness or revalidation policy that matches how quickly dashboard data can change, and define invalidation after mutations such as editing a dashboard item. Shared caches must not serve one user’s response to another, and sensitive responses may require private caching or no storage at all.
+
+## Checklist
+
+- Defines a key that includes user identity and other representation inputs.
+- Chooses freshness or revalidation based on how quickly the data changes.
+- Explains invalidation after relevant mutations.
+- Prevents personalized data from leaking through a shared cache.

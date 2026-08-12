@@ -1,0 +1,48 @@
+---
+type: single-select
+---
+
+What does this classic script log?
+
+```js
+function inspect() {
+  console.log(declared());
+  console.log(typeof expressed);
+
+  function declared() {
+    return 'ready';
+  }
+
+  var expressed = function () {
+    return 'later';
+  };
+}
+
+inspect();
+```
+
+## Options
+
+### ready-undefined (correct)
+
+It logs `ready`, then `undefined`.
+
+> The function declaration is initialized with its function during scope setup, while the `var` binding exists as `undefined` until the expression is evaluated.
+
+### ready-function
+
+It logs `ready`, then `function`.
+
+> The function expression has not run yet, so no function object has been assigned to `expressed` at the second log.
+
+### reference-error
+
+The first reference to `declared` throws `ReferenceError`.
+
+> Function declarations are initialized before the function body's statements execute and can be called before their source locations.
+
+### type-error
+
+Calling `declared()` throws `TypeError` because its binding contains `undefined`.
+
+> That `undefined` initialization applies to a `var` binding, not to the binding introduced by a function declaration.

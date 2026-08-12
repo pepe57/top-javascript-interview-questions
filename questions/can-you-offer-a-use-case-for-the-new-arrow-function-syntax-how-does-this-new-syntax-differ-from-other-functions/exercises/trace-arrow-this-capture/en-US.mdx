@@ -1,0 +1,45 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const counter = {
+  value: 1,
+  makeIncrementer() {
+    return () => ++this.value;
+  },
+};
+
+const increment = counter.makeIncrementer();
+const other = { value: 10 };
+
+console.log(increment.call(other), counter.value, other.value);
+```
+
+## Options
+
+### two-two-ten (correct)
+
+`2 2 10`
+
+> The arrow captures `this` from the `counter.makeIncrementer()` call, and `call(other)` cannot replace that lexical binding.
+
+### eleven-one-eleven
+
+`11 1 11`
+
+> That would require `call(other)` to rebind the arrow's `this`, but arrows do not receive `this` from their invocation form.
+
+### two-one-ten
+
+`2 1 10`
+
+> Incrementing `this.value` mutates the captured `counter` object, so its value becomes `2`.
+
+### type-error
+
+It throws `TypeError` because arrow functions cannot be used with `call`.
+
+> An arrow can be invoked through `call`; the supplied receiver is simply ignored for its lexical `this` resolution.

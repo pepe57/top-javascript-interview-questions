@@ -1,0 +1,46 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const target = { count: 1 };
+const proxy = new Proxy(target, {
+  get(object, property, receiver) {
+    return Reflect.get(object, property, receiver) * 2;
+  },
+  set(object, property, value, receiver) {
+    return Reflect.set(object, property, value + 1, receiver);
+  },
+});
+
+proxy.count = 4;
+console.log(proxy.count, target.count);
+```
+
+## Options
+
+### ten-five (correct)
+
+`10 5`
+
+> The set trap stores `5` on the target, and reading through the proxy doubles that stored value while direct target access does not.
+
+### eight-four
+
+`8 4`
+
+> The set trap increments the assigned value before storing it.
+
+### ten-ten
+
+`10 10`
+
+> The get trap applies only when accessing through the proxy, not when reading the target directly.
+
+### five-five
+
+`5 5`
+
+> The proxy’s get trap transforms its visible read result to double the target value.

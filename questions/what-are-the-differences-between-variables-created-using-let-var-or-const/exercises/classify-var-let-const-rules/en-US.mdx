@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about `var`, `let`, and `const` are correct? Select all that apply.
+
+## Options
+
+### var-function-scoped (correct)
+
+`var` is function- or script-scoped rather than scoped to an ordinary block.
+
+> An `if` or loop block does not create a new `var` scope.
+
+### let-const-block-scoped (correct)
+
+`let` and `const` create block-scoped bindings.
+
+> Their visibility stops at the enclosing lexical block boundary.
+
+### const-needs-initializer (correct)
+
+A `const` declaration requires an initializer and cannot later be reassigned.
+
+> The binding must receive its value at declaration and remains fixed afterward.
+
+### lexical-tdz (correct)
+
+Accessing a `let` or `const` binding before declaration evaluation throws because it is uninitialized in the temporal dead zone.
+
+> The binding exists during block setup but has no readable value yet.
+
+### const-deep-immutable
+
+`const` recursively makes an assigned object and all nested values immutable.
+
+> `const` prevents rebinding; it does not freeze the referenced object.

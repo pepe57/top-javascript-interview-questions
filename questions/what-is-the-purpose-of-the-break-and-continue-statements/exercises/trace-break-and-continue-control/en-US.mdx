@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const values = [];
+for (let index = 0; index < 6; index += 1) {
+  if (index === 2) continue;
+  if (index === 4) break;
+  values.push(index);
+}
+console.log(values.join(','));
+```
+
+## Options
+
+### zero-one-three (correct)
+
+`0,1,3`
+
+> `continue` skips only index 2, while `break` exits the loop before index 4 is pushed.
+
+### zero-one
+
+`0,1`
+
+> `continue` does not terminate the loop; index 3 still executes.
+
+### zero-one-three-five
+
+`0,1,3,5`
+
+> `break` stops the loop entirely, so index 5 is never reached.
+
+### zero-one-two-three
+
+`0,1,2,3`
+
+> The continue statement skips the push for index 2.

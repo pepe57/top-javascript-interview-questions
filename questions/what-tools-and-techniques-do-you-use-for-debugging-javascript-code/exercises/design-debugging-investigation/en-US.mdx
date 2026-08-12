@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A transformed production build sometimes submits duplicate orders. Describe a disciplined debugging investigation.
+
+## Answer
+
+Capture the failing input, user action sequence, environment, and request identifiers until the issue is reproducible or observable. Use the Network panel or server traces to determine whether duplicate requests originate in the browser or downstream. Load correct source maps, set conditional breakpoints or logpoints around submission state, and inspect call stacks and event/listener registration rather than scattering permanent logs. Reduce the case and test a specific hypothesis about retries, double handlers, or race conditions. After finding the cause, preserve the scenario in a regression test and remove temporary instrumentation.
+
+## Checklist
+
+- Captures a reproducible scenario and correlatable request evidence.
+- Locates the boundary where expected and actual behavior diverge.
+- Uses source maps, targeted breakpoints, call stacks, or logpoints.
+- Adds a regression test after proving the cause.

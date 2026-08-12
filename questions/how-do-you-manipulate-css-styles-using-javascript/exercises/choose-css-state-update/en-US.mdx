@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A component needs to toggle a predefined `.is-open` visual state while keeping styling rules in CSS. Which update best expresses that behavior?
+
+## Options
+
+### class-list-toggle (correct)
+
+`element.classList.toggle("is-open", shouldOpen)`
+
+> The class represents semantic state while CSS retains responsibility for the actual visual properties.
+
+### replace-class-name
+
+`element.className = "is-open"`
+
+> Replacing the full class string can discard unrelated component, utility, or state classes.
+
+### append-style-text
+
+`element.setAttribute("style", element.getAttribute("style") + "display:block")`
+
+> String-appending inline declarations is fragile, can produce invalid syntax, and mixes state with style implementation.
+
+### rewrite-stylesheet
+
+Replace the entire stylesheet text whenever the component opens.
+
+> A local state change does not require rebuilding global style rules.

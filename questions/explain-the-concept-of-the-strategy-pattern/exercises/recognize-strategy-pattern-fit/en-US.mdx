@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which design situations are a good fit for the Strategy pattern? Select all that apply.
+
+## Options
+
+### interchangeable-pricing (correct)
+
+A checkout supports several pricing algorithms selected by market, each implementing the same pricing contract.
+
+> The algorithms are genuine interchangeable policies behind a stable interface.
+
+### injectable-retry-policy (correct)
+
+A request client accepts a retry-policy function so products can choose different backoff behavior.
+
+> A function can be a strategy; separate classes are not required.
+
+### single-stable-branch
+
+A function has one small stable boolean branch that is unlikely to gain more behaviors.
+
+> A direct conditional is clearer when there is no meaningful family of interchangeable algorithms.
+
+### runtime-algorithm-selection (correct)
+
+A data tool chooses one of several sorting or compression algorithms at runtime through a common contract.
+
+> Runtime substitution of cohesive algorithms is the central use case.
+
+### unrelated-method-bag
+
+A class has many unrelated methods, so each method should automatically become a separate strategy object.
+
+> Strategy isolates interchangeable behavior, not arbitrary fragmentation of every method.

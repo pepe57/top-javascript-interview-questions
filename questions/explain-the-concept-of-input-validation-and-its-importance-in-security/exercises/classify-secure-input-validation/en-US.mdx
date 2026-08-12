@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices belong in a secure input-handling design? Select all that apply.
+
+## Options
+
+### server-validates (correct)
+
+Validate untrusted values again at the trusted server boundary even when the browser already validates the form.
+
+> Attackers can bypass client JavaScript and send requests directly.
+
+### schema-allowlist (correct)
+
+Prefer an explicit schema or allowlist for expected type, length, range, and format.
+
+> Defining accepted input is more robust than trying to enumerate every malicious form.
+
+### separate-injection-controls (correct)
+
+Use parameterized SQL and context-appropriate output encoding in addition to validation.
+
+> Valid-looking input can still be dangerous in a database or output context if it is concatenated or rendered unsafely.
+
+### client-only-security
+
+HTML constraint validation is sufficient because browsers prevent users from modifying requests.
+
+> Requests can be created outside the application UI, so client validation is a usability layer rather than a security boundary.
+
+### validation-is-authorization
+
+A valid resource ID proves the current user is authorized to access that resource.
+
+> Input validity and access control are separate checks; a well-formed ID can still identify another user’s resource.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which test portfolio best matches the risks of an online checkout?
+
+## Options
+
+### many-unit-some-integration-few-e2e (correct)
+
+Many unit cases for price calculations, integration tests for the order API and database/payment adapters, and a few browser E2E tests for critical purchase journeys.
+
+> Each level targets the behavior it can verify efficiently while retaining end-to-end confidence in the most important flows.
+
+### e2e-only
+
+Use only browser E2E tests because they include every component.
+
+> E2E-only coverage is slow, expensive to diagnose, and inefficient for exhaustive calculation edge cases.
+
+### unit-only
+
+Use only unit tests with all boundaries mocked.
+
+> Unit tests cannot prove that modules, protocols, database mappings, and browser wiring work together.
+
+### integration-for-pure-calculation
+
+Use database integration tests for every pure price calculation and omit user-journey coverage.
+
+> Pure calculations are cheaper and clearer as unit tests, while omitting E2E leaves the public flow unverified.

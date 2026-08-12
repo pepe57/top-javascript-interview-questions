@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about JavaScript garbage collection are correct? Select all that apply.
+
+## Options
+
+### roots-and-reachability (correct)
+
+Tracing collectors start from roots and retain objects reachable through the object graph.
+
+> Reachability, not whether a variable name feels “unused,” determines what the collector can reclaim.
+
+### cycles-can-be-collected (correct)
+
+A cycle of objects can be collected when nothing reachable from a root points into that cycle.
+
+> Tracing reachability handles unreachable cycles unlike simple reference counting.
+
+### reachable-leak-possible (correct)
+
+An unbounded cache or forgotten event listener can create a memory leak by keeping obsolete data reachable.
+
+> The collector cannot infer that reachable application data is no longer useful.
+
+### manual-delete-frees
+
+Calling `delete object.property` immediately frees the referenced object’s memory.
+
+> It removes one reference; reclamation depends on all remaining reachability and a later collector run.
+
+### force-gc-production
+
+Normal application code should force a full collection after every large operation.
+
+> Collection scheduling is an engine concern and forced full collections would be costly and generally unavailable.

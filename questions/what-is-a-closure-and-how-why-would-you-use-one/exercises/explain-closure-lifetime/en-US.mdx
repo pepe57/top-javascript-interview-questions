@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+An interviewer asks whether a closure stores a snapshot of outer values. Explain what it retains, how later calls observe updates, and why two calls to the same factory can hold independent state.
+
+## Answer
+
+A closure retains access to the lexical environment where its function was created, not a frozen snapshot of each value. If the closure or another function updates a captured binding, later calls read that binding's current value. Each factory invocation creates a new lexical environment, so closures returned by separate invocations can keep independent state. An environment remains reachable for as long as a reachable closure still needs it.
+
+## Checklist
+
+- Identifies the retained lexical environment rather than a value snapshot.
+- Explains that later calls observe updates to the captured binding.
+- Connects independent factory calls to separate lexical environments.
+- Relates the environment's lifetime to the closure remaining reachable.

@@ -1,0 +1,6 @@
+{
+  "ids": [
+    "trace-declaration-versus-var-expression",
+    "resolve-named-function-expression-scope"
+  ]
+}

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which performance-problem and tool pairings are appropriate? Select all that apply.
+
+## Options
+
+### jank-performance-panel (correct)
+
+Use a browser Performance trace to inspect a slow interaction’s long tasks, rendering work, and call stacks.
+
+> The trace correlates main-thread execution with frames and browser rendering phases.
+
+### load-network-lighthouse (correct)
+
+Use the Network panel plus tools such as Lighthouse or WebPageTest for page-load transfer and critical-path analysis.
+
+> Those tools expose request timing, priority, bytes, and lab loading metrics.
+
+### memory-heap-snapshot (correct)
+
+Use heap snapshots and allocation profiles for growing memory use.
+
+> They reveal retained objects, allocation patterns, and retaining paths.
+
+### node-inspector-profile (correct)
+
+Capture CPU or heap profiles with the Node.js inspector for slow server-side JavaScript.
+
+> Server runtime profiles identify hot stacks and retained data outside the browser.
+
+### microbenchmark-user-impact
+
+A fast isolated microbenchmark proves the tested snippet is the user-visible bottleneck.
+
+> A microbenchmark compares snippets but does not establish their frequency or importance in the actual experience.

@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A sensitive account page must never be embedded by any site, including the same origin. Which primary response policy expresses that requirement?
+
+## Options
+
+### frame-ancestors-none (correct)
+
+`Content-Security-Policy: frame-ancestors 'none'`
+
+> `frame-ancestors` is the modern server-enforced framing policy, and `none` denies all ancestors.
+
+### frame-ancestors-self
+
+`Content-Security-Policy: frame-ancestors 'self'`
+
+> `self` still permits same-origin framing, which violates the requirement.
+
+### cors-deny
+
+`Access-Control-Allow-Origin: none`
+
+> CORS controls script access to responses, not whether a page can be framed.
+
+### frame-busting-script
+
+`if (top !== self) top.location = self.location;` in client JavaScript
+
+> Frame-busting scripts are bypassable and can run too late; framing restrictions belong in response headers.

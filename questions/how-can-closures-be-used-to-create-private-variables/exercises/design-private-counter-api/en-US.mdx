@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+Describe how to design a `createCounter()` factory that exposes `increment()` and `read()` methods while preventing callers from assigning the counter value directly. Explain how the methods share state and how separate counters remain independent.
+
+## Answer
+
+Declare a `count` binding inside `createCounter()` and return `increment()` and `read()` functions that close over it. Do not return `count` or copy it onto the public object. Both methods created by one call share that call's lexical environment, so `increment()` updates the value observed by `read()`. Each later call to `createCounter()` creates a new environment and therefore an independent private counter. Callers can change the state only through the methods the factory exposes.
+
+## Checklist
+
+- Places the private binding inside the factory's lexical scope.
+- Exposes only methods that close over the binding, not the binding itself.
+- Explains why methods from one factory call share state.
+- Explains why separate factory calls produce independent state.

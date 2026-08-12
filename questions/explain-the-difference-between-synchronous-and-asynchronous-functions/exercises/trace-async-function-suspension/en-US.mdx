@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What is the log order?
+
+```js
+async function run() {
+  console.log('B');
+  await null;
+  console.log('D');
+}
+
+console.log('A');
+run();
+console.log('C');
+```
+
+## Options
+
+### a-b-c-d (correct)
+
+`A B C D`
+
+> Calling an async function runs synchronously through `B`; `await` suspends its continuation, allowing `C` before the later microtask logs `D`.
+
+### a-c-b-d
+
+`A C B D`
+
+> An async function does not defer its entire body; it starts running immediately when called.
+
+### a-b-d-c
+
+`A B D C`
+
+> The continuation after `await` cannot resume until the current script has completed, including `C`.
+
+### b-d-a-c
+
+`B D A C`
+
+> `A` logs before `run()` is invoked, and `D` is asynchronous after the suspension.

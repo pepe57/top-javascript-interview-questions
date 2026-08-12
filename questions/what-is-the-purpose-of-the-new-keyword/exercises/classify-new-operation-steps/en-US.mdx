@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements describe an ordinary constructable function called with `new`? Select all that apply.
+
+## Options
+
+### fresh-object (correct)
+
+A fresh object is created for the constructor call.
+
+> It becomes the default instance returned from construction.
+
+### prototype-link (correct)
+
+The new object is linked to the constructor’s `prototype` object.
+
+> That link provides inherited instance methods and supports `instanceof` checks.
+
+### constructor-this (correct)
+
+The constructor executes with `this` set to the new object.
+
+> Assignments through `this` initialize instance state.
+
+### arrows-constructable
+
+Every callable value, including an arrow function, can be invoked with `new`.
+
+> Arrow functions are callable but not constructable and have no constructor prototype.
+
+### object-return-wins (correct)
+
+An explicit non-primitive object return can replace the new object as the construction result.
+
+> Primitive explicit returns are ignored, but object returns take precedence.

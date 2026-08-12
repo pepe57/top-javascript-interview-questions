@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about synchronous and asynchronous JavaScript are correct? Select all that apply.
+
+## Options
+
+### sync-runs-to-completion (correct)
+
+Synchronous code on the active stack runs to completion before a later task can execute.
+
+> The event loop does not preempt ordinary JavaScript in the middle of the current stack.
+
+### async-arranges-later-result (correct)
+
+An asynchronous API can let the current stack finish while the host waits for I/O or a timer.
+
+> The eventual callback, event, or promise reaction is scheduled when progress can be reported.
+
+### async-means-parallel
+
+Declaring a function `async` moves all of its JavaScript onto another thread.
+
+> `async` changes return and suspension semantics; it does not create a worker thread.
+
+### cpu-work-still-blocks (correct)
+
+CPU-heavy JavaScript in an async function still blocks its thread until it yields or completes.
+
+> A promise wrapper does not make synchronous computation non-blocking.

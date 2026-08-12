@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about tree shaking are correct? Select all that apply.
+
+## Options
+
+### static-esm-helps (correct)
+
+Static ES module imports and exports let a bundler trace which bindings are reachable from entry points.
+
+> Their analyzable structure is a key input to dead-export elimination.
+
+### side-effects-limit-removal (correct)
+
+A module’s top-level side effects can require the bundler to retain code even when none of its exports are read.
+
+> Removing the module could change observable behavior, so side-effect analysis matters.
+
+### unused-name-guarantee
+
+Any function whose name is not referenced in source text is guaranteed to disappear from the production bundle.
+
+> Dynamic access, re-exports, side effects, transpilation, and bundler configuration can make reachability less obvious.
+
+### package-metadata-matters (correct)
+
+Package side-effect metadata and the actual production bundler configuration can affect the result.
+
+> Bundlers use those signals when deciding whether apparently unused modules can be omitted safely.
+
+### minification-same-thing
+
+Tree shaking is merely renaming variables to shorter identifiers.
+
+> Renaming is minification; tree shaking removes code proven unreachable.

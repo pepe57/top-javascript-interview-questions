@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Which statements about iterators and generators are correct? Select all that apply.
+
+## Options
+
+### next-result-shape (correct)
+
+An iterator’s `next()` returns an object containing `value` and `done`.
+
+> That result communicates both the next value and completion state.
+
+### generator-is-lazy (correct)
+
+A generator can produce a long or infinite sequence one requested value at a time.
+
+> Execution pauses at each `yield`, avoiding eager materialization of the whole sequence.
+
+### custom-iterable (correct)
+
+An object can integrate with `for...of` by providing an iterator through `Symbol.iterator`.
+
+> The iterable protocol lets language constructs request its iterator.
+
+### generator-always-async
+
+Every generator performs asynchronous work and returns promises from `next()`.
+
+> Ordinary generators are synchronous; async generators are a distinct form with an async iterator protocol.

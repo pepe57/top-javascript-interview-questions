@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which worker-type descriptions are correct? Select all that apply.
+
+## Options
+
+### dedicated-cpu-work (correct)
+
+A dedicated worker can run CPU-intensive JavaScript away from a page’s main UI thread.
+
+> It belongs to its creating context and communicates through messages.
+
+### service-network-proxy (correct)
+
+A service worker can intercept supported network requests and enable offline caching and push behavior.
+
+> It is event-driven and can be started by the browser for supported events.
+
+### shared-multiple-documents (correct)
+
+A shared worker can coordinate compatible same-origin documents through message ports.
+
+> Multiple windows or frames can connect to one shared worker instance within supported scoping rules.
+
+### worker-dom-access
+
+Every worker can directly manipulate the owning document’s DOM.
+
+> Worker globals do not expose the page DOM; UI updates remain on the main thread.
+
+### service-always-running
+
+A service worker is a continuously running background process that the site can keep alive indefinitely.
+
+> The browser starts and stops it around events and controls its lifetime.

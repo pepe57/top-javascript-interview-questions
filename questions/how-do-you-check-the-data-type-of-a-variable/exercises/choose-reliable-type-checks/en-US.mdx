@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which JavaScript type checks are reliable for the stated purpose? Select all that apply.
+
+## Options
+
+### typeof-function (correct)
+
+`typeof value === "function"` to recognize callable function values in ordinary cases.
+
+> `function` is a defined `typeof` result for function objects.
+
+### array-is-array (correct)
+
+`Array.isArray(value)` to distinguish arrays from other objects.
+
+> Arrays otherwise report `object` through `typeof`.
+
+### null-explicit (correct)
+
+`value === null` to detect `null`.
+
+> The historical `typeof null` result is `object`, so an explicit equality check is needed.
+
+### typeof-array
+
+`typeof value === "array"` to detect an array.
+
+> `array` is not a possible `typeof` result.
+
+### instanceof-cross-realm
+
+`value instanceof Array` is guaranteed to recognize arrays created in every iframe realm.
+
+> Different realms have different `Array` constructors; `Array.isArray()` handles this case.

@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const readers = [];
+
+for (var index = 0; index < 3; index++) {
+  readers.push(() => index * 2);
+}
+
+console.log(readers.map((read) => read()).join(', '));
+```
+
+## Options
+
+### zero-two-four
+
+`0, 2, 4`
+
+> That result would require a separate binding for each iteration, but `var` creates one shared function- or script-scoped binding.
+
+### two-four-six
+
+`2, 4, 6`
+
+> None of the callbacks run during the loop, so they do not capture the values immediately before each increment.
+
+### six-six-six (correct)
+
+`6, 6, 6`
+
+> All three closures read the same `index` binding after the loop has finished and left its value at `3`.
+
+### reference-error
+
+The callback calls throw `ReferenceError` because `index` is out of scope.
+
+> A `var` declared by a top-level loop belongs to the containing script scope, so the binding remains available after the loop.

@@ -1,0 +1,38 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const field = 'display-name';
+const user = { 'display-name': 'Ada', field: 'literal' };
+
+console.log(user[field], user.field);
+```
+
+## Options
+
+### ada-literal (correct)
+
+`Ada literal`
+
+> Bracket notation evaluates `field` to obtain `display-name`, while dot notation uses the literal identifier `field`.
+
+### literal-literal
+
+`literal literal`
+
+> The bracket expression is computed; it does not treat the source identifier as the property name.
+
+### ada-ada
+
+`Ada Ada`
+
+> Dot notation does not substitute the value of a same-named variable.
+
+### syntax-error
+
+It throws a syntax error because the key contains a hyphen.
+
+> A quoted object key and bracket access both support property names that are not valid identifiers.

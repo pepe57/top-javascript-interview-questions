@@ -1,0 +1,46 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const account = {
+  _name: 'Ada',
+  get name() {
+    return this._name.toUpperCase();
+  },
+  set name(value) {
+    if (value) this._name = value.trim();
+  },
+};
+
+account.name = ' Lin ';
+console.log(account.name, account._name);
+```
+
+## Options
+
+### lin-upper-and-trimmed (correct)
+
+`LIN Lin`
+
+> Assignment invokes the setter and stores the trimmed value; property access invokes the getter and returns its uppercase view.
+
+### raw-both
+
+`Lin  Lin`
+
+> The accessor methods transform both assignment and reading.
+
+### lin-upper-both
+
+`LIN LIN`
+
+> The getter transforms its returned view but does not overwrite `_name` with uppercase text.
+
+### undefined-lin
+
+`undefined Lin`
+
+> The getter has an explicit return value and runs on `account.name` access.

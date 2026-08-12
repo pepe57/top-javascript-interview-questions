@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+A `button` is inside a `section`. What is logged when the button is clicked?
+
+```js
+section.addEventListener('click', () => console.log('section bubble'));
+section.addEventListener('click', () => console.log('section capture'), {
+  capture: true,
+});
+button.addEventListener('click', () => console.log('button'));
+```
+
+## Options
+
+### capture-button-bubble (correct)
+
+`section capture`, `button`, `section bubble`
+
+> Capture listeners run on the way toward the target, followed by target handling and then ancestor bubble listeners.
+
+### button-capture-bubble
+
+`button`, `section capture`, `section bubble`
+
+> The section capture listener runs before the event reaches the target button.
+
+### bubble-button-capture
+
+`section bubble`, `button`, `section capture`
+
+> A bubble listener cannot run before target handling, and capture precedes both.
+
+### capture-bubble-button
+
+`section capture`, `section bubble`, `button`
+
+> After capture reaches the target, the target listener runs before bubbling returns to the section.

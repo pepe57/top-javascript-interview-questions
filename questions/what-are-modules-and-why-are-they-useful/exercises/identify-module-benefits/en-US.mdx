@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which benefits come from well-designed JavaScript modules? Select all that apply.
+
+## Options
+
+### explicit-public-api (correct)
+
+Exports define an explicit public surface while unexported implementation details remain module-scoped.
+
+> This supports encapsulation and limits accidental coupling.
+
+### explicit-dependencies (correct)
+
+Imports make dependencies discoverable to readers and tooling.
+
+> The module graph can be analyzed without relying on implicit global lookup.
+
+### avoid-global-collisions (correct)
+
+Module scope avoids placing every declaration into one shared global namespace.
+
+> Separate scopes reduce name collisions and hidden mutation.
+
+### automatic-good-architecture
+
+Splitting every function into its own module automatically produces a maintainable architecture.
+
+> Boundaries still need cohesion, useful APIs, and sensible dependency direction.
+
+### imports-copy-values
+
+Every import is an unrelated copied value that can never reflect an exported binding update.
+
+> ESM named imports are live read-only views of exported bindings.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which conclusions are justified when reviewing a code-coverage report? Select all that apply.
+
+## Options
+
+### find-untested-paths (correct)
+
+An uncovered branch can reveal behavior the current test run never exercised.
+
+> Branch coverage is useful for locating missing scenarios that deserve risk-based review.
+
+### executed-not-asserted (correct)
+
+A covered line may have executed without any assertion proving its result was correct.
+
+> Coverage measures execution, not the quality or relevance of assertions.
+
+### hundred-proves-correctness
+
+100% statement coverage proves the implementation is correct for all inputs.
+
+> The suite may miss important input combinations, weak assertions, integration failures, and specification mistakes.
+
+### metrics-differ (correct)
+
+Statement, branch, function, and line coverage expose different kinds of gaps.
+
+> For example, executing an `if` statement does not prove both of its branches ran.
+
+### maximize-with-low-value-tests
+
+The best testing strategy is always to maximize the percentage, even with low-value tests.
+
+> Coverage should guide risk-based testing rather than become a target that rewards superficial execution.

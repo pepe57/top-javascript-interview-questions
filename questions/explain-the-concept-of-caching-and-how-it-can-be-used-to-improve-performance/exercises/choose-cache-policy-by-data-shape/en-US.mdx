@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which caching strategy is the best fit for a versioned asset named `app.8f3a1.js`, whose URL changes whenever its contents change?
+
+## Options
+
+### long-lived-immutable (correct)
+
+Serve it with a long freshness lifetime and `immutable` semantics.
+
+> Content-addressed filenames make old URLs stable, so they can be cached aggressively while new deployments use new URLs.
+
+### no-store
+
+Use `Cache-Control: no-store` for every request.
+
+> Disabling storage discards the primary performance benefit even though the versioned URL is safe to reuse.
+
+### personalized-shared-cache
+
+Store it in a shared cache keyed by the current user ID.
+
+> A public versioned asset is identical for users and does not need personalized cache entries.
+
+### manual-local-storage
+
+Copy the response into `localStorage` and never check its URL again.
+
+> HTTP caching already handles versioned resources and avoids inventing an update and response-decoding protocol.

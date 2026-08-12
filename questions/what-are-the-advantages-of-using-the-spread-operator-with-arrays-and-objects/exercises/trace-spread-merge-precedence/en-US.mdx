@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const defaults = { theme: 'light', compact: false };
+const user = { compact: true };
+const settings = { ...defaults, ...user, theme: 'dark' };
+const values = [0, ...[1, 2], 3];
+
+console.log(settings.theme, settings.compact, values.join(','));
+```
+
+## Options
+
+### dark-true-zero-one-two-three (correct)
+
+`dark true 0,1,2,3`
+
+> Later object properties override earlier ones, while array spread inserts the iterable’s elements in place.
+
+### light-false-array
+
+`light false 0,1,2,3`
+
+> The user object and final explicit property appear later and override the defaults.
+
+### dark-true-nested-array
+
+`dark true 0,1,2,3` with `[1, 2]` kept as one nested item
+
+> Array spread expands its iterable elements rather than inserting the array object itself.
+
+### dark-false-array
+
+`dark false 0,1,2,3`
+
+> The later `user.compact` property overrides the earlier default.

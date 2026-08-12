@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which browser-storage statements are correct? Select all that apply.
+
+## Options
+
+### cookies-sent-with-requests (correct)
+
+Matching cookies can be attached automatically to HTTP requests.
+
+> Cookie domain, path, security attributes, and request context determine whether the browser sends them.
+
+### http-only-blocks-script-access (correct)
+
+An `HttpOnly` cookie cannot be read through `document.cookie`.
+
+> `HttpOnly` keeps the cookie out of JavaScript-accessible cookie APIs while still allowing request attachment.
+
+### web-storage-sends-automatically
+
+`localStorage` values are automatically sent to the origin with every request.
+
+> Web Storage stays client-side unless application code explicitly includes a value in a request.
+
+### local-storage-origin-shared (correct)
+
+`localStorage` is shared by same-origin documents and persists until it is cleared.
+
+> Its storage area is origin-scoped rather than tab-scoped.
+
+### session-storage-survives-tab-close
+
+`sessionStorage` normally remains available after its tab is closed and reopened later.
+
+> Closing the tab ends that page session and normally clears its `sessionStorage` area.

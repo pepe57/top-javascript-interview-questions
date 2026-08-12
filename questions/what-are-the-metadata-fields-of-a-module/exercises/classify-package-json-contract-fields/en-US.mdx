@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which `package.json` fields can materially affect an npm package’s runtime or publication contract? Select all that apply.
+
+## Options
+
+### exports-field (correct)
+
+`exports` can define public entry points and conditional targets for different consumers.
+
+> Incorrect mappings can make files inaccessible or select the wrong module format.
+
+### type-field (correct)
+
+`type` influences whether `.js` files are interpreted as ESM or CommonJS in Node.js package scope.
+
+> That interpretation changes parsing and loading behavior.
+
+### files-field (correct)
+
+`files` helps control which project files are included in the published package.
+
+> A mistaken list can omit runtime assets or publish unintended source and secrets.
+
+### dependency-categories (correct)
+
+Putting a required runtime package in the wrong dependency category can break consumers or duplicate shared libraries.
+
+> Dependency metadata tells package managers how and when requirements should be installed.
+
+### all-js-standard
+
+Every package field is defined by the ECMAScript language specification and consumed identically by all tools.
+
+> npm, package managers, Node.js, TypeScript, and bundlers define and consume overlapping but tool-specific metadata.

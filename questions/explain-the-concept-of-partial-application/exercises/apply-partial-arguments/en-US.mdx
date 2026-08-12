@@ -1,0 +1,41 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function format(prefix, value, suffix) {
+  return `${prefix}${value}${suffix}`;
+}
+
+const quote = format.bind(null, '“');
+const quoteWord = quote.bind(null, 'hello');
+console.log(quoteWord('”'));
+```
+
+## Options
+
+### quoted-hello (correct)
+
+`“hello”`
+
+> Each `bind` partially supplies the next leading argument, leaving only the suffix for the final call.
+
+### hello-only
+
+`hello`
+
+> The previously bound prefix and the final suffix are both included by `format`.
+
+### reversed-quote
+
+`”hello“`
+
+> Bound arguments are prepended in parameter order; the first bound value fills `prefix`.
+
+### type-error
+
+It throws because a bound function cannot be bound again.
+
+> A bound function remains callable and can be partially applied with more leading arguments.

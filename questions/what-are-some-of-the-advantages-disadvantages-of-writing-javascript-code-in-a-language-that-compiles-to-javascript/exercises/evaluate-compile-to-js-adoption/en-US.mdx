@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A JavaScript team is considering TypeScript or another compile-to-JavaScript language. Explain how you would evaluate the decision without assuming it improves runtime performance.
+
+## Answer
+
+Evaluate the problems the language would solve—such as static contracts, domain modeling, refactoring, or desired syntax—against compiler configuration, learning cost, ecosystem interoperability, source-map debugging, and generated-code semantics. TypeScript is incremental and erases its types; JSDoc-typed JavaScript may provide checking without new source syntax, while other languages make larger ecosystem tradeoffs. Prototype representative modules, inspect emitted JavaScript and bundle impact, and measure the deployed application rather than inferring runtime speed from the source language.
+
+## Checklist
+
+- Identifies concrete type, modeling, syntax, or tooling benefits.
+- Accounts for compiler, debugging, learning, and interoperability costs.
+- Distinguishes incremental TypeScript or JSDoc from larger language shifts.
+- Inspects emitted code and measures runtime behavior.

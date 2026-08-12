@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+For an event that supports bubbling, which sequence describes its trip along the DOM event path?
+
+## Options
+
+### capture-target-bubble (correct)
+
+Capture from ancestors toward the target, target handling, then bubbling from the target’s ancestors outward.
+
+> That is the standard three-phase progression.
+
+### target-capture-bubble
+
+Target handling first, then capture, then bubbling.
+
+> Capture occurs while the event travels toward the target, so it precedes target handling.
+
+### bubble-target-capture
+
+Bubbling from the root inward, target handling, then capture outward.
+
+> This reverses both propagation directions and their order.
+
+### capture-bubble-target
+
+Capture inward, bubbling outward, then target handling.
+
+> The target is reached between the inward capture path and the outward bubble path.

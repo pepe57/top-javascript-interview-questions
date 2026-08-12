@@ -1,0 +1,52 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function createWallet(start) {
+  let balance = start;
+
+  return {
+    deposit(amount) {
+      balance += amount;
+    },
+    read() {
+      return balance;
+    },
+  };
+}
+
+const first = createWallet(10);
+const second = createWallet(10);
+first.deposit(5);
+
+console.log(first.read(), second.read(), first.balance);
+```
+
+## Options
+
+### fifteen-ten-undefined (correct)
+
+`15 10 undefined`
+
+> The methods returned by one factory call share its private binding, separate calls have separate bindings, and `balance` is not an object property.
+
+### fifteen-fifteen-undefined
+
+`15 15 undefined`
+
+> Each invocation of `createWallet` creates an independent lexical environment rather than sharing one `balance` binding globally.
+
+### fifteen-ten-fifteen
+
+`15 10 15`
+
+> Closing over `balance` does not expose it as `first.balance`; consumers receive only the two methods.
+
+### ten-ten-undefined
+
+`10 10 undefined`
+
+> `deposit` and `read` close over the same `balance` binding from the first factory invocation, so the update is visible to `read`.

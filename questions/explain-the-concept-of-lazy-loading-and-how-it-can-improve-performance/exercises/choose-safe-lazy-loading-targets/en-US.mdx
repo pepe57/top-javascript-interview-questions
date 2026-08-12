@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which lazy-loading decisions are generally appropriate? Select all that apply.
+
+## Options
+
+### below-fold-image (correct)
+
+Use `loading="lazy"` for a below-the-fold gallery image with explicit dimensions.
+
+> Deferring an offscreen image reduces initial work, while dimensions reserve layout space.
+
+### optional-feature-import (correct)
+
+Use dynamic `import()` for a large editor that is opened only after a user action.
+
+> The optional code can be fetched when the feature is likely to be used instead of increasing the initial bundle.
+
+### hero-image-lazy
+
+Lazy-load the above-the-fold hero image that is expected to be the Largest Contentful Paint element.
+
+> Delaying the critical visual can worsen LCP; it should normally be discoverable and prioritized early.
+
+### observer-preload-margin (correct)
+
+Use `IntersectionObserver` with a preload margin when a resource should start loading shortly before it enters the viewport.
+
+> Observation supports custom thresholds without continuously polling scroll position.
+
+### defer-all-javascript
+
+Delay every script until interaction, including code required to render and operate the initial page.
+
+> Critical resources should remain on the initial path; indiscriminate deferral can delay usability.

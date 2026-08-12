@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements correctly characterize CSRF risk or mitigation? Select all that apply.
+
+## Options
+
+### ambient-cookie-risk (correct)
+
+A cross-origin form can be dangerous when the browser automatically attaches an authenticated cookie to a state-changing request.
+
+> CSRF exploits ambient credentials that accompany a request without proving the request came from the intended UI.
+
+### token-defense (correct)
+
+An unpredictable token tied to the user session can let the server reject forged state-changing requests.
+
+> The attacking site cannot normally read and reproduce a correctly protected token.
+
+### same-site-layer (correct)
+
+`SameSite` cookie settings can prevent cookies from accompanying many cross-site request contexts.
+
+> Cookie attachment restrictions reduce the ambient-credential condition that CSRF needs.
+
+### cors-alone
+
+Enabling a restrictive CORS response policy by itself prevents every CSRF request from being sent.
+
+> Browsers can send simple cross-origin requests and HTML forms even when scripts cannot read the response.
+
+### get-for-mutations
+
+Using GET for account-changing operations is a CSRF defense because links cannot carry cookies.
+
+> Browsers attach matching cookies to navigations, and GET should not perform state-changing actions.

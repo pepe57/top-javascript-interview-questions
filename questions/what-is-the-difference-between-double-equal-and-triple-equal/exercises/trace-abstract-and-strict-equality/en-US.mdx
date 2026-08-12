@@ -1,0 +1,35 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+console.log(0 == false, 0 === false, null == undefined, null === undefined);
+```
+
+## Options
+
+### true-false-true-false (correct)
+
+`true false true false`
+
+> Abstract equality coerces zero/false and treats null and undefined as equal; strict equality rejects both mixed-type pairs.
+
+### false-four-times
+
+`false false false false`
+
+> The abstract equality algorithm permits both shown coercive comparisons.
+
+### true-four-times
+
+`true true true true`
+
+> Strict equality does not coerce operands whose types differ.
+
+### true-true-false-false
+
+`true true false false`
+
+> `0 === false` is false, while `null == undefined` is a defined abstract-equality exception that is true.

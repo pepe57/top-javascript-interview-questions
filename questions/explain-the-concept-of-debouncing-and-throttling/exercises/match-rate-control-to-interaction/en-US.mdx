@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+Which pairing best matches the desired behavior?
+
+## Options
+
+### debounce-search-throttle-scroll (correct)
+
+Debounce an autocomplete request until typing pauses; throttle a scroll-position update to run at a limited rate while scrolling continues.
+
+> Autocomplete usually wants the final settled input, while scroll feedback often needs periodic updates during continuous activity.
+
+### throttle-search-debounce-scroll
+
+Throttle autocomplete so every interval sends an intermediate query; debounce scroll rendering until scrolling stops.
+
+> That reverses the common requirements: it sends avoidable queries and removes ongoing scroll feedback.
+
+### debounce-both-immediate
+
+Debounce both operations because debouncing guarantees an immediate first call and regular calls afterward.
+
+> A typical trailing debounce waits until calls stop; it does not guarantee regular execution during activity.
+
+### throttle-both-final-only
+
+Throttle both operations because throttling runs only once after the final call.
+
+> Throttling limits execution frequency during a stream; final-only behavior describes a trailing debounce.

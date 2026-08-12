@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about these Node.js scheduling APIs are correct? Select all that apply.
+
+## Options
+
+### timeout-minimum-delay (correct)
+
+`setTimeout(callback, 0)` schedules a timer after a minimum delay; zero does not mean immediate synchronous execution.
+
+> The callback waits for the timers phase and other event-loop conditions.
+
+### immediate-check-phase (correct)
+
+`setImmediate()` schedules work for the check phase, commonly after I/O callbacks.
+
+> Its phase differs from the timer queue.
+
+### next-tick-before-loop (correct)
+
+`process.nextTick()` queues work drained after the current JavaScript operation before the event loop continues.
+
+> Recursive next-tick work can therefore starve later phases.
+
+### timeout-immediate-context (correct)
+
+The relative order of a zero-delay timeout and an immediate can depend on where they are scheduled.
+
+> Top-level timing and scheduling from an I/O callback follow different phase circumstances.
+
+### fixed-order-everywhere
+
+`setTimeout(0)` always runs before `setImmediate()` in every Node.js context.
+
+> Their order is not universally fixed outside a specified scheduling context.

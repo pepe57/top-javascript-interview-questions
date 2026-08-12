@@ -1,0 +1,48 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const value = 'global';
+
+function inspect() {
+  let value = 'function';
+
+  if (true) {
+    let value = 'block';
+    var visible = 'var';
+  }
+
+  return `${value}:${visible}`;
+}
+
+console.log(`${inspect()}:${value}`);
+```
+
+## Options
+
+### function-var-global (correct)
+
+`function:var:global`
+
+> The block's `let value` stops at the block boundary, `var visible` belongs to `inspect`, and the outer `value` remains unchanged.
+
+### block-var-global
+
+`block:var:global`
+
+> The block-scoped `value` shadows the function-local binding only inside the `if` block.
+
+### function-undefined-global
+
+`function:undefined:global`
+
+> `var` ignores the `if` block boundary, so `visible` remains available throughout the containing function.
+
+### function-var-function
+
+`function:var:function`
+
+> The function-local `value` does not replace the separate binding in global scope.

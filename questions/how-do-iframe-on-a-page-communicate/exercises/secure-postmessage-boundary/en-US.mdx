@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices are required for a secure cross-origin parent/iframe `postMessage()` channel? Select all that apply.
+
+## Options
+
+### exact-target-origin (correct)
+
+Send with the exact expected target origin instead of `"*"` when the destination is known.
+
+> The browser then delivers the message only if the target window currently has that origin.
+
+### validate-event-origin (correct)
+
+Reject incoming messages whose `event.origin` is not an explicitly trusted origin.
+
+> Any window can attempt to message another window for which it has a reference.
+
+### validate-event-source (correct)
+
+When a specific frame or parent is expected, verify `event.source` is that window.
+
+> Origin validation alone may not distinguish multiple trusted windows from the same origin.
+
+### validate-data-schema (correct)
+
+Validate the type and shape of `event.data` before using it.
+
+> A trusted transport origin does not make malformed or unexpected message payloads safe to process blindly.
+
+### trust-message-event
+
+Treat every `message` event as trusted because the browser delivered it.
+
+> The browser exposes sender metadata precisely because receivers must establish their own trust boundary.

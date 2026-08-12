@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const combine = (a) => (b) => (c) => `${a}-${b}-${c}`;
+const withA = combine('A');
+const withAB = withA('B');
+
+console.log(withAB('C'), withA('D')('E'));
+```
+
+## Options
+
+### a-b-c-and-a-d-e (correct)
+
+`A-B-C A-D-E`
+
+> Each returned function closes over arguments supplied in earlier stages, and `withA` can be reused with a different second argument.
+
+### a-b-c-and-d-e
+
+`A-B-C D-E`
+
+> `withA` retains the original `A` argument for every later branch.
+
+### a-b-c-twice
+
+`A-B-C A-B-C`
+
+> The second branch supplies `D` and `E`; calling it does not reuse `withAB`.
+
+### functions-only
+
+`function function`
+
+> All three arguments are supplied in each expression, so both curried chains reach their final string result.

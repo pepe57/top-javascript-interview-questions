@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function read() {
+  try {
+    return 'try';
+  } finally {
+    return 'finally';
+  }
+}
+
+console.log(read());
+```
+
+## Options
+
+### finally (correct)
+
+`finally`
+
+> The `finally` block runs while control leaves the try, and its own return overrides the earlier prepared return value.
+
+### try
+
+`try`
+
+> That would be the result if finally performed cleanup without its own abrupt completion.
+
+### try-finally
+
+`try finally`
+
+> The function produces only one return value; the later return replaces the earlier one.
+
+### syntax-error
+
+It is a syntax error to return from `finally`.
+
+> It is legal but discouraged because it can suppress returns and thrown errors.

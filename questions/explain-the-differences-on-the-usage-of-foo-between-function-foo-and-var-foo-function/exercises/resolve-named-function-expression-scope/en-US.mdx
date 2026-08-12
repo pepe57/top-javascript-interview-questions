@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const repeat = function again(count) {
+  return count === 0 ? typeof again : repeat(count - 1);
+};
+
+console.log(repeat(1), typeof again);
+```
+
+## Options
+
+### function-undefined (correct)
+
+`function undefined`
+
+> The expression name `again` is visible inside its own function body but does not create an outer binding.
+
+### function-function
+
+`function function`
+
+> The internal name of a named function expression does not leak into the enclosing scope.
+
+### undefined-undefined
+
+`undefined undefined`
+
+> `again` resolves to the function while its body executes.
+
+### reference-error
+
+It throws `ReferenceError` when evaluating `typeof again` outside the function.
+
+> `typeof` on an undeclared identifier returns `undefined` rather than throwing.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about Promises are correct? Select all that apply.
+
+## Options
+
+### settles-once (correct)
+
+A promise moves from pending to one fulfilled or rejected outcome and cannot later switch outcomes.
+
+> Subsequent resolve or reject attempts are ignored after settlement.
+
+### methods-return-new-promises (correct)
+
+`.then()`, `.catch()`, and `.finally()` return new promises.
+
+> This lets values, errors, and asynchronous results compose through a chain.
+
+### reactions-are-microtasks (correct)
+
+Reaction callbacks run as microtasks even when their source promise is already settled.
+
+> They never run synchronously inside the `.then()` registration call.
+
+### moves-work-thread
+
+Wrapping computation in `new Promise()` automatically moves that computation to another thread.
+
+> The executor runs synchronously on the calling thread unless it explicitly invokes another host mechanism.
+
+### automatic-cancellation
+
+Every promise exposes a built-in method that cancels its underlying operation.
+
+> Cancellation requires an operation-specific mechanism such as `AbortSignal` and cannot be inferred from the promise alone.

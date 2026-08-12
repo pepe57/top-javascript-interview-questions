@@ -1,0 +1,16 @@
+---
+type: self-review
+---
+
+A pure `calculateShipping(weight, destination)` function can return a price or throw for unsupported input. Outline a focused unit-test set and explain what should remain observable rather than implementation-coupled.
+
+## Answer
+
+Test representative domestic and international successes, boundary weights immediately around pricing thresholds, and unsupported or invalid destinations and weights. Assert returned prices and documented error type or code, not private helper calls or the exact sequence of internal branches. Use table-driven cases when they improve readability, keep each case independent, and add an integration test separately if confidence depends on real carrier configuration or an adapter contract.
+
+## Checklist
+
+- Covers representative success, boundary, and failure behavior.
+- Asserts public results or documented errors rather than private implementation steps.
+- Keeps cases deterministic and independent.
+- Separates real-boundary confidence into an integration test when needed.

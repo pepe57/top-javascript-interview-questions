@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices reduce sensitive-data exposure in a JavaScript application? Select all that apply.
+
+## Options
+
+### keep-secrets-server-side (correct)
+
+Keep API secrets and signing keys out of client bundles and store server-side secrets in a managed secret store or protected environment.
+
+> Anything delivered to browser JavaScript is observable by the user and should be considered public.
+
+### minimize-retention (correct)
+
+Collect and retain only necessary sensitive values for the shortest practical lifetime.
+
+> Data that is never collected or no longer retained cannot leak from that storage location later.
+
+### sink-specific-defense (correct)
+
+Use parameter binding for SQL and contextual output encoding or safe DOM construction for HTML.
+
+> Different sinks interpret data with different grammars and require matching defenses.
+
+### https-in-transit (correct)
+
+Use HTTPS to protect data in transit.
+
+> Transport encryption provides confidentiality and integrity between endpoints.
+
+### local-storage-secret
+
+Store long-lived credentials in `localStorage` because same-origin scripts cannot read it.
+
+> Any script running in the origin can access Web Storage, including injected script.

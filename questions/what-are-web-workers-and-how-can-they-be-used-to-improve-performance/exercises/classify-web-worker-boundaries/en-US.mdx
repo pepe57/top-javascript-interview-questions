@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about Web Worker boundaries are correct? Select all that apply.
+
+## Options
+
+### message-communication (correct)
+
+The main thread and worker exchange data through messages rather than shared ordinary object references.
+
+> The worker has a separate global environment and event loop.
+
+### no-dom (correct)
+
+A dedicated worker cannot directly query or mutate the page DOM.
+
+> UI changes must be requested through messages and applied on the main thread.
+
+### transfer-buffer (correct)
+
+A large `ArrayBuffer` can be transferred when ownership can move instead of copying it.
+
+> Transfer detaches the sender’s buffer and avoids duplicating its bytes.
+
+### terminate-cleanup (correct)
+
+The feature should terminate its worker when the worker is no longer needed.
+
+> Explicit lifecycle ownership releases the background thread and related resources.
+
+### always-faster
+
+Moving any function to a worker always reduces total completion time.
+
+> Startup, serialization, copying, and coordination can outweigh parallelism for small tasks.

@@ -1,0 +1,42 @@
+---
+type: single-select
+---
+
+Which message is caught by this code?
+
+```js
+try {
+  Promise.resolve().then(() => {
+    throw new Error('promise');
+  });
+  throw new Error('sync');
+} catch (error) {
+  console.log(error.message);
+}
+```
+
+## Options
+
+### sync-only (correct)
+
+It logs `sync`; the promise becomes rejected separately.
+
+> The synchronous throw propagates through the active stack into `catch`, while the promise callback runs later and converts its throw into a rejection.
+
+### promise-only
+
+It logs `promise` only.
+
+> The promise reaction does not run until after the current stack, but the synchronous throw reaches `catch` immediately.
+
+### both
+
+It logs `sync`, then `promise` through the same `catch` block.
+
+> A surrounding synchronous `try...catch` cannot handle a rejection created by a later promise reaction.
+
+### neither
+
+Nothing is caught because a promise was scheduled first.
+
+> Scheduling asynchronous work does not prevent a later synchronous exception on the current stack from propagating normally.

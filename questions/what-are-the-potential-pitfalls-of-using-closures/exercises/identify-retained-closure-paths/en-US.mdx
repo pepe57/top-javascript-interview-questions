@@ -1,0 +1,31 @@
+---
+type: multi-select
+---
+
+Assume `records` references a large object graph. Which situations can keep it reachable after its screen is no longer needed? Select all that apply.
+
+## Options
+
+### unremoved-listener (correct)
+
+A long-lived event target retains a listener that closes over `records`, and the listener is never removed.
+
+> The target provides a reachable path through the callback and its lexical environment to `records`.
+
+### uncleared-interval (correct)
+
+An active interval retains a callback that reads `records`, and the interval is never cleared.
+
+> The scheduler continues to retain the callback, so the callback's captured state remains reachable.
+
+### completed-invocation
+
+An immediately invoked function reads `records`, returns no closure, and leaves no other references behind.
+
+> After the invocation finishes, no retained callback or other reachable path keeps that function environment alive.
+
+### cached-callback (correct)
+
+A module-level `Map` stores a callback that closes over `records`, and the entry is never deleted.
+
+> The reachable map retains the callback, which in turn retains access to `records` through its closure.

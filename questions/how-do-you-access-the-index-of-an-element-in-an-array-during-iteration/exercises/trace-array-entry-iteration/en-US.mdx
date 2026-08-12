@@ -1,0 +1,42 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+const letters = ['a', 'b', 'c'];
+const result = [];
+
+for (const [index, value] of letters.entries()) {
+  if (index % 2 === 0) result.push(`${index}:${value}`);
+}
+
+console.log(result.join('|'));
+```
+
+## Options
+
+### zero-a-two-c (correct)
+
+`0:a|2:c`
+
+> `entries()` yields `[index, value]` pairs with zero-based indexes, and the condition keeps the even indexes.
+
+### one-a-three-c
+
+`1:a|3:c`
+
+> Array indexes start at zero rather than one.
+
+### zero-a-one-b
+
+`0:a|1:b`
+
+> The filter keeps indexes divisible by two, so index `1` is excluded and index `2` is included.
+
+### a-zero-c-two
+
+`a:0|c:2`
+
+> `entries()` places the index before the value in each yielded pair.

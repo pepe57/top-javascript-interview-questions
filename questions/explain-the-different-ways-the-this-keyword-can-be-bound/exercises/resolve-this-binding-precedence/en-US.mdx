@@ -1,0 +1,43 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+const context = { name: 'bound' };
+const BoundPerson = Person.bind(context);
+const instance = new BoundPerson('new');
+
+console.log(instance.name, context.name);
+```
+
+## Options
+
+### new-bound (correct)
+
+`new bound`
+
+> Construction takes precedence over the bound receiver, so `Person` initializes the new instance while `context` remains unchanged.
+
+### bound-bound
+
+`bound bound`
+
+> A bound receiver is ignored when the bound function is invoked with `new`.
+
+### new-new
+
+`new new`
+
+> The constructor writes to the new instance, not to the object originally supplied to `bind`.
+
+### type-error
+
+It throws `TypeError` because a bound function cannot be used as a constructor.
+
+> A bound ordinary function remains constructible when its target function is constructible.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which requirements are a good fit for representing actions as Command objects or functions? Select all that apply.
+
+## Options
+
+### queue-later (correct)
+
+Requests must be queued and executed later by a scheduler.
+
+> A command packages the operation and its parameters as a storable value.
+
+### undo-redo (correct)
+
+An editor needs undo and redo with operation-specific reversal behavior.
+
+> Commands can expose `execute` and `undo` and be stored in history.
+
+### audit-log (correct)
+
+Operations need structured logging, replay, or auditing.
+
+> A command representation gives each request an explicit identity and data payload.
+
+### direct-single-call
+
+One caller immediately invokes one known function and needs its return value, with no queueing or history.
+
+> A direct function call is clearer when none of the pattern’s indirection benefits are present.
+
+### automatic-undo
+
+Wrapping any side effect in a Command automatically makes it reversible.
+
+> The design must explicitly capture enough prior state or define a compensating action.

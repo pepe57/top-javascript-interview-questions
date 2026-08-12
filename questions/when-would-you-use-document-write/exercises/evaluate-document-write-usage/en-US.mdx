@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about `document.write()` are correct? Select all that apply.
+
+## Options
+
+### parser-stream (correct)
+
+During HTML parsing, it can inject markup into the parser’s input stream.
+
+> Its behavior is tightly coupled to parser timing.
+
+### late-replaces-document (correct)
+
+After the document has loaded, calling it can implicitly open and replace the current document.
+
+> That makes it unsafe as a normal incremental UI-update API.
+
+### html-injection-sink (correct)
+
+Passing untrusted text to it creates an HTML injection sink.
+
+> The written string is parsed as markup rather than displayed as plain text.
+
+### legacy-only (correct)
+
+Its remaining use is mostly legacy or tightly controlled parser-time code.
+
+> Normal HTML, DOM construction, and explicit script loading are clearer modern alternatives.
+
+### debugging-console-replacement
+
+It is the recommended way to print debugging values without affecting page state.
+
+> The console and debugger expose diagnostics without rewriting the document.

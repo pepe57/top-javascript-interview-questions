@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+The handlers should return `0`, `1`, and `2`, but they all return `3`. Which change directly gives each closure its own per-iteration binding?
+
+```js
+const handlers = [];
+
+for (var index = 0; index < 3; index++) {
+  handlers.push(() => index);
+}
+```
+
+## Options
+
+### replace-var-with-let (correct)
+
+Replace `var index` with `let index` in the loop header.
+
+> A `for` loop with `let` creates a fresh binding for each iteration, so each callback closes over a different value.
+
+### replace-var-with-const
+
+Replace `var index` with `const index` in the loop header.
+
+> The loop's update expression cannot increment a `const` binding, so the loop fails instead of creating the intended handlers.
+
+### invoke-after-loop
+
+Keep `var` and ensure the handlers are invoked only after the loop finishes.
+
+> Invoking them later is the source of the observed behavior: every closure then reads the shared binding's final value of `3`.
+
+### copy-self-assignment
+
+Add `index = index` before creating each callback.
+
+> Self-assignment does not create a new binding; every callback still closes over the one function- or script-scoped `var`.

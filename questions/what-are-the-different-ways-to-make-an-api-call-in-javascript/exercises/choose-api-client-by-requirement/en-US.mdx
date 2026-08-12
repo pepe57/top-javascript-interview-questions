@@ -1,0 +1,31 @@
+---
+type: single-select
+---
+
+A modern browser application needs ordinary JSON requests, response streaming, and cancellation, but no upload-progress UI. Which built-in client is the best default?
+
+## Options
+
+### fetch-api (correct)
+
+`fetch()` with status checks and an `AbortController`
+
+> Fetch is the modern built-in request API and directly supports response streams and signal-based cancellation.
+
+### xml-http-request
+
+`XMLHttpRequest` because promises cannot represent requests
+
+> XHR remains useful for legacy code or convenient upload progress, but Fetch matches these requirements and composes with promises.
+
+### websocket
+
+A WebSocket for every independent request-response operation
+
+> A long-lived bidirectional protocol adds lifecycle complexity and is not a drop-in replacement for ordinary HTTP calls.
+
+### event-source
+
+`EventSource` for POSTing JSON bodies and receiving one response
+
+> EventSource uses a long-lived GET server-to-client stream with limited request customization.

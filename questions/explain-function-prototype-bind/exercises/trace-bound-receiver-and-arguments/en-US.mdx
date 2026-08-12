@@ -1,0 +1,40 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function total(a, b) {
+  return this.base + a + b;
+}
+
+const add = total.bind({ base: 10 }, 2);
+console.log(add(3), add.call({ base: 100 }, 4));
+```
+
+## Options
+
+### fifteen-sixteen (correct)
+
+`15 16`
+
+> `bind` stores `base: 10` and prepends `2`; the later call supplies `3` or `4`, and `call()` cannot replace the bound receiver.
+
+### fifteen-one-hundred-six
+
+`15 106`
+
+> The receiver passed to `call()` does not replace the receiver already stored by `bind()`.
+
+### thirteen-fourteen
+
+`13 14`
+
+> Both results also include the bound receiver’s `base` value of `10`.
+
+### fifteen-seventeen
+
+`15 17`
+
+> The second call receives `4` as `b`; the bound `2` remains `a`, producing `10 + 2 + 4`.

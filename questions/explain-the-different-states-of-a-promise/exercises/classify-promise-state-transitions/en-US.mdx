@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about Promise state are correct? Select all that apply.
+
+## Options
+
+### three-states (correct)
+
+A promise is pending, fulfilled with a value, or rejected with a reason.
+
+> Fulfilled and rejected are the two mutually exclusive settled outcomes.
+
+### settlement-is-final (correct)
+
+After a promise settles, later attempts to fulfill or reject it do not change its state.
+
+> Promise settlement is a one-way transition from pending to one settled outcome.
+
+### resolution-can-adopt-pending (correct)
+
+A promise resolved with another pending promise can remain pending while adopting the other promise’s eventual state.
+
+> Resolution describes locking in an outcome source, not necessarily immediate fulfillment.
+
+### resolved-means-fulfilled
+
+“Resolved” always means the promise is already fulfilled with a non-promise value.
+
+> A resolved promise can be following another promise that has not settled yet.
+
+### rejected-can-recover-same-promise
+
+Calling `.catch()` changes the original rejected promise back to fulfilled.
+
+> `.catch()` returns a new promise; it does not mutate the state of the original promise.

@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which practices reduce bugs related to declaration timing and early access? Select all that apply.
+
+## Options
+
+### const-default (correct)
+
+Use `const` by default and `let` only when reassignment is required.
+
+> Lexical declarations avoid `var`’s early `undefined` reads and make mutation intent explicit.
+
+### declare-before-use (correct)
+
+Keep declarations close to and before their first use.
+
+> Source order then matches the reader’s mental execution order and avoids temporal dead zone access.
+
+### static-analysis (correct)
+
+Enable rules such as `no-use-before-define` and `no-undef`.
+
+> Static checks catch risky references before runtime.
+
+### let-not-hoisted
+
+Rely on the fact that `let` and `const` declarations are not instantiated until their source line.
+
+> Their bindings exist from block setup but remain uninitialized in the temporal dead zone.
+
+### var-everywhere
+
+Use `var` everywhere so early reads consistently return `undefined` instead of revealing mistakes.
+
+> Silently reading `undefined` can hide ordering bugs; lexical declarations and explicit ordering are safer.

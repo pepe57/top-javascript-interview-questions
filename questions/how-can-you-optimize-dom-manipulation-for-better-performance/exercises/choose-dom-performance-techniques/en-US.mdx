@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which changes can reduce avoidable DOM and layout work? Select all that apply.
+
+## Options
+
+### batch-mutations (correct)
+
+Build or update related nodes together and insert a detached subtree in one operation when practical.
+
+> Batching reduces repeated live-tree work and intermediate states.
+
+### group-reads-before-writes (correct)
+
+Read layout-dependent values together before applying style or DOM writes.
+
+> Alternating writes and reads can repeatedly force the browser to calculate layout synchronously.
+
+### raf-visual-updates (correct)
+
+Schedule visual updates with `requestAnimationFrame()` when synchronizing them to rendering.
+
+> The callback runs at an appropriate point before a paint opportunity.
+
+### measure-never-needed
+
+Replace all DOM code with a virtual DOM because it is automatically faster in every workload.
+
+> Framework abstractions can batch work but add their own costs; profiling should identify the actual bottleneck.
+
+### read-after-every-write
+
+After each style write, immediately read `offsetHeight` to ensure the browser applies it efficiently.
+
+> That pattern can force synchronous layout after every mutation and create layout thrashing.

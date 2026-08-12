@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What is the log order?
+
+```js
+console.log('A');
+setTimeout(() => console.log('D'), 0);
+Promise.resolve().then(() => console.log('B'));
+queueMicrotask(() => console.log('C'));
+console.log('E');
+```
+
+## Options
+
+### a-e-b-c-d (correct)
+
+`A E B C D`
+
+> Synchronous code finishes first, microtasks run in queue order at the checkpoint, and the timer task runs afterward.
+
+### a-b-c-e-d
+
+`A B C E D`
+
+> Microtasks do not interrupt the currently executing script; `E` logs before the checkpoint begins.
+
+### a-e-d-b-c
+
+`A E D B C`
+
+> The runtime drains microtasks before selecting the next timer task.
+
+### a-e-c-b-d
+
+`A E C B D`
+
+> The promise reaction is queued before the `queueMicrotask()` callback, so it runs first.

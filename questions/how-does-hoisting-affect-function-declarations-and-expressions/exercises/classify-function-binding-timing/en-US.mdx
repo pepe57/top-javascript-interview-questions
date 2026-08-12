@@ -1,0 +1,37 @@
+---
+type: multi-select
+---
+
+Which statements about declarations and function expressions are correct? Select all that apply.
+
+## Options
+
+### declaration-ready-during-setup (correct)
+
+A function declaration's binding is initialized with its function before statement evaluation begins.
+
+> Declaration instantiation makes the function available throughout its containing scope before its source line runs.
+
+### var-expression-starts-undefined (correct)
+
+Before `var task = function () {};` is evaluated, `task` contains `undefined`.
+
+> The `var` binding is initialized during scope setup, but the function expression and assignment run at their source location.
+
+### const-expression-starts-undefined
+
+Before `const task = () => {};` is evaluated, `task` can be read as `undefined`.
+
+> A `const` binding remains uninitialized in the temporal dead zone, so the early read throws `ReferenceError`.
+
+### expression-created-during-setup
+
+Every function expression is created while its containing scope is instantiated.
+
+> A function expression creates its function object only when evaluation reaches the expression.
+
+### arrow-follows-declaration-keyword (correct)
+
+Changing a regular function expression to an arrow does not change the early-access rules of its `var`, `let`, or `const` binding.
+
+> Both syntaxes are expressions; the declaration keyword determines whether the binding starts as `undefined` or remains in the temporal dead zone.

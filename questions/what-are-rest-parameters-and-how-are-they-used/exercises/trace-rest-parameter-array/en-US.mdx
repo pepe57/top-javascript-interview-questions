@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function summarize(first, ...remaining) {
+  return `${first}:${remaining.length}:${remaining.join('-')}`;
+}
+
+console.log(summarize('a', 'b', 'c', 'd'));
+```
+
+## Options
+
+### a-three-b-c-d (correct)
+
+`a:3:b-c-d`
+
+> The named parameter consumes the first argument and the rest parameter collects all remaining arguments into a real array.
+
+### a-four-a-b-c-d
+
+`a:4:a-b-c-d`
+
+> The rest array excludes arguments already matched by earlier named parameters.
+
+### a-three-a-b-c
+
+`a:3:a-b-c`
+
+> The remaining arguments begin at `b` and include the final `d`.
+
+### type-error
+
+It throws because a rest parameter is not an array.
+
+> Unlike the legacy `arguments` object, a rest parameter is an actual array.

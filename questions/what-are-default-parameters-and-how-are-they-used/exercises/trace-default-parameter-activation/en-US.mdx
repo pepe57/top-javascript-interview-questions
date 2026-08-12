@@ -1,0 +1,39 @@
+---
+type: single-select
+---
+
+What does this code log?
+
+```js
+function describe(value = 'default') {
+  return String(value);
+}
+
+console.log(describe(), describe(undefined), describe(null), describe(''));
+```
+
+## Options
+
+### default-default-null-empty (correct)
+
+`default default null` followed by an empty string
+
+> Defaults apply to omitted and explicitly `undefined` arguments, but `null` and the empty string are supplied values.
+
+### default-four-times
+
+`default default default default`
+
+> Default parameters do not replace `null` or other falsy values.
+
+### default-undefined-null-empty
+
+`default undefined null` followed by an empty string
+
+> Passing `undefined` explicitly activates the default just like omission.
+
+### default-default-default-empty
+
+`default default default` followed by an empty string
+
+> `null` is not treated as a missing argument.
